@@ -5,9 +5,130 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+  <div class="container">
+    <form action="" class="form">
+      <fieldset class="form__fieldset">
+        <legend class="form__legend">
+          Dados pessoais
+        </legend>
+        
+        <label for="name" class="form__label">
+          Nome completo
+          <input type="text" name="name" id="name" class="form__input" placeholder="Nome da empresa ou nome pessoal">
+        </label>
   
+        <label for="email" class="form__label">
+          Email
+          <input type="email" name="email" id="email" placeholder="Digite seu email" class="form__input">
+        </label>
+  
+        <label for="tel" class="form__label">
+          Telefone
+          <input type="tel" name="tel" id="tel" placeholder="11987654321" class="form__input">
+        </label>
+  
+        <label for="password" class="form__label">
+          Senha
+          <input type="password" name="password" id="password" placeholder="Digite sua senha" class="form__input">
+        </label>
+      </fieldset>
+
+      <fieldset class="form__fieldset">
+        <legend class="form__legend">
+          Endereço
+        </legend>
+        
+        <label for="cep" class="form__label">
+          CEP
+          <input type="number" name="cep" id="cep" class="form__input" placeholder="5555555">
+        </label>
+
+        <div class="fild-wrapper">
+          <label for="street" class="form__label label-lg">
+            Rua
+            <input type="text" name="street" id="street" placeholder="Rua Fulano de tal" class="form__input">
+          </label>
+
+          <label for="number" class="form__label label-sm">
+            Numero
+            <input type="number" name="number" id="number" placeholder="02" class="form__input input-sm">
+          </label>
+        </div>
+  
+  
+        <label for="district" class="form__label">
+          Bairro
+          <input type="text" name="district" id="district" placeholder="Bairro X" class="form__input">
+        </label>
+  
+        <label for="complement" class="form__label">
+          Complemento
+          <input type="password" name="complement" id="complement" placeholder="Condominio 00" class="form__input">
+        </label>
+
+        <div class="fild-wrapper">
+          <label for="city" class="form__label label-lg">
+            Cidade
+            <input type="text" name="city" id="city" placeholder="Cidade Z" class="form__input">
+          </label>
+
+          <label for="state" class="form__label label-sm">
+            Estado
+            <select class="form__input input-sm">
+              <option value="">UF</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espirito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="radio-wrapper">
+        <h3 class="radio-wrapper__title">
+          Cadastrar como:
+        </h3>
+
+        <label for="doador" class="radio-label">
+          <input type="radio" name="type" id="doador" value="doador">
+          Doador
+        </label>
+
+        <label for="beneficiado" class="radio-label">
+          <input type="radio" name="type" id="beneficiado" value="doador">
+          Beneficiado
+        </label>
+      </div>
+
+      <button type="submit" class="form-btn">Finalizar cadastro</button>
+    </form>
+  </div>
 </body>
 </html>
