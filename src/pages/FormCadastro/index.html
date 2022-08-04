@@ -10,6 +10,9 @@
 <body>
   <div class="container">
     <form action="" class="form">
+      <button class="btn-close-form">
+        <img src="./assets/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Fechar">
+      </button>
       <fieldset class="form__fieldset">
         <legend class="form__legend">
           Dados pessoais
@@ -43,7 +46,7 @@
         
         <label for="cep" class="form__label">
           CEP
-          <input type="number" name="cep" id="cep" class="form__input" placeholder="5555555">
+          <input type="text" name="cep" id="cep" class="form__input" placeholder="5555555">
         </label>
 
         <div class="fild-wrapper">
@@ -54,7 +57,7 @@
 
           <label for="number" class="form__label label-sm">
             Numero
-            <input type="number" name="number" id="number" placeholder="02" class="form__input input-sm">
+            <input type="text" name="number" id="number" placeholder="02" class="form__input input-sm">
           </label>
         </div>
   
@@ -117,13 +120,13 @@
         </h3>
 
         <label for="doador" class="radio-label">
-          <input type="radio" name="type" id="doador" value="doador">
-          Doador
+          <input type="radio" name="type" id="doador" value="doador" class="radio-input" checked>
+          <span class="radio-span">Doador</span>
         </label>
 
         <label for="beneficiado" class="radio-label">
-          <input type="radio" name="type" id="beneficiado" value="doador">
-          Beneficiado
+          <input type="radio" name="type" id="beneficiado" value="doador" class="radio-input">
+          <span class="radio-span">Beneficiado</span>
         </label>
       </div>
 
