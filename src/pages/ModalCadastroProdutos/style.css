@@ -8,6 +8,27 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.container{
+  background: rgba(0, 0, 0, 0.4);
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal{
+  background: #fff;
+  width: 100%;
+  max-width: 500px;
+
+  position: relative;
+
+  padding: 52px 46px;
+  border-radius: 15px;
+}
+
 .btn-close-form{
   position: absolute;
   top: 15px;
@@ -20,6 +41,13 @@
 .btn-close-form img{
   width: 36px;
   height: 36px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+
+  gap: 28px;
 }
 
 .form__label{
@@ -39,15 +67,40 @@
   border-radius: 8px;
 }
 
+.label-flex{
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.form__input-file__label{
+  background-color: #D68C45;
+  color: white;
+  padding: 8px;
+  font-family: sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 160px;
+}
+
+.form__input-file__span{
+  font-family: sans-serif;
+}
+
 .form-btn{
   width: 100%;
   max-width: 660px;
 
-  padding: 26px 0;
+  padding: 20px 0;
 
   color: #fff;
   background: #4C956C;
   border-radius: 16px;
 
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
