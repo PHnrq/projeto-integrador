@@ -3,16 +3,33 @@ import closeIcon from './assets/close_FILL0_wght400_GRAD0_opsz48.svg'
 import './styles.css'
 
 export function FormCadastro(){
-  function isInputEmpty(element){
-    const elementValue = element.target.value
-    const spanWarning = element.target.nextElementSibling
+  const emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[.][A-Za-z]{1,63}$";
+
+  function isInputEmpty(elementProps){
+    const element = elementProps.target
+    const elementValue = elementProps.target.value
+    const spanWarning = elementProps.target.nextElementSibling
 
     if(elementValue.length === 0){
       spanWarning.innerHTML = `Este campo é obirgatorio`
-      element.target.classList.add('invalid-input')
+      element.classList.add('invalid-input')
     }else{
       spanWarning.innerHTML = ``
-      element.target.classList.remove('invalid-input')
+      element.classList.remove('invalid-input')
+
+      if(elementProps.target.type === 'email'){
+        isEmailValid(elementValue, spanWarning, element)
+      }
+    }
+  }
+
+  function isEmailValid(value, spanWarning, element){
+    if(!value.match(emailRegex)){
+      spanWarning.innerHTML = `Email invalido`
+      element.classList.add('invalid-input')
+    }else{
+      spanWarning.innerHTML = ``
+      element.classList.remove('invalid-input')
     }
   }
 
@@ -49,9 +66,8 @@ export function FormCadastro(){
               name="email" id="email" 
               placeholder="Digite seu email" 
               className="form__input" 
-              pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" 
               required
-              onBlur={isInputEmpty.bind(this)} 
+              onBlur={isInputEmpty.bind(this)}
             />
             <span className="warning-input"></span>
           </label>
