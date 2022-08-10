@@ -19,6 +19,8 @@ export function FormCadastro(){
 
       if(elementProps.target.type === 'email'){
         isEmailValid(elementValue, spanWarning, element)
+      }else if(elementProps.target.type === 'tel'){
+        isPhoneNumberValid(elementValue, spanWarning, element)
       }
     }
   }
@@ -26,6 +28,18 @@ export function FormCadastro(){
   function isEmailValid(value, spanWarning, element){
     if(!value.match(emailRegex)){
       spanWarning.innerHTML = `Email invalido`
+      element.classList.add('invalid-input')
+    }else{
+      spanWarning.innerHTML = ``
+      element.classList.remove('invalid-input')
+    }
+  }
+
+  function isPhoneNumberValid(value, spanWarning, element){
+    let phoneNumber = value.replace(/\D/g, "");
+
+    if(phoneNumber.length !== 11){
+      spanWarning.innerHTML = `Este não é um telefone valido, verfique e tente novamente`
       element.classList.add('invalid-input')
     }else{
       spanWarning.innerHTML = ``
@@ -44,13 +58,10 @@ export function FormCadastro(){
       phoneNumber = phoneNumber.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
     } else if (phoneNumber.length > 2) {
       phoneNumber = phoneNumber.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
-    } else {
-      phoneNumber = phoneNumber.replace(/^(\d*)/, "($1");
     }
     
     elementProps.target.value = phoneNumber;
   }
-
 
   return (
     <div className="container">
@@ -101,7 +112,7 @@ export function FormCadastro(){
               length="11"
               required
               onBlur={isInputEmpty.bind(this)}
-              onInput={maskPhone.bind(this)} 
+              onInput={maskPhone.bind(this)}
             />
             <span className="warning-input"></span>
           </label>
