@@ -88,6 +88,10 @@
   border-radius: 8px;
 }
 
+.invalid-input{
+  border: 2px tomato solid;
+}
+
 .warning-input{
   color: tomato;
   font-size: 14;
