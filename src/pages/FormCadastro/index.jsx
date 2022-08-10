@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { viaCepApi } from '../../services/viaCepApi';
 import closeIcon from './assets/close_FILL0_wght400_GRAD0_opsz48.svg'
 
 import './styles.css'
@@ -6,6 +8,23 @@ export function FormCadastro(){
   const emailRegex = new RegExp ("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[.][A-Za-z]{1,63}$");
   const passwordRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
 
+  
+  function maskPhone(elementProps) {
+    const elementValue = elementProps.target.value
+
+    let phoneNumber = elementValue.replace(/\D/g, "");
+    phoneNumber = phoneNumber.replace(/^0/, "");
+    if (phoneNumber.length > 10) {
+      phoneNumber = phoneNumber.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+    } else if (phoneNumber.length > 5) {
+      phoneNumber = phoneNumber.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+    } else if (phoneNumber.length > 2) {
+      phoneNumber = phoneNumber.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+    }
+    
+    elementProps.target.value = phoneNumber;
+  }
+  
   function isInputEmpty(elementProps){
     const element = elementProps.target
     const elementValue = elementProps.target.value
@@ -24,6 +43,8 @@ export function FormCadastro(){
         isPhoneNumberValid(elementValue, spanWarning, element)
       }else if(elementProps.target.type === 'password'){
         isPasswordValid(elementValue, spanWarning, element)
+      }else if(elementProps.target.id === 'cep'){
+        isCepValid(elementValue, spanWarning, element)
       }
     }
   }
@@ -60,20 +81,34 @@ export function FormCadastro(){
     }
   }
 
-  function maskPhone(elementProps) {
-    const elementValue = elementProps.target.value
-
-    let phoneNumber = elementValue.replace(/\D/g, "");
-    phoneNumber = phoneNumber.replace(/^0/, "");
-    if (phoneNumber.length > 10) {
-      phoneNumber = phoneNumber.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
-    } else if (phoneNumber.length > 5) {
-      phoneNumber = phoneNumber.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
-    } else if (phoneNumber.length > 2) {
-      phoneNumber = phoneNumber.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
-    }
+  function isCepValid(value, spanWarning, element){
+    if(value.length !== 8){
+      spanWarning.innerHTML = `O CEP digitado é invalido`
+      element.classList.add('invalid-input')
+    }else{
+      viaCepApi.get(`${value}/json/`).then(response => {
+  
+        if(response.data.erro) {
+          spanWarning.innerHTML = `O CEP digitado é invalido`
+          element.classList.add('invalid-input')
+        }else{
+          const city = document.getElementById('city');
+          const street = document.getElementById('street');
+          const district = document.getElementById('district');
+          const uf = document.getElementById('uf');
     
-    elementProps.target.value = phoneNumber;
+          city.value = response.data.localidade
+          uf.value = response.data.uf
+          street.value = response.data.logradouro
+          district.value = response.data.bairro
+  
+          spanWarning.innerHTML = ``
+          element.classList.remove('invalid-input')
+        }
+      });
+    }
+
+    
   }
 
   return (
@@ -157,7 +192,7 @@ export function FormCadastro(){
               name="cep" 
               id="cep" 
               className="form__input" 
-              placeholder="5555555" 
+              placeholder="5555555"
               required
               onBlur={isInputEmpty.bind(this)}   
             />
@@ -238,7 +273,7 @@ export function FormCadastro(){
   
             <label htmlFor="state" className="form__label label-sm">
               Estado
-              <select className="form__input input-sm">
+              <select className="form__input input-sm" id='uf'>
                 <option value="">UF</option>
                 <option value="AC">AC</option>
                 <option value="AL">AL</option>
