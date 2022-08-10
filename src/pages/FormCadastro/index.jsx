@@ -3,7 +3,8 @@ import closeIcon from './assets/close_FILL0_wght400_GRAD0_opsz48.svg'
 import './styles.css'
 
 export function FormCadastro(){
-  const emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[.][A-Za-z]{1,63}$";
+  const emailRegex = new RegExp ("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[.][A-Za-z]{1,63}$");
+  const passwordRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
 
   function isInputEmpty(elementProps){
     const element = elementProps.target
@@ -21,6 +22,8 @@ export function FormCadastro(){
         isEmailValid(elementValue, spanWarning, element)
       }else if(elementProps.target.type === 'tel'){
         isPhoneNumberValid(elementValue, spanWarning, element)
+      }else if(elementProps.target.type === 'password'){
+        isPasswordValid(elementValue, spanWarning, element)
       }
     }
   }
@@ -40,6 +43,16 @@ export function FormCadastro(){
 
     if(phoneNumber.length !== 11){
       spanWarning.innerHTML = `Este não é um telefone valido, verfique e tente novamente`
+      element.classList.add('invalid-input')
+    }else{
+      spanWarning.innerHTML = ``
+      element.classList.remove('invalid-input')
+    }
+  }
+
+  function isPasswordValid(value, spanWarning, element){
+    if(!value.match(passwordRegex)){
+      spanWarning.innerHTML = `A senha de conter no minimo 8 caracteres, e pelo menos uma letra maiuscula, uma letra minuscula e um numero. `
       element.classList.add('invalid-input')
     }else{
       spanWarning.innerHTML = ``
