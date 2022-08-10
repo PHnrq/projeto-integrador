@@ -21,22 +21,26 @@
         
         <label for="name" class="form__label">
           Nome completo
-          <input type="text" name="name" id="name" class="form__input" placeholder="Nome da empresa ou nome pessoal">
+          <input type="text" name="name" id="name" class="form__input" placeholder="Nome da empresa ou nome pessoal" required>
+          <span class="warning-input"></span>
         </label>
   
         <label for="email" class="form__label">
           Email
-          <input type="email" name="email" id="email" placeholder="Digite seu email" class="form__input">
+          <input type="email" name="email" id="email" placeholder="Digite seu email" class="form__input" required>
+          <span class="warning-input"></span>
         </label>
   
         <label for="tel" class="form__label">
           Telefone
           <input type="tel" name="tel" id="tel" placeholder="11987654321" class="form__input">
+          <span class="warning-input"></span>
         </label>
   
         <label for="password" class="form__label">
           Senha
           <input type="password" name="password" id="password" placeholder="Digite sua senha" class="form__input">
+          <span class="warning-input"></span>
         </label>
       </fieldset>
 
@@ -48,17 +52,20 @@
         <label for="cep" class="form__label">
           CEP
           <input type="text" name="cep" id="cep" class="form__input" placeholder="5555555">
+          <span class="warning-input"></span>
         </label>
 
         <div class="fild-wrapper">
           <label for="street" class="form__label label-lg">
             Rua
             <input type="text" name="street" id="street" placeholder="Rua Fulano de tal" class="form__input">
+            <span class="warning-input"></span>
           </label>
 
           <label for="number" class="form__label label-sm">
             Numero
             <input type="text" name="number" id="number" placeholder="02" class="form__input input-sm">
+            <span class="warning-input"></span>
           </label>
         </div>
   
@@ -111,6 +118,7 @@
               <option value="SE">Sergipe</option>
               <option value="TO">Tocantins</option>
             </select>
+            <span class="warning-input"></span>
           </label>
         </div>
       </fieldset>

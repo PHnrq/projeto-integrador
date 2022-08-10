@@ -88,6 +88,11 @@
   border-radius: 8px;
 }
 
+.warning-input{
+  color: tomato;
+  font-size: 14;
+}
+
 .fild-wrapper{
   display : flex;
   gap: 32px;
