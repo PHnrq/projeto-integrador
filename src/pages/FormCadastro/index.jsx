@@ -33,6 +33,24 @@ export function FormCadastro(){
     }
   }
 
+  function maskPhone(elementProps) {
+    const elementValue = elementProps.target.value
+
+    let phoneNumber = elementValue.replace(/\D/g, "");
+    phoneNumber = phoneNumber.replace(/^0/, "");
+    if (phoneNumber.length > 10) {
+      phoneNumber = phoneNumber.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+    } else if (phoneNumber.length > 5) {
+      phoneNumber = phoneNumber.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+    } else if (phoneNumber.length > 2) {
+      phoneNumber = phoneNumber.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+    } else {
+      phoneNumber = phoneNumber.replace(/^(\d*)/, "($1");
+    }
+    
+    elementProps.target.value = phoneNumber;
+  }
+
 
   return (
     <div className="container">
@@ -80,9 +98,10 @@ export function FormCadastro(){
               id="tel" 
               placeholder="11987654321" 
               className="form__input" 
-              length="11" 
+              length="11"
               required
-              onBlur={isInputEmpty.bind(this)} 
+              onBlur={isInputEmpty.bind(this)}
+              onInput={maskPhone.bind(this)} 
             />
             <span className="warning-input"></span>
           </label>
