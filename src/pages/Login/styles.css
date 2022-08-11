@@ -116,7 +116,7 @@ input:focus {
     justify-content: center;
 
     width: 80%;
-    height: 3rem;
+    height: 3.5rem;
     border-radius: 10px;
     border: none;
 }
@@ -138,6 +138,17 @@ input:focus {
     letter-spacing: -0.02em;
 }
 
+.main-right__login__link {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 1.2rem;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: var(--geen);
+    margin-bottom: 2rem;
+}
+
 .line {
     width: 70%;
     height: 1px;
@@ -148,6 +159,7 @@ input:focus {
 .main-right__register {
     font-size: 1.3rem;
     margin-bottom: 1rem;
+    font-family: Work Sans;
 
 }
 
