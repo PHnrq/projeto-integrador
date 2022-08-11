@@ -92,11 +92,6 @@
   border: 2px tomato solid;
 }
 
-.warning-input{
-  color: tomato;
-  font-size: 14;
-}
-
 .fild-wrapper{
   display : flex;
   gap: 32px;
@@ -196,4 +191,10 @@
   border-radius: 16px;
 
   cursor: pointer;
+}
+
+.warning-input{
+  color: tomato;
+  font-size: 16px;
+  font-weight: 500;
 }
