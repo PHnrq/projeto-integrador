@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { viaCepApi } from '../../services/viaCepApi';
-import closeIcon from './assets/close_FILL0_wght400_GRAD0_opsz48.svg'
+import closeIcon from '../../assets/close_FILL0_wght400_GRAD0_opsz48.svg'
 
 import './styles.css'
 
