@@ -5,9 +5,143 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+  <header class="header">
+    <img class="header__logo-donare" src="assets/images/logo-donare.svg" alt="" srcset="">
+    <img class="header__avatar" src="assets/images/avatar.png" alt="" srcset="">
+    
+</header>
+<main class="content">
+    <div class="container">
+        <div class="div">
+            <div class="box-1">
+                <img class = "btn-left"src= "assets/images/button-left.svg" alt="">
+                <div class="products">
+                    <div class="registered-products">
+                        <h3 class="registered-products__title">
+                            Produtos Cadastrados
+                        </h3>
+                        <p class="registered-products__view-all">
+                            Ver todos.
+                        </p>
+                    </div>
+                    <div class="aliments">
+                        <div class="aliment">
+                            <div class="aliment__div">
+                                <img src="assets/images/arroz-branco.png"   alt="Arroz branco" class="aliment__image">
+                                <p class="aliment__validity">VAL: 13 / 08 / 22 </p>
+                            </div>
+                            <p class="aliment__item-name">Arroz branco</p>
+                            <div class="aliment__quantity-div">
+                                <span class="aliment__quantity">
+                                    QTD
+                                </span>
+                                <span class="aliment__add">
+                                    <p class="aliment__add__remove">-</p>
+                                    <p class="aliment__add__number">1</p>
+                                    <p class="aliment__add__add-more">+</p>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="aliment">
+                            <div class="aliment__div">
+                                <img src="assets/images/açucar-cristal.png"   alt="Arroz branco" class="aliment__image">
+                                <p class="aliment__validity">VAL: 13 / 08 / 22 </p>
+                            </div>
+                            <p class="aliment__item-name">Açucar Cristal</p>
+                            <div class="aliment__quantity-div">
+                                <span class="aliment__quantity">
+                                    QTD
+                                </span>
+                                <span class="aliment__add">
+                                    <p class="aliment__add__remove">-</p>
+                                    <p class="aliment__add__number">1</p>
+                                    <p class="aliment__add__add-more">+</p>
+                                </span>
+                            </div>
+                        </div>
+    
+                        <div class="aliment">
+                            <div class="aliment__div">
+                                <img src="assets/images/feijao-kicaldo.png"   alt="Arroz branco" class="aliment__image">
+                                <p class="aliment__validity">VAL: 13 / 08 / 22 </p>
+                            </div>
+                            <p class="aliment__item-name">Feijão Carioca</p>
+                            <div class="aliment__quantity-div">
+                                <span class="aliment__quantity">
+                                    QTD
+                                </span>
+                                <span class="aliment__add">
+                                    <p class="aliment__add__remove">-</p>
+                                    <p class="aliment__add__number">1</p>
+                                    <p class="aliment__add__add-more">+</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img class="btn-right"src="assets/images/button-rigth.svg" alt="" srcset="">
+            </div>
+            <button class="btn-add-to-card"> <img class="icon-btn"src="assets/images/icon-btn.png" alt="" srcset=""> Adicionar Produtos</button>
+        </div>
+        <div class="div-2">
+            <div class="box-2">
+                
+                <div class="order">
+                    <h3 class="order__title">
+                        Fila de pedidos
+                    </h3>
+                    <p class="order__ong-name">
+                        ONG Criança Feliz
+                    </p>
+                    <div class="order__date">
+                        <p class="order__date__p">
+                            Data de retirada:
+                        </p>
+                        <p class="order__date__number">
+                            27/07/2023
+                        </p>
+                    </div>
+                    <div class="order__aliments">
+                        <img class="order__button-left" src="assets/images/button-left.svg" alt="" srcset="">
+                        <div class="order__aliment">
+                            <img class="order__aliment__image" src="assets/images/arroz-branco.png" alt="" srcset="">
+                            <p class="order__aliment__title">Arroz branco</p>
+                            <div class="order__aliment__div">
+                                <p class="order__quantity">QTD</p>
+                                <p class="order__total">
+                                    1
+                                </p>
+                            </div>
+                        </div>
+                        <div class="order__aliment">
+                            <img class="order__aliment__image" src="assets/images/macarrão.png" alt="" srcset="">
+                            <p class="order__aliment__title">Farinha de Trigo</p>
+                            
+                            <div class="order__aliment__div">
+                                <p class="order__quantity">QTD</p>
+                                <p class="order__total">1</p>
+                            </div>
+                        </div>
+                        <div class="order__aliment">
+                            <img class="order__aliment__image" src="assets/images/massa-dona-benta.png" alt="" srcset="">
+                            <p class="order__aliment__title">Macarrão Espageth</p>
+                            
+                            <div class="order__aliment__div">
+                                <p class="order__quantity">QTD</p>
+                                <p class="order__total">1</p>
+                            </div>
+                        </div>
+                        <img class= "order__button-rigth"src="assets/images/button-rigth.svg" alt="" srcset="">
+                    </div>
+                </div>              
+
+            </div>
+        </div>
+    </div>
+</main>
   
 </body>
 </html>
