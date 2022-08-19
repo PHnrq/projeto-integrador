@@ -1,15 +1,15 @@
 import React from "react";
-import "./assets/css/styles.css";
-import acucarCristal from "./assets/images/açucar-cristal.png";
-import logo from "./assets/images/logo-donare.svg";
-import avatar from "./assets/images/avatar.png";
-import btnLeft from "./assets/images/button-left.svg";
-import btnRigth from "./assets/images/button-rigth.svg";
-import feijaoKicaldo from "./assets/images/feijao-kicaldo.png"
-import iconBtn from "./assets/images/icon-btn.png";
-import macarrao from "./assets/images/macarrão.png";
-import massaDonaBenta from "./assets/images/massa-dona-benta.png";
-import arrozBranco from "./assets/images/arroz-branco.png";
+import "./styles.css";
+import acucarCristal from "../../assets/açucar-cristal.png";
+import logo from "../../assets/logo-donare.svg";
+import avatar from "../../assets/avatar.png";
+import btnLeft from "../../assets/button-left.svg";
+import btnRigth from "../../assets/button-rigth.svg";
+import feijaoKicaldo from "../../assets/feijao-kicaldo.png"
+import iconBtn from "../../assets/icon-btn.png";
+import macarrao from "../../assets/macarrão.png";
+import massaDonaBenta from "../../assets/massa-dona-benta.png";
+import arrozBranco from "../../assets/arroz-branco.png";
 
 
 function Header () {
