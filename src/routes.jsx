@@ -1,9 +1,6 @@
 import {
   BrowserRouter,
-  Router,
-  Switch,
   Route,
-  Link,
   Routes,
   Outlet,
   Navigate
