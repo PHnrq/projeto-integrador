@@ -11,7 +11,7 @@ import {
 
 import {DashboardDoador} from "../src/pages/DashboardDoador"
 import {DashboardONG} from "../src/pages/DashboardONG"
-import {LandingPage} from "../src/pages/LandingPage"
+import {Home} from "../src/pages/Home"
 import {Login} from "../src/pages/Login"
 
 function ProtectRoute({redirectTo}){
@@ -23,8 +23,8 @@ export function MainRoutes(){
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<LandingPage />} />
-        <Route path='/home' element={<LandingPage />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route element={<ProtectRoute redirectTo={'/login'} />}>
           <Route path='/DashboardONG' element={<DashboardONG />} />
