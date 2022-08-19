@@ -1,291 +1,237 @@
+import styled from "styled-components";
 
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Poppins:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap');
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-size: 10px;
-    font-family: 'Baloo Bhai 2', sans-serif;
-}
-
-html {
-    font-size: 10px;
-
-}
-body {
-    background: #F5F5F5;
-    width: 100vw;
-    height: 100vh;
-}
-
-header {
+export const Container = styled.div`
+  header {
     padding: 0.9rem 8.2rem;
-    background: #4C956C;
-    font-family: 'Baloo Bhai 2', sans-serif;
+    background: #4c956c;
+    font-family: "Baloo Bhai 2", sans-serif;
     width: 100%;
 
     display: flex;
     justify-content: space-between;
+  }
 
-}
-
-main {
+  main {
     display: flex;
     justify-content: space-around;
     padding-top: 2.8rem;
-}
-.header__logo-donare {
+  }
+
+  .header__logo-donare {
     width: 9rem;
-}
-.header__avatar {
+  }
+
+  .header__avatar {
     width: 3rem;
-}
+  }
 
-.container {
-
+  .container {
     display: flex;
     justify-content: space-between;
+  }
 
-}
-
-.div {
+  .div {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: 3rem;
-}
+  }
 
-.products {
+  .products {
     display: flex;
     flex-direction: column;
-}
+  }
 
-.aliments {
+  .aliments {
     display: flex;
-}
+  }
 
-
-
-.box-1 {
+  .box-1 {
     display: flex;
     justify-content: center;
     align-items: center;
-
-}
-.btn-left,
-.btn-right{
+  }
+  .btn-left,
+  .btn-right {
     width: 4rem;
-}
-.products {
+  }
+  .products {
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
-
-}
-.registered-products {
+  }
+  .registered-products {
     display: flex;
     flex-direction: column;
-}
+  }
 
-.registered-products__title {
-    font-family: 'Poppins', sans-serif;
+  .registered-products__title {
+    font-family: "Poppins", sans-serif;
     font-size: 3.6rem;
-}
+  }
 
-.registered-products__view-all {
-    font-family: 'Poppins', sans-serif;
-    color: #2C6E49;
+  .registered-products__view-all {
+    font-family: "Poppins", sans-serif;
+    color: #2c6e49;
     font-size: 1.2rem;
     margin-bottom: 0.6rem;
     align-self: flex-end;
     justify-self: end;
+  }
 
-}
-
-
-
-.aliments {
+  .aliments {
     display: flex;
     align-items: center;
     justify-content: center;
     align-content: space-between;
-}
+  }
 
-.aliment {
+  .aliment {
     margin-right: 1.9rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: space-between;
+  }
 
-}
-
-.aliment__div {
-    border: solid #AFB1B6;
+  .aliment__div {
+    border: solid #afb1b6;
     border-radius: 8px;
-    background: #FFFF;
+    background: #ffff;
     width: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
 
-   
-
-}
-
-.aliment__div img {
+  .aliment__div img {
     border-radius: 5px;
+  }
 
-}
-
-.aliment__image {
+  .aliment__image {
     max-width: 100px;
     max-height: 80px;
-}
-.aliment__validity {
+  }
+  .aliment__validity {
     width: 100%;
-}
+  }
 
-.aliment__div p {
+  .aliment__div p {
     text-align: center;
-    color: #FFFF;
-    background: #D68C45;
+    color: #ffff;
+    background: #d68c45;
     border-radius: 0px 0px 5px 5px;
-}
+  }
 
-
-
-.aliment__item-name {
- 
+  .aliment__item-name {
     font-size: 1.5rem;
     margin-top: 1.2rem;
-}
+  }
 
-.aliment__quantity-div {
+  .aliment__quantity-div {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 5rem;
-}
+  }
 
-.aliment__add {
+  .aliment__add {
     display: flex;
-   
-}
+  }
 
-.btn-add-to-card {
-
+  .btn-add-to-card {
     width: 80%;
     padding: 2rem;
-    background: #4C956C;
+    background: #4c956c;
     font-size: 1.6rem;
-    color: #FFFF;
+    color: #ffff;
     border-style: none;
     border-radius: 16px;
     cursor: pointer;
     margin-top: 2.9rem;
-}
+  }
 
-.icon-btn {
+  .icon-btn {
     width: 1.5rem;
     position: relative;
     top: 0.2rem;
-}
+  }
 
-.div-2 {
+  .div-2 {
     width: 280px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: 1rem 2rem;
     background: rgba(76, 149, 108, 0.05);
-    border: 1px solid #38463E;
+    border: 1px solid #38463e;
     border-radius: 30px;
-    
-}
+  }
 
-.box-2 {
+  .box-2 {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+  }
 
-.box-2 img {
+  .box-2 img {
     width: 3rem;
+  }
 
-}
-
-
-
-.order {
-
-   
+  .order {
     display: flex;
     flex-direction: column;
 
- 
-    
-    justify-content:flex-start;
-}
+    justify-content: flex-start;
+  }
 
-.order__title {
+  .order__title {
     font-size: 2.4rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     text-align: center;
+  }
 
-}
-
-.order__ong-name {
-    font-family: 'Poppins',sans-serif;
+  .order__ong-name {
+    font-family: "Poppins", sans-serif;
     font-size: 1.9rem;
     text-align: initial;
+  }
 
-}
-
-.order__date {
+  .order__date {
     display: flex;
     justify-content: space-between;
-}
+  }
 
-.order__aliments {
+  .order__aliments {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 1rem;
-   
-}
+  }
 
-.order__aliment {
+  .order__aliment {
     margin: 0 0 0 0.5rem;
+  }
 
-}
-   
-
-
-.order__button-rigth {
+  .order__button-rigth {
     margin-left: 1rem;
-}
-.order__button-left {
+  }
+  .order__button-left {
     margin-right: 1rem;
-}
-.order__aliment img {
-    border: 2px solid #AFB1B6;
+  }
+  .order__aliment img {
+    border: 2px solid #afb1b6;
     border-radius: 8px;
     width: 50px;
-}
-.order__aliment__title {
+  }
+  .order__aliment__title {
     font-size: 1.2rem;
     margin-bottom: 3rem;
-}
-.order__aliment__div {
+  }
+  .order__aliment__div {
     display: flex;
     justify-content: space-between;
-
-
-}
-
-
-
-
+  }
+`;
