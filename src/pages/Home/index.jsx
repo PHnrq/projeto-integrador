@@ -1,5 +1,4 @@
 import { Container } from "./styles.js";
-import { a } from "react-router-dom";
 
 import logo from "../../assets/logo.svg";
 import publi1 from "../../assets/publi1.png";
@@ -9,7 +8,7 @@ import aboutImg from "../../assets/image.svg";
 export function Home() {
   return (
     <Container>
-      <header className="header">
+      <header className="header" id="home">
         <div className="header-bar">
           <img className="logo" src={logo} alt="Donare" />
           <nav className="header-menu">
@@ -119,7 +118,7 @@ export function Home() {
           </div>
 
           <div className="footer-menu">
-            <a href="#" className="footer-menu-item">
+            <a href="#home" className="footer-menu-item">
               Início
             </a>
             <a href="#missao" className="footer-menu-item">
