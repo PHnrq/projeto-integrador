@@ -6,6 +6,7 @@ import { viaCepApi } from "../../services/viaCepApi";
 import { userData } from "../../services/userData";
 
 import "./styles.css";
+import { Container } from "./styles";
 
 function maskPhone(elementProps) {
   const elementValue = elementProps.target.value;
@@ -112,285 +113,293 @@ export function FormCadastro() {
         return errors;
       }}
       onSubmit={(values) => {
-        userData.post('/users', values)
+        userData.post("/users", values);
       }}
     >
       {(props) => (
-        <div className="container">
-          <Form className="form">
-            <button className="btn-close-form">
-              <img src={closeIcon} alt="Fechar" />
-            </button>
-            <fieldset className="form__fieldset">
-              <legend className="form__legend">Dados pessoais</legend>
+        <Container>
+          <div className="container">
+            <Form className="form">
+              <button className="btn-close-form">
+                <img src={closeIcon} alt="Fechar" />
+              </button>
+              <fieldset className="form__fieldset">
+                <legend className="form__legend">Dados pessoais</legend>
 
-              <label htmlFor="name" className="form__label">
-                Nome completo
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  className="form__input"
-                  placeholder="Nome da empresa ou nome pessoal"
-                  required
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.name}
-                />
-                {props.touched.name && props.errors.name ? (
-                  <span className="warning-input">{props.errors.name}</span>
-                ) : null}
-              </label>
-
-              <label htmlFor="email" className="form__label">
-                Email
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Digite seu email"
-                  className="form__input"
-                  required
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.email}
-                />
-                {props.touched.email && props.errors.email ? (
-                  <span className="warning-input">{props.errors.email}</span>
-                ) : null}
-              </label>
-
-              <label htmlFor="tel" className="form__label">
-                Telefone
-                <input
-                  type="tel"
-                  name="tel"
-                  id="tel"
-                  placeholder="11987654321"
-                  className="form__input"
-                  length="11"
-                  required
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.tel}
-                  onInput={maskPhone.bind(this)}
-                />
-                {props.touched.tel && props.errors.tel ? (
-                  <span className="warning-input">{props.errors.tel}</span>
-                ) : null}
-              </label>
-
-              <label htmlFor="password" className="form__label">
-                Senha
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Digite sua senha"
-                  className="form__input"
-                  required
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.password}
-                />
-                {props.touched.password && props.errors.password ? (
-                  <span className="warning-input">{props.errors.password}</span>
-                ) : null}
-              </label>
-            </fieldset>
-
-            <fieldset className="form__fieldset">
-              <legend className="form__legend">Endereço</legend>
-
-              <label htmlFor="cep" className="form__label">
-                CEP
-                <input
-                  type="text"
-                  name="cep"
-                  id="cep"
-                  className="form__input"
-                  placeholder="5555555"
-                  required
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.cep}
-                />
-                {props.touched.cep && props.errors.cep ? (
-                  <span className="warning-input">{props.errors.cep}</span>
-                ) : null}
-              </label>
-
-              <div className="fild-wrapper">
-                <label htmlFor="street" className="form__label label-lg">
-                  Rua
+                <label htmlFor="name" className="form__label">
+                  Nome completo
                   <input
                     type="text"
-                    name="street"
-                    id="street"
-                    placeholder="Rua Fulano de tal"
+                    name="name"
+                    id="name"
+                    className="form__input"
+                    placeholder="Nome da empresa ou nome pessoal"
+                    required
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    value={props.values.name}
+                  />
+                  {props.touched.name && props.errors.name ? (
+                    <span className="warning-input">{props.errors.name}</span>
+                  ) : null}
+                </label>
+
+                <label htmlFor="email" className="form__label">
+                  Email
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Digite seu email"
                     className="form__input"
                     required
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    value={props.values.street}
+                    value={props.values.email}
                   />
-                  {props.touched.street && props.errors.street ? (
-                    <span className="warning-input">{props.errors.street}</span>
+                  {props.touched.email && props.errors.email ? (
+                    <span className="warning-input">{props.errors.email}</span>
                   ) : null}
                 </label>
 
-                <label htmlFor="number" className="form__label label-sm">
-                  Numero
+                <label htmlFor="tel" className="form__label">
+                  Telefone
                   <input
-                    type="text"
-                    name="number"
-                    id="number"
-                    placeholder="02"
-                    className="form__input input-sm"
+                    type="tel"
+                    name="tel"
+                    id="tel"
+                    placeholder="11987654321"
+                    className="form__input"
+                    length="11"
                     required
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    value={props.values.number}
+                    value={props.values.tel}
+                    onInput={maskPhone.bind(this)}
                   />
-                  {props.touched.number && props.errors.number ? (
-                    <span className="warning-input">{props.errors.number}</span>
+                  {props.touched.tel && props.errors.tel ? (
+                    <span className="warning-input">{props.errors.tel}</span>
                   ) : null}
                 </label>
-              </div>
 
-              <label htmlFor="district" className="form__label">
-                Bairro
-                <input
-                  type="text"
-                  name="district"
-                  id="district"
-                  placeholder="Bairro X"
-                  className="form__input"
-                  required
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.district}
-                />
-                {props.touched.district && props.errors.district ? (
-                  <span className="warning-input">{props.errors.district}</span>
-                ) : null}
-              </label>
+                <label htmlFor="password" className="form__label">
+                  Senha
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Digite sua senha"
+                    className="form__input"
+                    required
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    value={props.values.password}
+                  />
+                  {props.touched.password && props.errors.password ? (
+                    <span className="warning-input">
+                      {props.errors.password}
+                    </span>
+                  ) : null}
+                </label>
+              </fieldset>
 
-              <label htmlFor="complement" className="form__label">
-                Complemento
-                <input
-                  type="text"
-                  name="complement"
-                  id="complement"
-                  placeholder="Condominio 00"
-                  className="form__input"
-                  onChange={props.handleChange}
-                  onBlur={props.handleBlur}
-                  value={props.values.complement}
-                />
-                {props.touched.complement && props.errors.complement ? (
-                  <span className="warning-input">
-                    {props.errors.complement}
-                  </span>
-                ) : null}
-              </label>
+              <fieldset className="form__fieldset">
+                <legend className="form__legend">Endereço</legend>
 
-              <div className="fild-wrapper">
-                <label htmlFor="city" className="form__label label-lg">
-                  Cidade
+                <label htmlFor="cep" className="form__label">
+                  CEP
                   <input
                     type="text"
-                    name="city"
-                    id="city"
-                    placeholder="Cidade Z"
+                    name="cep"
+                    id="cep"
                     className="form__input"
-                    readOnly
-                    value={(props.values.city = city)}
+                    placeholder="5555555"
+                    required
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    value={props.values.cep}
                   />
+                  {props.touched.cep && props.errors.cep ? (
+                    <span className="warning-input">{props.errors.cep}</span>
+                  ) : null}
                 </label>
 
-                <label htmlFor="state" className="form__label label-sm">
-                  Estado
-                  <select
-                    className="form__input input-sm"
-                    id="uf"
-                    name="uf"
-                    readOnly
-                    value={(props.values.uf = uf)}
-                  >
-                    <option value="">UF</option>
-                    <option value="AC">AC</option>
-                    <option value="AL">AL</option>
-                    <option value="AP">AP</option>
-                    <option value="AM">AM</option>
-                    <option value="BA">BH</option>
-                    <option value="CE">CE</option>
-                    <option value="DF">DF</option>
-                    <option value="ES">ES</option>
-                    <option value="GO">GO</option>
-                    <option value="MA">MA</option>
-                    <option value="MS">MS</option>
-                    <option value="MT">MT</option>
-                    <option value="MG">MG</option>
-                    <option value="PA">PA</option>
-                    <option value="PB">PB</option>
-                    <option value="PR">PR</option>
-                    <option value="PE">PE</option>
-                    <option value="PI">PI</option>
-                    <option value="RJ">RJ</option>
-                    <option value="RN">RN</option>
-                    <option value="RS">RS</option>
-                    <option value="RO">RO</option>
-                    <option value="RR">RR</option>
-                    <option value="SC">SC</option>
-                    <option value="SP">SP</option>
-                    <option value="SE">SE</option>
-                    <option value="TO">TO</option>
-                  </select>
-                  <span className="warning-input"></span>
+                <div className="fild-wrapper">
+                  <label htmlFor="street" className="form__label label-lg">
+                    Rua
+                    <input
+                      type="text"
+                      name="street"
+                      id="street"
+                      placeholder="Rua Fulano de tal"
+                      className="form__input"
+                      required
+                      onChange={props.handleChange}
+                      onBlur={props.handleBlur}
+                      value={props.values.street}
+                    />
+                    {props.touched.street && props.errors.street ? (
+                      <span className="warning-input">
+                        {props.errors.street}
+                      </span>
+                    ) : null}
+                  </label>
+
+                  <label htmlFor="number" className="form__label label-sm">
+                    Numero
+                    <input
+                      type="text"
+                      name="number"
+                      id="number"
+                      placeholder="02"
+                      className="form__input input-sm"
+                      required
+                      onChange={props.handleChange}
+                      onBlur={props.handleBlur}
+                      value={props.values.number}
+                    />
+                    {props.touched.number && props.errors.number ? (
+                      <span className="warning-input">
+                        {props.errors.number}
+                      </span>
+                    ) : null}
+                  </label>
+                </div>
+
+                <label htmlFor="district" className="form__label">
+                  Bairro
+                  <input
+                    type="text"
+                    name="district"
+                    id="district"
+                    placeholder="Bairro X"
+                    className="form__input"
+                    required
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    value={props.values.district}
+                  />
+                  {props.touched.district && props.errors.district ? (
+                    <span className="warning-input">
+                      {props.errors.district}
+                    </span>
+                  ) : null}
+                </label>
+
+                <label htmlFor="complement" className="form__label">
+                  Complemento
+                  <input
+                    type="text"
+                    name="complement"
+                    id="complement"
+                    placeholder="Condominio 00"
+                    className="form__input"
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    value={props.values.complement}
+                  />
+                  {props.touched.complement && props.errors.complement ? (
+                    <span className="warning-input">
+                      {props.errors.complement}
+                    </span>
+                  ) : null}
+                </label>
+
+                <div className="fild-wrapper">
+                  <label htmlFor="city" className="form__label label-lg">
+                    Cidade
+                    <input
+                      type="text"
+                      name="city"
+                      id="city"
+                      placeholder="Cidade Z"
+                      className="form__input"
+                      readOnly
+                      value={(props.values.city = city)}
+                    />
+                  </label>
+
+                  <label htmlFor="state" className="form__label label-sm">
+                    Estado
+                    <select
+                      className="form__input input-sm"
+                      id="uf"
+                      name="uf"
+                      readOnly
+                      value={(props.values.uf = uf)}
+                    >
+                      <option value="">UF</option>
+                      <option value="AC">AC</option>
+                      <option value="AL">AL</option>
+                      <option value="AP">AP</option>
+                      <option value="AM">AM</option>
+                      <option value="BA">BH</option>
+                      <option value="CE">CE</option>
+                      <option value="DF">DF</option>
+                      <option value="ES">ES</option>
+                      <option value="GO">GO</option>
+                      <option value="MA">MA</option>
+                      <option value="MS">MS</option>
+                      <option value="MT">MT</option>
+                      <option value="MG">MG</option>
+                      <option value="PA">PA</option>
+                      <option value="PB">PB</option>
+                      <option value="PR">PR</option>
+                      <option value="PE">PE</option>
+                      <option value="PI">PI</option>
+                      <option value="RJ">RJ</option>
+                      <option value="RN">RN</option>
+                      <option value="RS">RS</option>
+                      <option value="RO">RO</option>
+                      <option value="RR">RR</option>
+                      <option value="SC">SC</option>
+                      <option value="SP">SP</option>
+                      <option value="SE">SE</option>
+                      <option value="TO">TO</option>
+                    </select>
+                    <span className="warning-input"></span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div className="radio-wrapper">
+                <div className="radio-wrapper__title">
+                  <h3>Cadastrar como:</h3>
+                  {props.touched.type && props.errors.type ? (
+                    <span className="warning-input">{props.errors.type}</span>
+                  ) : null}
+                </div>
+
+                <label htmlFor="doador" className="radio-label">
+                  <Field
+                    type="radio"
+                    name="type"
+                    id="doador"
+                    value="Doador"
+                    className="radio-input"
+                    required
+                  />
+                  <span className="radio-span">Doador</span>
+                </label>
+
+                <label htmlFor="beneficiado" className="radio-label">
+                  <Field
+                    type="radio"
+                    name="type"
+                    id="beneficiado"
+                    value="Beneficiado"
+                    className="radio-input"
+                  />
+                  <span className="radio-span">Beneficiado</span>
                 </label>
               </div>
-            </fieldset>
 
-            <div className="radio-wrapper">
-              <div className="radio-wrapper__title">
-                <h3 >
-                Cadastrar como:
-                </h3>
-                {props.touched.type && props.errors.type ? (
-                  <span className="warning-input">{props.errors.type}</span>
-                ) : null}
-              </div>
-              
-              <label htmlFor="doador" className="radio-label">
-                <Field
-                  type="radio"
-                  name="type"
-                  id="doador"
-                  value="Doador"
-                  className="radio-input"
-                  required
-                />
-                <span className="radio-span">Doador</span>
-              </label>
-
-              <label htmlFor="beneficiado" className="radio-label">
-                <Field
-                  type="radio"
-                  name="type"
-                  id="beneficiado"
-                  value="Beneficiado"
-                  className="radio-input"
-                />
-                <span className="radio-span">Beneficiado</span>
-              </label>
-            </div>
-
-            <button type="submit" className="form-btn">
-              Finalizar cadastro
-            </button>
-          </Form>
-        </div>
+              <button type="submit" className="form-btn">
+                Finalizar cadastro
+              </button>
+            </Form>
+          </div>
+        </Container>
       )}
     </Formik>
   );
