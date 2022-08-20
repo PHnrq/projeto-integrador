@@ -1,15 +1,13 @@
 import React from "react";
-import {Header} from "./styles";
+import {Container} from "./styles";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
 
-const Header = () => {
+export function Header(){
     return (
-        <Header className="header">
+        <Container className="header">
             <img className="header__logo" src={logo} alt="logo da Donare" />
             <img className="header__avatar" src={avatar} alt="avatar" />
-        </Header>
+        </Container>
     )
 }
-
-export default Header;

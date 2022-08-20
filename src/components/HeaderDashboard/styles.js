@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 
-export const Header = styled.header`
+export const Container = styled.header`
 
 header {
     width: 100%;

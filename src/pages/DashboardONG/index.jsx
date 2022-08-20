@@ -161,6 +161,3 @@ export function DashboardOng() {
 
     )
 }
-
-export default Container
-
