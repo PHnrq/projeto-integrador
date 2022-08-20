@@ -1,39 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-
-    letter-spacing: 0.004em;
-    font-style: normal;
-}
-
-:root {
-    font-size: 10px;
-
-    --primary-color: #4c956c;
-    --secondary-color: #FEFEE3;
-    --terciary-color: #2c6e49;
-    --quaternary-color: #D68C45;
-    --quinary-color: #FFC9B9;
-    --senary-color: #153423;
-    --dark-color: #000000;
-    --light-dark-color: #09150E;
-    --header-color: rgba(76, 149, 108, 0.9);
-    --arrow-btn-color: rgba(76, 149, 108, 0.25);
-    --other-color: rgba(76, 149, 108, 0.05);
-    --border-color: #9B9696;
-    --border2-color: #38463E;
-    --border3-color: #AFB1B6;
-    --shadow-color: rgba(0, 0, 0, 0.25);
-}
-
 .container {
     width: 100%;
     height: 100%;
