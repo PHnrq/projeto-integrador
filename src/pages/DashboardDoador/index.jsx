@@ -13,9 +13,9 @@ import arrozBranco from "../../assets/arroz-branco.png";
 
 function Header() {
   return (
-    <header classNameName="header">
-      <img classNameName="header__logo-donare" src={logo} alt />
-      <img classNameName="header__avatar" src={avatar} alt />
+    <header className="header">
+      <img className="header__logo-donare" src={logo} alt='' />
+      <img className="header__avatar" src={avatar} alt='' />
     </header>
   );
 }
@@ -28,7 +28,7 @@ export function DashboardDoador() {
         <div className="container">
           <div className="div">
             <div className="box-1">
-              <img classNameName="btn-left" src={btnLeft} alt />
+              <img className="btn-left" src={btnLeft} alt='' />
               <div className="products">
                 <div className="registered-products">
                   <h3 className="registered-products__title">
@@ -161,8 +161,7 @@ export function DashboardDoador() {
                   <img
                     className="order__button-rigth"
                     src={btnRigth}
-                    alt
-                    srcset
+                    alt=''
                   />
                 </div>
               </div>
