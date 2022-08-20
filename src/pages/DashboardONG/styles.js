@@ -1,3 +1,7 @@
+import styled from "styled-components";
+
+export const Container = styled.div`
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 * {
@@ -33,19 +37,6 @@
 .container {
     width: 100%;
     height: 100%;
-}
-
-.header {
-    width: 100%;
-    height: 9.4rem;
-
-    background-color: var(--header-color);
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-inline: 8.2rem;
 }
 
 .main {
@@ -431,3 +422,5 @@
     color: #FFFFFF;
     cursor: pointer;
 }
+
+`;
