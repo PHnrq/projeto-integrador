@@ -1,8 +1,7 @@
 import { Container } from "./styles";
+import {Header} from "../../components/HeaderDashboard"
 
 import acucarCristal from "../../assets/açucar-cristal.png";
-import logo from "../../assets/logo-donare.svg";
-import avatar from "../../assets/avatar.png";
 import btnLeft from "../../assets/button-left.svg";
 import btnRigth from "../../assets/button-rigth.svg";
 import feijaoKicaldo from "../../assets/feijao-kicaldo.png";
@@ -10,15 +9,6 @@ import iconBtn from "../../assets/icon-btn.png";
 import macarrao from "../../assets/macarrão.png";
 import massaDonaBenta from "../../assets/massa-dona-benta.png";
 import arrozBranco from "../../assets/arroz-branco.png";
-
-function Header() {
-  return (
-    <header className="header">
-      <img className="header__logo-donare" src={logo} alt='' />
-      <img className="header__avatar" src={avatar} alt='' />
-    </header>
-  );
-}
 
 export function DashboardDoador() {
   return (
