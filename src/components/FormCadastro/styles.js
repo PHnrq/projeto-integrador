@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
   .container {
     min-height: 100%;
 
@@ -10,25 +18,25 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
 
-    padding: 72px 0;
+    padding: 7.2rem 0;
   }
 
   .form {
     position: relative;
 
     width: 100%;
-    max-width: 970px;
+    max-width: 97rem;
 
     background: #fffefe;
-    border-radius: 15px;
+    border-radius: 1.5rem;
 
-    padding: 52px 0;
+    padding: 5.2rem 0;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 32px;
+    gap: 3.2rem;
   }
 
   .btn-close-form {
@@ -41,42 +49,44 @@ export const Container = styled.div`
   }
 
   .btn-close-form img {
-    width: 36px;
-    height: 36px;
+    width: 3.6rem;
+    height: 3.6rem;
   }
 
   .form__fieldset {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 3.2rem;
 
-    padding: 32px;
+    padding: 3.2rem;
     width: 100%;
-    max-width: 660px;
+    max-width: 66rem;
 
     border: 1px solid #9b9696;
-    border-radius: 15px;
+    border-radius: 1.5rem;
+
+    font-size: 1.6rem;
   }
 
   .form__legend {
-    padding: 8px;
+    padding: 0.8rem;
   }
 
   .form__label {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0.8rem;
 
-    font-size: 14px;
+    font-size: 1.4rem;
   }
 
   .form__input {
     width: 100%;
     max-width: 400px;
-    padding: 12px;
+    padding: 1.2rem;
 
     border: 1px solid #afb1b6;
-    border-radius: 8px;
+    border-radius: 0.8rem;
   }
 
   .invalid-input {
@@ -85,7 +95,7 @@ export const Container = styled.div`
 
   .fild-wrapper {
     display: flex;
-    gap: 32px;
+    gap: 3.2rem;
   }
 
   .label-lg {
@@ -97,14 +107,14 @@ export const Container = styled.div`
   }
 
   .input-sm {
-    max-width: 65px;
-    max-height: 48px;
+    max-width: 6.5rem;
+    max-height: 4.8rem;
   }
 
   .radio-wrapper {
     width: 100%;
-    max-width: 660px;
-    padding: 32px;
+    max-width: 66rem;
+    padding: 3.2rem;
 
     display: flex;
     flex-wrap: wrap;
@@ -112,16 +122,16 @@ export const Container = styled.div`
 
   .radio-wrapper__title {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
 
     width: 100%;
 
-    margin: 0 0 18px;
+    margin: 0 0 1.8rem;
   }
 
   .radio-label {
-    margin-right: 32px;
+    margin-right: 3.2rem;
 
     display: flex;
     cursor: pointer;
@@ -132,7 +142,7 @@ export const Container = styled.div`
   }
 
   .radio-input {
-    margin-right: 8px;
+    margin-right: 0.8rem;
 
     position: absolute;
     left: -9999px;
@@ -152,6 +162,7 @@ export const Container = styled.div`
     padding: 0.375em 0.75em 0.375em 0.375em;
     border-radius: 99em;
     transition: 0.25s ease;
+    font-size: 1.6rem;
   }
 
   .radio-span:hover {
@@ -173,20 +184,22 @@ export const Container = styled.div`
 
   .form-btn {
     width: 100%;
-    max-width: 660px;
+    max-width: 66rem;
 
-    padding: 26px 0;
+    padding: 2.6rem 0;
 
     color: #fff;
     background: #4c956c;
-    border-radius: 16px;
+    border-radius: 1.6rem;
+
+    font-size: 1.6rem;
 
     cursor: pointer;
   }
 
   .warning-input {
     color: tomato;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 500;
   }
 `;

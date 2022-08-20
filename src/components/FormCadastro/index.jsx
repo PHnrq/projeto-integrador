@@ -5,7 +5,6 @@ import closeIcon from "../../assets/close_FILL0_wght400_GRAD0_opsz48.svg";
 import { viaCepApi } from "../../services/viaCepApi";
 import { userData } from "../../services/userData";
 
-import "./styles.css";
 import { Container } from "./styles";
 
 function maskPhone(elementProps) {
