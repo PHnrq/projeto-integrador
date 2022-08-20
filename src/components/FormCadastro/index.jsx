@@ -26,7 +26,7 @@ function maskPhone(elementProps) {
   elementProps.target.value = phoneNumber;
 }
 
-export function FormCadastro() {
+export function FormCadastro({setShowSingInForm}) {
   const [city, setCity] = useState("");
   const [uf, setUf] = useState("");
 
@@ -120,7 +120,7 @@ export function FormCadastro() {
           <div className="container">
             <Form className="form">
               <button className="btn-close-form">
-                <img src={closeIcon} alt="Fechar" />
+                <img src={closeIcon} alt="Fechar" onClick={() => {setShowSingInForm(false)}}/>
               </button>
               <fieldset className="form__fieldset">
                 <legend className="form__legend">Dados pessoais</legend>

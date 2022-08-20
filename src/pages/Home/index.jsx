@@ -1,4 +1,8 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { Container } from "./styles.js";
+import { FormCadastro } from "../../components/FormCadastro";
 
 import logo from "../../assets/logo.svg";
 import publi1 from "../../assets/publi1.png";
@@ -6,8 +10,12 @@ import publi2 from "../../assets/publi2.png";
 import aboutImg from "../../assets/image.svg";
 
 export function Home() {
+  const [showSingInForm, setShowSingInForm] = useState(false);
+
   return (
     <Container>
+      {showSingInForm && <FormCadastro setShowSingInForm={setShowSingInForm} />}
+
       <header className="header" id="home">
         <div className="header-bar">
           <img className="logo" src={logo} alt="Donare" />
@@ -24,8 +32,17 @@ export function Home() {
             <a href="#contact" className="header-menu-item">
               Contate-nos
             </a>
-            <button className="btn-create-account">Fazer parte</button>
-            <button className="btn-login">Login</button>
+            <button
+              className="btn-create-account"
+              onClick={() => {
+                setShowSingInForm(true);
+              }}
+            >
+              Fazer parte
+            </button>
+            <Link to="/login">
+              <button className="btn-login">Login</button>
+            </Link>
           </nav>
         </div>
 
@@ -35,7 +52,14 @@ export function Home() {
             Nos ajude a reduzir o desperdício de alimentos ajudando os mais
             necessitados.
           </p>
-          <button className="btn-create-account">Faça parte agora</button>
+          <button
+            className="btn-create-account"
+            onClick={() => {
+              setShowSingInForm(true);
+            }}
+          >
+            Faça parte agora
+          </button>
         </div>
       </header>
 
@@ -81,11 +105,7 @@ export function Home() {
         </div>
 
         <div className="about" id="about">
-          <img
-            src={aboutImg}
-            alt="people talking"
-            className="about-image"
-          />
+          <img src={aboutImg} alt="people talking" className="about-image" />
           <div className="about-text">
             <h3 className="about-title">Sobre Nós</h3>
             <p className="about-paragraph">
@@ -105,7 +125,14 @@ export function Home() {
             <p className="contact-paragraph">Contate-nos para tirar dúvidas</p>
           </div>
           <div>
-            <button className="btn-create-account">Fazer parte</button>
+            <button
+              className="btn-create-account"
+              onClick={() => {
+                setShowSingInForm(true);
+              }}
+            >
+              Fazer parte
+            </button>
             <button className="btn-contact">Entrar em contato</button>
           </div>
         </div>
