@@ -39,14 +39,14 @@ export function ModalCadastroProdutos({setShowProductRegistration, currentUserId
               errors.expirationDate = "A data de validade é obrigatoria";
             }
 
-            if (!values.productImage) {
-              errors.productImage = "A imagem do produto é obrigatória";
-            } else if (
-              !values.productImage.match("([/|.|w|s|-])*.(?:jpg|gif|png)")
-            ) {
-              errors.productImage =
-                "O arquivo selecionado não é uma imagem valida";
-            }
+            // if (!values.productImage) {
+            //   errors.productImage = "A imagem do produto é obrigatória";
+            // } else if (
+            //   !values.productImage.match("([/|.|w|s|-])*.(?:jpg|gif|png)")
+            // ) {
+            //   errors.productImage =
+            //     "O arquivo selecionado não é uma imagem valida";
+            // }
 
             return errors;
           }}
@@ -58,6 +58,8 @@ export function ModalCadastroProdutos({setShowProductRegistration, currentUserId
                 userData.put(`/users/${currentUserId}`, {...response.data, products: [values]})
               }
             })
+
+            setShowProductRegistration(false)
           }}
         >
           {(props) => (
@@ -117,15 +119,15 @@ export function ModalCadastroProdutos({setShowProductRegistration, currentUserId
                 ) : null}
               </label>
 
-              <label htmlFor="productImage" className="form__label label-flex">
-                <span className="form__input-file__label">
+              <label htmlFor="productImage" className="form__label label-flex disable">
+                <span className="form__input-file__label disable">
                   Imagem do produto
                 </span>
                 <input
                   type="file"
                   name="productImage"
                   id="productImage"
-                  className=""
+                  className="disable"
                   accept="image/gif, image/jpeg, image/png"
                   hidden
                   onChange={props.handleChange}
@@ -137,14 +139,14 @@ export function ModalCadastroProdutos({setShowProductRegistration, currentUserId
                     : "Nenhum arquivo selecionado"}
                 </span>
               </label>
-              {props.touched.productImage && props.errors.productImage ? (
+              {/* {props.touched.productImage && props.errors.productImage ? (
                 <span className="warning-input">
                   {props.errors.productImage}
                 </span>
-              ) : null}
+              ) : null} */}
 
               <button type="submit" className="form-btn">
-                <img src={plusIcon} />
+                <img src={plusIcon} alt=""/>
                 Adicionar produto
               </button>
             </Form>
