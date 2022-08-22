@@ -1,4 +1,5 @@
 import { Formik, Field, Form } from "formik";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import closeIcon from "../../assets/close_FILL0_wght400_GRAD0_opsz48.svg";
@@ -27,6 +28,8 @@ function maskPhone(elementProps) {
 }
 
 export function FormCadastro({setShowSingInForm}) {
+  const navigate = useNavigate();
+  
   const [city, setCity] = useState("");
   const [uf, setUf] = useState("");
 
@@ -113,6 +116,8 @@ export function FormCadastro({setShowSingInForm}) {
       }}
       onSubmit={(values) => {
         userData.post("/users", values);
+        navigate("/login", { replace: true });
+        setShowSingInForm(false);
       }}
     >
       {(props) => (
