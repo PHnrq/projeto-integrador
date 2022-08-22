@@ -9,7 +9,7 @@ import {
 import {DashboardDoador} from "../src/pages/DashboardDoador"
 import {DashboardOng} from "../src/pages/DashboardONG"
 import {Home} from "../src/pages/Home"
-// import {Login} from "../src/pages/Login"
+import {Login} from "../src/pages/Login"
 
 function ProtectRoute({redirectTo}){
   const token = localStorage.getItem('token');
@@ -22,7 +22,7 @@ export function MainRoutes(){
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
-        {/* <Route path='/login' element={<Login />} /> */}
+        <Route path='/login' element={<Login />} />
         {/* <Route element={<ProtectRoute redirectTo={'/login'} />}> */}
           <Route path='/DashboardONG' element={<DashboardOng />} />
           <Route path='/DashboardDoador' element={<DashboardDoador />} />
