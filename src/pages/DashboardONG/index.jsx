@@ -12,7 +12,7 @@ import rightArrow from "../../assets/right-arrow.png";
 import sugar from "../../assets/sugar.png";
 import trash from "../../assets/trash.png";
 
-export function DashboardOng() {
+export function DashboardOng({currentUser}) {
   return (
     <Container>
       <Header />
