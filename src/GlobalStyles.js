@@ -33,6 +33,13 @@ export const GlobalStyle = createGlobalStyle`
     --border3-color: #AFB1B6;
     --shadow-color: rgba(0, 0, 0, 0.25);
 
+    --deep-green: #153423;
+    --geen: #2c6e49;
+    --light-green: #4c956c;
+    --gold: #d68c45;
+    --nude: #ffc9b9;
+    --yellow: #fefee3;
+
     font-family: 'Poppins', sans-serif;
     font-size: 10px;
   }
