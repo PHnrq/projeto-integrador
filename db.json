@@ -1,5 +1,19 @@
 {
   "users": [
- 
+    {
+      "name": "Mercado Mão Amiga",
+      "email": "mercado@email.com",
+      "tel": "(11) 98765-4321",
+      "password": "Senha123",
+      "cep": "01153000",
+      "street": "Rua Coronel Texeira",
+      "number": "03",
+      "district": "Centro",
+      "complement": "",
+      "city": "São Paulo",
+      "uf": "SP",
+      "type": "Doador",
+      "id": 1
+    }
   ]
 }
