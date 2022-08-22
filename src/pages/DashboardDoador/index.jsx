@@ -1,5 +1,8 @@
+import { useState } from 'react'
+
 import { Container } from "./styles";
 import {Header} from "../../components/HeaderDashboard"
+import {ModalCadastroProdutos} from "../../components/ModalCadastroProdutos"
 
 import acucarCristal from "../../assets/açucar-cristal.png";
 import btnLeft from "../../assets/button-left.svg";
@@ -11,9 +14,12 @@ import massaDonaBenta from "../../assets/massa-dona-benta.png";
 import arrozBranco from "../../assets/arroz-branco.png";
 
 export function DashboardDoador() {
+  const [showProductRegistration, setShowProductRegistration] = useState(false)
+
   return (
     <Container>
       <Header />
+      {showProductRegistration && <ModalCadastroProdutos setShowProductRegistration={setShowProductRegistration}/>}
       <main className="content">
         <div className="container">
           <div className="div">
@@ -89,8 +95,7 @@ export function DashboardDoador() {
               </div>
               <img className="btn-right" src={btnRigth} alt="" />
             </div>
-            <button className="btn-add-to-card">
-              {" "}
+            <button className="btn-add-to-card" onClick={() => setShowProductRegistration(true)}>
               <img className="icon-btn" src={iconBtn} alt="" /> Adicionar
               Produtos
             </button>

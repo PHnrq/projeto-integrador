@@ -1,15 +1,14 @@
-import "./style.css";
+import { Formik, Form } from "formik";
+import { Container } from "./style";
 
 import plusIcon from "../../assets/plus-icon.svg";
 import closeIcon from "../../assets/close_FILL0_wght400_GRAD0_opsz48.svg";
 
-import { Formik, Field, Form } from "formik";
-
-export function ModalCadastroProdutos() {
+export function ModalCadastroProdutos({setShowProductRegistration}) {
   return (
-    <section className="container">
+    <Container>
       <div className="modal">
-        <button className="btn-close-form">
+        <button className="btn-close-form" onClick={() => setShowProductRegistration(false)}>
           <img src={closeIcon} alt="Fechar" />
         </button>
 
@@ -146,6 +145,6 @@ export function ModalCadastroProdutos() {
           )}
         </Formik>
       </div>
-    </section>
+    </Container>
   );
 }
