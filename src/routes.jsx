@@ -5,6 +5,7 @@ import {
   Outlet,
   Navigate
 } from "react-router-dom";
+import{ useState } from 'react'
 
 import {DashboardDoador} from "../src/pages/DashboardDoador"
 import {DashboardOng} from "../src/pages/DashboardONG"
@@ -17,15 +18,37 @@ function ProtectRoute({redirectTo}){
 }
 
 export function MainRoutes(){
+  const [currentUser, setCurrentUser] = useState({
+    name: '',
+    email: "",
+    tel: "",
+    password: "",
+    cep: "",
+    street: "",
+    number: "",
+    district: "",
+    complement: "",
+    city: "",
+    uf: "",
+    type: "",
+  });
+
+  function handleCurrentUser(user){
+    setCurrentUser(user)
+  }
+
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<Login handleCurrentUser={handleCurrentUser}/>} />
         {/* <Route element={<ProtectRoute redirectTo={'/login'} />}> */}
-          <Route path='/DashboardONG' element={<DashboardOng />} />
-          <Route path='/DashboardDoador' element={<DashboardDoador />} />
+        <Route 
+          path='/dashboard' 
+          element={currentUser.type === 'Doador'? <DashboardDoador currentUser={currentUser}/> : <DashboardOng currentUser={currentUser}/> }
+        />
         {/* </Route> */}
       </Routes>
     </BrowserRouter>

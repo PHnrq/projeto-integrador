@@ -87,6 +87,12 @@ export const Container = styled.div`
     color: #61646b;
   }
 
+  .warning-msg {
+    color: tomato;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
   input:focus {
     outline: var(--geen) solid 1px;
     border: none;
