@@ -13,13 +13,13 @@ import macarrao from "../../assets/macarrão.png";
 import massaDonaBenta from "../../assets/massa-dona-benta.png";
 import arrozBranco from "../../assets/arroz-branco.png";
 
-export function DashboardDoador() {
+export function DashboardDoador({currentUser}) {
   const [showProductRegistration, setShowProductRegistration] = useState(false)
 
   return (
     <Container>
       <Header />
-      {showProductRegistration && <ModalCadastroProdutos setShowProductRegistration={setShowProductRegistration}/>}
+      {showProductRegistration && <ModalCadastroProdutos setShowProductRegistration={setShowProductRegistration} currentUserId={currentUser.id}/>}
       <main className="content">
         <div className="container">
           <div className="div">

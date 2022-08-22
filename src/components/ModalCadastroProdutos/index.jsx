@@ -1,10 +1,11 @@
 import { Formik, Form } from "formik";
 import { Container } from "./style";
+import { userData } from "../../services/userData";
 
 import plusIcon from "../../assets/plus-icon.svg";
 import closeIcon from "../../assets/close_FILL0_wght400_GRAD0_opsz48.svg";
 
-export function ModalCadastroProdutos({setShowProductRegistration}) {
+export function ModalCadastroProdutos({setShowProductRegistration, currentUserId}) {
   return (
     <Container>
       <div className="modal">
@@ -50,8 +51,13 @@ export function ModalCadastroProdutos({setShowProductRegistration}) {
             return errors;
           }}
           onSubmit={async (values) => {
-            await new Promise((r) => setTimeout(r, 500));
-            alert(JSON.stringify(values, null, 2));
+            userData.get(`/users/${currentUserId}`).then(response => {
+              if(response.data.products){
+                userData.put(`/users/${currentUserId}`, {...response.data, products: [...response.data.products, values]})
+              }else{
+                userData.put(`/users/${currentUserId}`, {...response.data, products: [values]})
+              }
+            })
           }}
         >
           {(props) => (
