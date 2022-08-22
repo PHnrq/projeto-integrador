@@ -1,11 +1,17 @@
-import React from "react";
+import {useState} from "react";
+
 import { Container } from "./styles";
+import {FormCadastro} from "../../components/FormCadastro"
+
 import logo from "../../assets/logoLg.svg";
 import vetorLogin from "../../assets/vector-login.png";
 
 export function Login() {
+  const [showSingInForm, setShowSingInForm] = useState(false)
+
   return (
     <Container>
+      {showSingInForm && <FormCadastro setShowSingInForm={setShowSingInForm}/>}
       <div className="main-left">
         <img className="main-left__logo" src={logo} alt="" />
         <h3 className="main-left__description">
@@ -32,7 +38,7 @@ export function Login() {
         </button>
         <hr className="line" />
         <p className="main-right__register">Novo(a) por aqui?</p>
-        <button className="btn btn-register btn-text">Cadastre-se</button>
+        <button className="btn btn-register btn-text" type="button" onClick={() => {setShowSingInForm(true);}}>Cadastre-se</button>
       </form>
     </Container>
   );
