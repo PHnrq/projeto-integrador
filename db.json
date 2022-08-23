@@ -14,6 +14,21 @@
       "uf": "SP",
       "type": "Doador",
       "id": 1
+    },
+    {
+      "name": "ONG Criança Feliz",
+      "email": "criancafeliz@email.com",
+      "tel": "(55) 12334-5678",
+      "password": "Senha123",
+      "cep": "04843425",
+      "street": "Viela 16",
+      "number": "130",
+      "district": "Jardim Helena",
+      "complement": "",
+      "city": "São Paulo",
+      "uf": "SP",
+      "type": "Beneficiado",
+      "id": 2
     }
   ]
 }
