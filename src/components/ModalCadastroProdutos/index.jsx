@@ -1,15 +1,15 @@
-import "./style.css";
+import { Formik, Form } from "formik";
+import { Container } from "./style";
+import { userData } from "../../services/userData";
 
 import plusIcon from "../../assets/plus-icon.svg";
 import closeIcon from "../../assets/close_FILL0_wght400_GRAD0_opsz48.svg";
 
-import { Formik, Field, Form } from "formik";
-
-export function ModalCadastroProdutos() {
+export function ModalCadastroProdutos({setShowProductRegistration, currentUserId}) {
   return (
-    <section className="container">
+    <Container>
       <div className="modal">
-        <button className="btn-close-form">
+        <button className="btn-close-form" onClick={() => setShowProductRegistration(false)}>
           <img src={closeIcon} alt="Fechar" />
         </button>
 
@@ -39,20 +39,27 @@ export function ModalCadastroProdutos() {
               errors.expirationDate = "A data de validade é obrigatoria";
             }
 
-            if (!values.productImage) {
-              errors.productImage = "A imagem do produto é obrigatória";
-            } else if (
-              !values.productImage.match("([/|.|w|s|-])*.(?:jpg|gif|png)")
-            ) {
-              errors.productImage =
-                "O arquivo selecionado não é uma imagem valida";
-            }
+            // if (!values.productImage) {
+            //   errors.productImage = "A imagem do produto é obrigatória";
+            // } else if (
+            //   !values.productImage.match("([/|.|w|s|-])*.(?:jpg|gif|png)")
+            // ) {
+            //   errors.productImage =
+            //     "O arquivo selecionado não é uma imagem valida";
+            // }
 
             return errors;
           }}
           onSubmit={async (values) => {
-            await new Promise((r) => setTimeout(r, 500));
-            alert(JSON.stringify(values, null, 2));
+            userData.get(`/users/${currentUserId}`).then(response => {
+              if(response.data.products){
+                userData.put(`/users/${currentUserId}`, {...response.data, products: [...response.data.products, values]})
+              }else{
+                userData.put(`/users/${currentUserId}`, {...response.data, products: [values]})
+              }
+            })
+
+            setShowProductRegistration(false)
           }}
         >
           {(props) => (
@@ -112,15 +119,15 @@ export function ModalCadastroProdutos() {
                 ) : null}
               </label>
 
-              <label htmlFor="productImage" className="form__label label-flex">
-                <span className="form__input-file__label">
+              <label htmlFor="productImage" className="form__label label-flex disable">
+                <span className="form__input-file__label disable">
                   Imagem do produto
                 </span>
                 <input
                   type="file"
                   name="productImage"
                   id="productImage"
-                  className=""
+                  className="disable"
                   accept="image/gif, image/jpeg, image/png"
                   hidden
                   onChange={props.handleChange}
@@ -132,20 +139,20 @@ export function ModalCadastroProdutos() {
                     : "Nenhum arquivo selecionado"}
                 </span>
               </label>
-              {props.touched.productImage && props.errors.productImage ? (
+              {/* {props.touched.productImage && props.errors.productImage ? (
                 <span className="warning-input">
                   {props.errors.productImage}
                 </span>
-              ) : null}
+              ) : null} */}
 
               <button type="submit" className="form-btn">
-                <img src={plusIcon} />
+                <img src={plusIcon} alt=""/>
                 Adicionar produto
               </button>
             </Form>
           )}
         </Formik>
       </div>
-    </section>
+    </Container>
   );
 }
