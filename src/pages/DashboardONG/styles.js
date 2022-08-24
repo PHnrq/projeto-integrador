@@ -73,6 +73,10 @@ export const Container = styled.div`
 
 .donors-list {
     list-style-type: none;
+
+    li{
+        cursor: pointer;
+    }
 }
 
 .available-products {

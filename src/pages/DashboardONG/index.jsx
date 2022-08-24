@@ -127,6 +127,7 @@ export function DashboardOng({ currentUser }) {
   ];
   const [cities, setCities] = useState([]);
   const [allDonors, setAllDonors] = useState([]);
+  const [selectedDonors, setSelectedDonors] = useState([]);
   const [ufValue, setUfValue] = useState(currentUser.uf);
   const [citiesValue, setCitiesValue] = useState("");
 
@@ -153,6 +154,11 @@ export function DashboardOng({ currentUser }) {
 
   function handleCitiesValueChange(e) {
     setCitiesValue(e.target.value);
+  }
+
+  function handleSelectedDonors(val) {
+    setSelectedDonors(val);
+    console.log(selectedDonors);
   }
 
   return (
@@ -232,7 +238,11 @@ export function DashboardOng({ currentUser }) {
                   if (citiesValue) {
                     if (ufValue === donor.uf && citiesValue === donor.city) {
                       return (
-                        <li key={donor.id} className="donors-list-item">
+                        <li
+                          key={donor.id}
+                          className="donors-list-item"
+                          onClick={() => handleSelectedDonors(donor)}
+                        >
                           {donor.name}
                         </li>
                       );
@@ -240,7 +250,11 @@ export function DashboardOng({ currentUser }) {
                   } else {
                     if (ufValue === donor.uf) {
                       return (
-                        <li key={donor.id} className="donors-list-item">
+                        <li
+                          key={donor.id}
+                          className="donors-list-item"
+                          onClick={() => handleSelectedDonors(donor)}
+                        >
                           {donor.name}
                         </li>
                       );
