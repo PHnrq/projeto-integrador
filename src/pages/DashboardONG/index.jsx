@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Header } from "../../components/HeaderDashboard";
 import { CardProduto } from "../../components/CardProdutosPedido";
 import { localidadeApi } from "../../services/localidadeApi";
+import { userData } from "../../services/userData";
 import { Container } from "./styles";
 
 import bean from "../../assets/bean.png";
@@ -124,27 +125,33 @@ export function DashboardOng({ currentUser }) {
       sigla: "DF",
     },
   ];
-  const [cities, setCities] = useState([])
-  const [ufValue, setUfValue] = useState("");
-  const [citiesValue, setCitiesValue] = useState("")
+  const [cities, setCities] = useState([]);
+  const [allDonors, setAllDonors] = useState([]);
+  const [ufValue, setUfValue] = useState(currentUser.uf);
+  const [citiesValue, setCitiesValue] = useState("");
 
   useEffect(() => {
     const stateSelected = ufNumber.find((i) => i.sigla === ufValue);
 
     if (stateSelected) {
       localidadeApi.get(`/${stateSelected.id}/municipios`).then((r) => {
-        const updateCities = r.data.map(i => i.nome)
+        const updateCities = r.data.map((i) => i.nome);
         setCities(updateCities);
       });
     }
-
   }, [ufValue]);
+
+  useEffect(() => {
+    userData.get("users?type=Doador").then((r) => {
+      setAllDonors(r.data);
+    });
+  }, []);
 
   function handleUfValueChange(e) {
     setUfValue(e.target.value);
   }
 
-  function handleCitiesValueChange(e){
+  function handleCitiesValueChange(e) {
     setCitiesValue(e.target.value);
   }
 
@@ -166,8 +173,11 @@ export function DashboardOng({ currentUser }) {
                     name="city"
                     onChange={(e) => handleCitiesValueChange(e)}
                   >
+                    <option value="">Selcionar Cidade</option>
                     {cities.map((city, index) => (
-                      <option key={index} value={city}>{city}</option>
+                      <option key={index} value={city}>
+                        {city}
+                      </option>
                     ))}
                   </select>
                   <span className="warning-input"></span>
@@ -218,9 +228,25 @@ export function DashboardOng({ currentUser }) {
 
             <div className="map-and-donors-list">
               <ul className="donors-list">
-                <li className="donors-list-item">Mercado Mão Amiga</li>
-                <li className="donors-list-item">Deskontão</li>
-                <li className="donors-list-item">João Silva</li>
+                {allDonors.map((donor) => {
+                  if (citiesValue) {
+                    if (ufValue === donor.uf && citiesValue === donor.city) {
+                      return (
+                        <li key={donor.id} className="donors-list-item">
+                          {donor.name}
+                        </li>
+                      );
+                    }
+                  } else {
+                    if (ufValue === donor.uf) {
+                      return (
+                        <li key={donor.id} className="donors-list-item">
+                          {donor.name}
+                        </li>
+                      );
+                    }
+                  }
+                })}
               </ul>
             </div>
           </section>
