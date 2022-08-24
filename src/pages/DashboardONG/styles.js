@@ -20,6 +20,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 4.2rem;
 }
 
 .find-donors {
@@ -32,29 +33,22 @@ export const Container = styled.div`
 
 .find-donors-title {
     width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
 
     text-align: center;
     font-weight: 700;
     font-size: 3.6rem;
-    line-height: 4rem;
     color: var(--dark-color);
 }
 
 .search-radius-container {
-    width: 70%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: .6rem;
     padding-bottom: 2rem;
 
     text-align: start;
     font-weight: 400;
     font-size: 2.2rem;
-    line-height: 2.8rem;
     color: var(--dark-color);
 }
 
@@ -389,5 +383,37 @@ export const Container = styled.div`
     color: #FFFFFF;
     cursor: pointer;
 }
+
+.filter-form{
+    display: flex;
+    gap: 1.6rem;
+}
+
+.form__label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    font-size: 1.4rem;
+
+    margin-top: -.6rem;
+  }
+
+.form__input {
+    width: 100%;
+    max-width: 400px;
+    padding: 1.2rem;
+
+    border: 1px solid #afb1b6;
+    border-radius: 0.8rem;
+  }
+
+  .label-md{
+    width: 150px
+    }
+
+  .label-sm {
+    width: 70px;
+  }
 
 `;

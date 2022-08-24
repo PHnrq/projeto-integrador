@@ -1,47 +1,222 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
 import { Header } from "../../components/HeaderDashboard";
-import {CardProduto} from "../../components/CardProdutosPedido";
+import { CardProduto } from "../../components/CardProdutosPedido";
+import { localidadeApi } from "../../services/localidadeApi";
 import { Container } from "./styles";
-
 
 import bean from "../../assets/bean.png";
 import buyAdd from "../../assets/buy-add.png";
 import buyConfirm from "../../assets/buy-confirm.png";
-import flour from "../../assets/flour.png";
 import leftArrow from "../../assets/left-arrow.png";
 import rice from "../../assets/rice.png";
 import rightArrow from "../../assets/right-arrow.png";
 import sugar from "../../assets/sugar.png";
-import trash from "../../assets/trash.png";
 
-export function DashboardOng({currentUser}) {
+export function DashboardOng({ currentUser }) {
+  const ufNumber = [
+    {
+      id: 11,
+      sigla: "RO",
+    },
+    {
+      id: 12,
+      sigla: "AC",
+    },
+    {
+      id: 13,
+      sigla: "AM",
+    },
+    {
+      id: 14,
+      sigla: "RR",
+    },
+    {
+      id: 15,
+      sigla: "PA",
+    },
+    {
+      id: 16,
+      sigla: "AP",
+    },
+    {
+      id: 17,
+      sigla: "TO",
+    },
+    {
+      id: 21,
+      sigla: "MA",
+    },
+    {
+      id: 22,
+      sigla: "PI",
+    },
+    {
+      id: 23,
+      sigla: "CE",
+    },
+    {
+      id: 24,
+      sigla: "RN",
+    },
+    {
+      id: 25,
+      sigla: "PB",
+    },
+    {
+      id: 26,
+      sigla: "PE",
+    },
+    {
+      id: 27,
+      sigla: "AL",
+    },
+    {
+      id: 28,
+      sigla: "SE",
+    },
+    {
+      id: 29,
+      sigla: "BA",
+    },
+    {
+      id: 31,
+      sigla: "MG",
+    },
+    {
+      id: 32,
+      sigla: "ES",
+    },
+    {
+      id: 33,
+      sigla: "RJ",
+    },
+    {
+      id: 35,
+      sigla: "SP",
+    },
+    {
+      id: 41,
+      sigla: "PR",
+    },
+    {
+      id: 42,
+      sigla: "SC",
+    },
+    {
+      id: 43,
+      sigla: "RS",
+    },
+    {
+      id: 50,
+      sigla: "MS",
+    },
+    {
+      id: 51,
+      sigla: "MT",
+    },
+    {
+      id: 52,
+      sigla: "GO",
+    },
+    {
+      id: 53,
+      sigla: "DF",
+    },
+  ];
+  const [cities, setCities] = useState([])
+  const [ufValue, setUfValue] = useState("");
+  const [citiesValue, setCitiesValue] = useState("")
+
+  useEffect(() => {
+    const stateSelected = ufNumber.find((i) => i.sigla === ufValue);
+
+    if (stateSelected) {
+      localidadeApi.get(`/${stateSelected.id}/municipios`).then((r) => {
+        const updateCities = r.data.map(i => i.nome)
+        setCities(updateCities);
+      });
+    }
+
+  }, [ufValue]);
+
+  function handleUfValueChange(e) {
+    setUfValue(e.target.value);
+  }
+
+  function handleCitiesValueChange(e){
+    setCitiesValue(e.target.value);
+  }
+
   return (
     <Container>
       <Header />
-
       <main className="main">
         <div className="right-container">
           <section className="find-donors">
-            <h2 className="find-donors-title">Ache os doadores mais próximos</h2>
-
             <div className="search-radius-container">
-              <label htmlFor="search-radius">Defina o raio de busca</label>
-              <input type="range" name="search-radius" id="search-radius" />
+              <h2 className="find-donors-title">Doadores em:</h2>
+
+              <form className="filter-form">
+                <label htmlFor="state" className="form__label label-md">
+                  Cidade
+                  <select
+                    className="form__input input-md"
+                    id="city"
+                    name="city"
+                    onChange={(e) => handleCitiesValueChange(e)}
+                  >
+                    {cities.map((city, index) => (
+                      <option key={index} value={city}>{city}</option>
+                    ))}
+                  </select>
+                  <span className="warning-input"></span>
+                </label>
+
+                <label htmlFor="state" className="form__label label-sm">
+                  Estado
+                  <select
+                    className="form__input input-sm"
+                    id="uf"
+                    name="uf"
+                    onChange={(e) => handleUfValueChange(e)}
+                    value={ufValue}
+                  >
+                    <option value="">UF</option>
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BH</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MS">MS</option>
+                    <option value="MT">MT</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                  </select>
+                  <span className="warning-input"></span>
+                </label>
+              </form>
             </div>
 
             <div className="map-and-donors-list">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6162.28090355021!2d-51.1622968501601!3d-23.311616892832973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eb435f8940fd39%3A0xf9d4888545f0b415!2sCatedral%20Metropolitana%20de%20Londrina!5e0!3m2!1spt-BR!2sbr!4v1659648510301!5m2!1spt-BR!2sbr"
-                width="217"
-                height="150"
-                style={{border: 0}}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Map"
-              ></iframe>
-
               <ul className="donors-list">
                 <li className="donors-list-item">Mercado Mão Amiga</li>
                 <li className="donors-list-item">Deskontão</li>
@@ -57,9 +232,7 @@ export function DashboardOng({currentUser}) {
             </h2>
 
             <div className="see-all-container">
-              <button className="see-all">
-                Ver todos
-              </button>
+              <button className="see-all">Ver todos</button>
             </div>
 
             <div className="partial-product-list">
