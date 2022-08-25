@@ -6,6 +6,11 @@ export const Container = styled.div`
     height: 100%;
 }
 
+.mySwiper{
+    max-width: 520px;
+    min-height: 270px;
+}
+
 .main {
     width: 100%;
     display: flex;
@@ -152,7 +157,6 @@ export const Container = styled.div`
 }
 
 .product-list-item {
-    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -186,8 +190,9 @@ export const Container = styled.div`
     font-size: 1.2rem;
     line-height: 2.8rem;
     color: var(--secondary-color);
-    background-color: var(--quaternary-color);
+    background-color: var(--button-color);
     border-radius: 0px 0px 8px 8px;
+    margin-top: -15px;
 }
 
 .list-item-name {

@@ -6,6 +6,13 @@ import { localidadeApi } from "../../services/localidadeApi";
 import { userData } from "../../services/userData";
 import { Container } from "./styles";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 import bean from "../../assets/bean.png";
 import buyAdd from "../../assets/buy-add.png";
 import buyConfirm from "../../assets/buy-confirm.png";
@@ -271,16 +278,19 @@ export function DashboardOng({ currentUser }) {
               <span className="donor-name">Mercado Mão Amiga</span>
             </h2>
 
-            <div className="see-all-container">
-              <button className="see-all">Ver todos</button>
-            </div>
-
-            <div className="partial-product-list">
-              <button className="btn-arrow">
-                <img src={rightArrow} alt="right-arrow" />
-              </button>
-
-              <ul className="product-list">
+            <Swiper
+              slidesPerView={3}
+              spaceBetween={30}
+              slidesPerGroup={3}
+              loop={true}
+              loopFillGroupWithBlank={true}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Pagination, Navigation]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
                 <li className="product-list-item">
                   <div className="product-item-date">
                     <img src={rice} alt="rice" className="list-item-img" />
@@ -295,14 +305,16 @@ export function DashboardOng({ currentUser }) {
                     </button>
                   </div>
                 </li>
+              </SwiperSlide>
 
+              <SwiperSlide>
                 <li className="product-list-item">
                   <div className="product-item-date">
-                    <img src={sugar} alt="sugar" className="list-item-img" />
+                    <img src={rice} alt="rice" className="list-item-img" />
                     <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
                   </div>
 
-                  <p className="list-item-name">Açucar Cristal</p>
+                  <p className="list-item-name">Arroz Branco</p>
 
                   <div className="buy-add-icon-container">
                     <button className="buy-add-icon">
@@ -310,14 +322,16 @@ export function DashboardOng({ currentUser }) {
                     </button>
                   </div>
                 </li>
+              </SwiperSlide>
 
+              <SwiperSlide>
                 <li className="product-list-item">
                   <div className="product-item-date">
-                    <img src={bean} alt="bean" className="list-item-img" />
+                    <img src={rice} alt="rice" className="list-item-img" />
                     <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
                   </div>
 
-                  <p className="list-item-name">Feijão Carioca</p>
+                  <p className="list-item-name">Arroz Branco</p>
 
                   <div className="buy-add-icon-container">
                     <button className="buy-add-icon">
@@ -325,12 +339,59 @@ export function DashboardOng({ currentUser }) {
                     </button>
                   </div>
                 </li>
-              </ul>
+              </SwiperSlide>
 
-              <button className="btn-arrow">
-                <img src={leftArrow} alt="left-arrow" />
-              </button>
-            </div>
+              <SwiperSlide>
+                <li className="product-list-item">
+                  <div className="product-item-date">
+                    <img src={rice} alt="rice" className="list-item-img" />
+                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
+                  </div>
+
+                  <p className="list-item-name">Arroz Branco</p>
+
+                  <div className="buy-add-icon-container">
+                    <button className="buy-add-icon">
+                      <img src={buyAdd} alt="buy-add-icon" />
+                    </button>
+                  </div>
+                </li>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <li className="product-list-item">
+                  <div className="product-item-date">
+                    <img src={rice} alt="rice" className="list-item-img" />
+                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
+                  </div>
+
+                  <p className="list-item-name">Arroz Branco</p>
+
+                  <div className="buy-add-icon-container">
+                    <button className="buy-add-icon">
+                      <img src={buyAdd} alt="buy-add-icon" />
+                    </button>
+                  </div>
+                </li>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <li className="product-list-item">
+                  <div className="product-item-date">
+                    <img src={rice} alt="rice" className="list-item-img" />
+                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
+                  </div>
+
+                  <p className="list-item-name">Arroz Branco</p>
+
+                  <div className="buy-add-icon-container">
+                    <button className="buy-add-icon">
+                      <img src={buyAdd} alt="buy-add-icon" />
+                    </button>
+                  </div>
+                </li>
+              </SwiperSlide>
+            </Swiper>
           </section>
         </div>
 
