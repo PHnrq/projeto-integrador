@@ -17,6 +17,16 @@ export const Container = styled.div`
     padding-top: 2.8rem;
   }
 
+  .mySwiper {
+    max-width: 520px;
+    min-height: 270px;
+  }
+
+  .mySwiper-sm {
+    max-width: 240px;
+    min-height: 160px;
+  }
+
   .header__logo-donare {
     width: 9rem;
   }
