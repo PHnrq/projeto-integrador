@@ -26,6 +26,12 @@
           "amount": 7,
           "expirationDate": "2022-09-07",
           "productImage": ""
+        },
+        {
+          "nameProduct": "Macarrão",
+          "amount": 4,
+          "expirationDate": "2022-09-10",
+          "productImage": ""
         }
       ]
     },
