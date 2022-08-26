@@ -13,13 +13,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import bean from "../../assets/bean.png";
 import buyAdd from "../../assets/buy-add.png";
 import buyConfirm from "../../assets/buy-confirm.png";
-import leftArrow from "../../assets/left-arrow.png";
 import rice from "../../assets/rice.png";
-import rightArrow from "../../assets/right-arrow.png";
-import sugar from "../../assets/sugar.png";
+import { CardProdutoOng } from "../../components/CardProdutoOng";
 
 export function DashboardOng({ currentUser }) {
   const ufNumber = [
@@ -134,7 +131,7 @@ export function DashboardOng({ currentUser }) {
   ];
   const [cities, setCities] = useState([]);
   const [allDonors, setAllDonors] = useState([]);
-  const [selectedDonors, setSelectedDonors] = useState([]);
+  const [selectedDonors, setSelectedDonors] = useState({});
   const [ufValue, setUfValue] = useState(currentUser.uf);
   const [citiesValue, setCitiesValue] = useState("");
 
@@ -165,7 +162,6 @@ export function DashboardOng({ currentUser }) {
 
   function handleSelectedDonors(val) {
     setSelectedDonors(val);
-    console.log(selectedDonors);
   }
 
   return (
@@ -275,7 +271,7 @@ export function DashboardOng({ currentUser }) {
           <section className="available-products">
             <h2 className="available-products-title">
               Produtos disponives em&nbsp;
-              <span className="donor-name">Mercado Mão Amiga</span>
+              <span className="donor-name">{selectedDonors.name}</span>
             </h2>
 
             <Swiper
@@ -290,107 +286,16 @@ export function DashboardOng({ currentUser }) {
               modules={[Pagination, Navigation]}
               className="mySwiper"
             >
-              <SwiperSlide>
-                <li className="product-list-item">
-                  <div className="product-item-date">
-                    <img src={rice} alt="rice" className="list-item-img" />
-                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
-                  </div>
-
-                  <p className="list-item-name">Arroz Branco</p>
-
-                  <div className="buy-add-icon-container">
-                    <button className="buy-add-icon">
-                      <img src={buyAdd} alt="buy-add-icon" />
-                    </button>
-                  </div>
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="product-list-item">
-                  <div className="product-item-date">
-                    <img src={rice} alt="rice" className="list-item-img" />
-                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
-                  </div>
-
-                  <p className="list-item-name">Arroz Branco</p>
-
-                  <div className="buy-add-icon-container">
-                    <button className="buy-add-icon">
-                      <img src={buyAdd} alt="buy-add-icon" />
-                    </button>
-                  </div>
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="product-list-item">
-                  <div className="product-item-date">
-                    <img src={rice} alt="rice" className="list-item-img" />
-                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
-                  </div>
-
-                  <p className="list-item-name">Arroz Branco</p>
-
-                  <div className="buy-add-icon-container">
-                    <button className="buy-add-icon">
-                      <img src={buyAdd} alt="buy-add-icon" />
-                    </button>
-                  </div>
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="product-list-item">
-                  <div className="product-item-date">
-                    <img src={rice} alt="rice" className="list-item-img" />
-                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
-                  </div>
-
-                  <p className="list-item-name">Arroz Branco</p>
-
-                  <div className="buy-add-icon-container">
-                    <button className="buy-add-icon">
-                      <img src={buyAdd} alt="buy-add-icon" />
-                    </button>
-                  </div>
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="product-list-item">
-                  <div className="product-item-date">
-                    <img src={rice} alt="rice" className="list-item-img" />
-                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
-                  </div>
-
-                  <p className="list-item-name">Arroz Branco</p>
-
-                  <div className="buy-add-icon-container">
-                    <button className="buy-add-icon">
-                      <img src={buyAdd} alt="buy-add-icon" />
-                    </button>
-                  </div>
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="product-list-item">
-                  <div className="product-item-date">
-                    <img src={rice} alt="rice" className="list-item-img" />
-                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
-                  </div>
-
-                  <p className="list-item-name">Arroz Branco</p>
-
-                  <div className="buy-add-icon-container">
-                    <button className="buy-add-icon">
-                      <img src={buyAdd} alt="buy-add-icon" />
-                    </button>
-                  </div>
-                </li>
-              </SwiperSlide>
+              {selectedDonors.products?
+                selectedDonors.products.map((product => (
+                  <SwiperSlide>
+                    <CardProdutoOng
+                      expirationDate={product.expirationDate}
+                      nameProduct={product.nameProduct}
+                    />
+                  </SwiperSlide>
+                )))
+                : null};
             </Swiper>
           </section>
         </div>
