@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Container } from "./styles";
 import { Header } from "../../components/HeaderDashboard";
@@ -19,6 +19,7 @@ import iconBtn from "../../assets/icon-btn.png";
 import macarrao from "../../assets/macarrão.png";
 import massaDonaBenta from "../../assets/massa-dona-benta.png";
 import arrozBranco from "../../assets/arroz-branco.png";
+import { CardProdutoDoador } from "../../components/CardProdutoDoador";
 
 export function DashboardDoador({ currentUser }) {
   const [showProductRegistration, setShowProductRegistration] = useState(false);
@@ -54,137 +55,15 @@ export function DashboardDoador({ currentUser }) {
                   modules={[Pagination, Navigation]}
                   className="mySwiper"
                 >
-                  <SwiperSlide>
-                    <div className="aliment">
-                      <div className="aliment__div">
-                        <img
-                          src={arrozBranco}
-                          alt="Arroz branco"
-                          className="aliment__image"
-                        />
-                        <p className="aliment__validity">VAL: 13 / 08 / 22 </p>
-                      </div>
-                      <p className="aliment__item-name">Arroz branco</p>
-                      <div className="aliment__quantity-div">
-                        <span className="aliment__quantity">QTD</span>
-                        <span className="aliment__add">
-                          <p className="aliment__add__remove">-</p>
-                          <p className="aliment__add__number">1</p>
-                          <p className="aliment__add__add-more">+</p>
-                        </span>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-
-                  <SwiperSlide>
-                    <div className="aliment">
-                      <div className="aliment__div">
-                        <img
-                          src={arrozBranco}
-                          alt="Arroz branco"
-                          className="aliment__image"
-                        />
-                        <p className="aliment__validity">VAL: 13 / 08 / 22 </p>
-                      </div>
-                      <p className="aliment__item-name">Arroz branco</p>
-                      <div className="aliment__quantity-div">
-                        <span className="aliment__quantity">QTD</span>
-                        <span className="aliment__add">
-                          <p className="aliment__add__remove">-</p>
-                          <p className="aliment__add__number">1</p>
-                          <p className="aliment__add__add-more">+</p>
-                        </span>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-
-                  <SwiperSlide>
-                    <div className="aliment">
-                      <div className="aliment__div">
-                        <img
-                          src={arrozBranco}
-                          alt="Arroz branco"
-                          className="aliment__image"
-                        />
-                        <p className="aliment__validity">VAL: 13 / 08 / 22 </p>
-                      </div>
-                      <p className="aliment__item-name">Arroz branco</p>
-                      <div className="aliment__quantity-div">
-                        <span className="aliment__quantity">QTD</span>
-                        <span className="aliment__add">
-                          <p className="aliment__add__remove">-</p>
-                          <p className="aliment__add__number">1</p>
-                          <p className="aliment__add__add-more">+</p>
-                        </span>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-
-                  <SwiperSlide>
-                    <div className="aliment">
-                      <div className="aliment__div">
-                        <img
-                          src={arrozBranco}
-                          alt="Arroz branco"
-                          className="aliment__image"
-                        />
-                        <p className="aliment__validity">VAL: 13 / 08 / 22 </p>
-                      </div>
-                      <p className="aliment__item-name">Arroz branco</p>
-                      <div className="aliment__quantity-div">
-                        <span className="aliment__quantity">QTD</span>
-                        <span className="aliment__add">
-                          <p className="aliment__add__remove">-</p>
-                          <p className="aliment__add__number">1</p>
-                          <p className="aliment__add__add-more">+</p>
-                        </span>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-
-                  <SwiperSlide>
-                    <div className="aliment">
-                      <div className="aliment__div">
-                        <img
-                          src={arrozBranco}
-                          alt="Arroz branco"
-                          className="aliment__image"
-                        />
-                        <p className="aliment__validity">VAL: 13 / 08 / 22 </p>
-                      </div>
-                      <p className="aliment__item-name">Arroz branco</p>
-                      <div className="aliment__quantity-div">
-                        <span className="aliment__quantity">QTD</span>
-                        <span className="aliment__add">
-                          <p className="aliment__add__remove">-</p>
-                          <p className="aliment__add__number">1</p>
-                          <p className="aliment__add__add-more">+</p>
-                        </span>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-
-                  <SwiperSlide>
-                    <div className="aliment">
-                      <div className="aliment__div">
-                        <img
-                          src={arrozBranco}
-                          alt="Arroz branco"
-                          className="aliment__image"
-                        />
-                        <p className="aliment__validity">VAL: 13 / 08 / 22 </p>
-                      </div>
-                      <p className="aliment__item-name">Arroz branco</p>
-                      <div className="aliment__quantity-div">
-                        <span className="aliment__quantity">QTD</span>
-                        <span className="aliment__add">
-                          <p className="aliment__add__remove">-</p>
-                          <p className="aliment__add__number">1</p>
-                          <p className="aliment__add__add-more">+</p>
-                        </span>
-                      </div>
-                    </div>
-                  </SwiperSlide>
+                  {currentUser.products.map((product, index) => (
+                    <SwiperSlide>
+                      <CardProdutoDoador 
+                        nameProduct={product.nameProduct}
+                        amount={product.amount}
+                        expirationDate={product.expirationDate}
+                      />
+                    </SwiperSlide>
+                  ))}
                 </Swiper>
               </div>
             </div>
