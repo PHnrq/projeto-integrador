@@ -32,6 +32,12 @@
           "amount": 4,
           "expirationDate": "2022-09-10",
           "productImage": ""
+        },
+        {
+          "nameProduct": "Farinha",
+          "amount": 12,
+          "expirationDate": "2022-09-08",
+          "productImage": ""
         }
       ]
     },
