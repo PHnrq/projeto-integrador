@@ -134,7 +134,7 @@ export function DashboardOng({ currentUser }) {
   ];
   const [cities, setCities] = useState([]);
   const [allDonors, setAllDonors] = useState([]);
-  const [selectedDonors, setSelectedDonors] = useState([]);
+  const [selectedDonors, setSelectedDonors] = useState({});
   const [ufValue, setUfValue] = useState(currentUser.uf);
   const [citiesValue, setCitiesValue] = useState("");
 
@@ -184,7 +184,6 @@ export function DashboardOng({ currentUser }) {
 
   function handleSelectedDonors(val) {
     setSelectedDonors(val);
-    console.log(selectedDonors);
   }
 
   function handleSubmit(e) {
@@ -300,7 +299,7 @@ export function DashboardOng({ currentUser }) {
           <section className="available-products">
             <h2 className="available-products-title">
               Produtos disponives em&nbsp;
-              <span className="donor-name">Mercado Mão Amiga</span>
+              <span className="donor-name">{selectedDonors.name}</span>
             </h2>
 
             <Swiper
@@ -315,9 +314,14 @@ export function DashboardOng({ currentUser }) {
               modules={[Pagination, Navigation]}
               className="mySwiper"
             >
-              <SwiperSlide>
-                  <CardItemList />
-              </SwiperSlide>
+              {selectedDonors.products?
+                selectedDonors.products.map((product => (
+                  <SwiperSlide>
+                    <CardItemList />
+                  </SwiperSlide>
+                )))
+                : null};
+
             </Swiper>
           </section>
         </div>
