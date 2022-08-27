@@ -5,6 +5,7 @@ import { CardProduto } from "../../components/CardProdutosPedido";
 import { localidadeApi } from "../../services/localidadeApi";
 import { userData } from "../../services/userData";
 import { Container } from "./styles";
+import { CardItemList } from "../../components/CardItemList";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -14,10 +15,9 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import bean from "../../assets/bean.png";
-import buyAdd from "../../assets/buy-add.png";
+
 import buyConfirm from "../../assets/buy-confirm.png";
 import leftArrow from "../../assets/left-arrow.png";
-import rice from "../../assets/rice.png";
 import rightArrow from "../../assets/right-arrow.png";
 import sugar from "../../assets/sugar.png";
 
@@ -291,105 +291,7 @@ export function DashboardOng({ currentUser }) {
               className="mySwiper"
             >
               <SwiperSlide>
-                <li className="product-list-item">
-                  <div className="product-item-date">
-                    <img src={rice} alt="rice" className="list-item-img" />
-                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
-                  </div>
-
-                  <p className="list-item-name">Arroz Branco</p>
-
-                  <div className="buy-add-icon-container">
-                    <button className="buy-add-icon">
-                      <img src={buyAdd} alt="buy-add-icon" />
-                    </button>
-                  </div>
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="product-list-item">
-                  <div className="product-item-date">
-                    <img src={rice} alt="rice" className="list-item-img" />
-                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
-                  </div>
-
-                  <p className="list-item-name">Arroz Branco</p>
-
-                  <div className="buy-add-icon-container">
-                    <button className="buy-add-icon">
-                      <img src={buyAdd} alt="buy-add-icon" />
-                    </button>
-                  </div>
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="product-list-item">
-                  <div className="product-item-date">
-                    <img src={rice} alt="rice" className="list-item-img" />
-                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
-                  </div>
-
-                  <p className="list-item-name">Arroz Branco</p>
-
-                  <div className="buy-add-icon-container">
-                    <button className="buy-add-icon">
-                      <img src={buyAdd} alt="buy-add-icon" />
-                    </button>
-                  </div>
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="product-list-item">
-                  <div className="product-item-date">
-                    <img src={rice} alt="rice" className="list-item-img" />
-                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
-                  </div>
-
-                  <p className="list-item-name">Arroz Branco</p>
-
-                  <div className="buy-add-icon-container">
-                    <button className="buy-add-icon">
-                      <img src={buyAdd} alt="buy-add-icon" />
-                    </button>
-                  </div>
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="product-list-item">
-                  <div className="product-item-date">
-                    <img src={rice} alt="rice" className="list-item-img" />
-                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
-                  </div>
-
-                  <p className="list-item-name">Arroz Branco</p>
-
-                  <div className="buy-add-icon-container">
-                    <button className="buy-add-icon">
-                      <img src={buyAdd} alt="buy-add-icon" />
-                    </button>
-                  </div>
-                </li>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <li className="product-list-item">
-                  <div className="product-item-date">
-                    <img src={rice} alt="rice" className="list-item-img" />
-                    <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
-                  </div>
-
-                  <p className="list-item-name">Arroz Branco</p>
-
-                  <div className="buy-add-icon-container">
-                    <button className="buy-add-icon">
-                      <img src={buyAdd} alt="buy-add-icon" />
-                    </button>
-                  </div>
-                </li>
+                  <CardItemList />
               </SwiperSlide>
             </Swiper>
           </section>
