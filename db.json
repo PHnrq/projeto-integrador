@@ -38,6 +38,12 @@
           "amount": 12,
           "expirationDate": "2022-09-08",
           "productImage": ""
+        },
+        {
+          "nameProduct": "Macarrão parafuso",
+          "amount": 10,
+          "expirationDate": "2022-09-02",
+          "productImage": ""
         }
       ]
     },
