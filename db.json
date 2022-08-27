@@ -45,7 +45,24 @@
           "expirationDate": "2022-09-02",
           "productImage": ""
         }
-      ]
+      ],
+      "chart": {
+        "nome": "ONG Criança Feliz",
+        "carrinho": [
+          {
+            "nameProduct": "Feijão Preto",
+            "amount": 3,
+            "expirationDate": "2022-09-09",
+            "productImage": ""
+          },
+          {
+            "nameProduct": "Arroz",
+            "amount": 7,
+            "expirationDate": "2022-09-07",
+            "productImage": ""
+          }
+        ]
+      }
     },
     {
       "name": "ONG Criança Feliz",

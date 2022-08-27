@@ -5,6 +5,7 @@ import { CardProduto } from "../../components/CardProdutosPedido";
 import { localidadeApi } from "../../services/localidadeApi";
 import { userData } from "../../services/userData";
 import { Container } from "./styles";
+import { CardItemList } from "../../components/CardItemList";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -13,10 +14,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import buyAdd from "../../assets/buy-add.png";
+import bean from "../../assets/bean.png";
+
 import buyConfirm from "../../assets/buy-confirm.png";
-import rice from "../../assets/rice.png";
-import { CardProdutoOng } from "../../components/CardProdutoOng";
+import leftArrow from "../../assets/left-arrow.png";
+import rightArrow from "../../assets/right-arrow.png";
+import sugar from "../../assets/sugar.png";
 
 export function DashboardOng({ currentUser }) {
   const ufNumber = [
@@ -135,6 +138,25 @@ export function DashboardOng({ currentUser }) {
   const [ufValue, setUfValue] = useState(currentUser.uf);
   const [citiesValue, setCitiesValue] = useState("");
 
+  const [chart, setChart] = useState({
+    nome: currentUser.name,
+    carrinho: [
+
+      {
+        "nameProduct": "Feijão Preto",
+        "amount": 3,
+        "expirationDate": "2022-09-09",
+        "productImage": ""
+      },
+      {
+        "nameProduct": "Arroz",
+        "amount": 7,
+        "expirationDate": "2022-09-07",
+        "productImage": ""
+      }
+    ]
+  });
+
   useEffect(() => {
     const stateSelected = ufNumber.find((i) => i.sigla === ufValue);
 
@@ -163,6 +185,12 @@ export function DashboardOng({ currentUser }) {
   function handleSelectedDonors(val) {
     setSelectedDonors(val);
   }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    userData.get(`/users/1`).then( response => (
+      userData.put(`/users/1`, { ...response.data, chart:chart})
+    ))}
 
   return (
     <Container>
@@ -289,38 +317,38 @@ export function DashboardOng({ currentUser }) {
               {selectedDonors.products?
                 selectedDonors.products.map((product => (
                   <SwiperSlide>
-                    <CardProdutoOng
-                      expirationDate={product.expirationDate}
-                      nameProduct={product.nameProduct}
-                    />
+                    <CardItemList />
                   </SwiperSlide>
                 )))
                 : null};
+
             </Swiper>
           </section>
         </div>
 
         <div className="left-container">
-          <form className="demand-form">
+          <form className="demand-form" onSubmit={(e) => handleSubmit(e)} >
             <h2 className="demand-title">Meu pedido</h2>
 
             <div className="donor-demand-container">
               <p className="donor-demand-name">Mercado Mão Amiga</p>
-              <CardProduto />
+              {chart.carrinho.map(item =>(
+                <CardProduto nameProduct={item.nameProduct} amount={item.amount}/>
+              ))}
             </div>
 
             <div className="demand-get-date">
               <p className="demand-text">Selecione a data de retirada</p>
               <input type="date" name="get-date" id="get-date" />
             </div>
-          </form>
 
-          <div className="submit-btn-container">
+            <div className="submit-btn-container">
             <button type="submit" className="submit-btn">
               <img src={buyConfirm} alt="buy-confirm-icon" />
               &nbsp;Finalizar Pedido
             </button>
           </div>
+          </form>
         </div>
       </main>
     </Container>
