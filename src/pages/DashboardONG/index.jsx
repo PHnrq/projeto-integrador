@@ -138,6 +138,25 @@ export function DashboardOng({ currentUser }) {
   const [ufValue, setUfValue] = useState(currentUser.uf);
   const [citiesValue, setCitiesValue] = useState("");
 
+  const [chart, setChart] = useState({
+    nome: currentUser.name,
+    carrinho: [
+
+      {
+        "nameProduct": "Feijão Preto",
+        "amount": 3,
+        "expirationDate": "2022-09-09",
+        "productImage": ""
+      },
+      {
+        "nameProduct": "Arroz",
+        "amount": 7,
+        "expirationDate": "2022-09-07",
+        "productImage": ""
+      }
+    ]
+  });
+
   useEffect(() => {
     const stateSelected = ufNumber.find((i) => i.sigla === ufValue);
 
@@ -167,6 +186,12 @@ export function DashboardOng({ currentUser }) {
     setSelectedDonors(val);
     console.log(selectedDonors);
   }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    userData.get(`/users/1`).then( response => (
+      userData.put(`/users/1`, { ...response.data, chart:chart})
+    ))}
 
   return (
     <Container>
@@ -396,26 +421,28 @@ export function DashboardOng({ currentUser }) {
         </div>
 
         <div className="left-container">
-          <form className="demand-form">
+          <form className="demand-form" onSubmit={(e) => handleSubmit(e)} >
             <h2 className="demand-title">Meu pedido</h2>
 
             <div className="donor-demand-container">
               <p className="donor-demand-name">Mercado Mão Amiga</p>
-              <CardProduto />
+              {chart.carrinho.map(item =>(
+                <CardProduto nameProduct={item.nameProduct} amount={item.amount}/>
+              ))}
             </div>
 
             <div className="demand-get-date">
               <p className="demand-text">Selecione a data de retirada</p>
               <input type="date" name="get-date" id="get-date" />
             </div>
-          </form>
 
-          <div className="submit-btn-container">
+            <div className="submit-btn-container">
             <button type="submit" className="submit-btn">
               <img src={buyConfirm} alt="buy-confirm-icon" />
               &nbsp;Finalizar Pedido
             </button>
           </div>
+          </form>
         </div>
       </main>
     </Container>
