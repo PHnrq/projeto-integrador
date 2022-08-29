@@ -24,7 +24,7 @@ export const Container = styled.div`
 
   .mySwiper-sm {
     max-width: 240px;
-    min-height: 160px;
+    min-height: 180px;
   }
 
   .header__logo-donare {
@@ -184,10 +184,6 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .box-2 img {
-    width: 3rem;
   }
 
   .order {
