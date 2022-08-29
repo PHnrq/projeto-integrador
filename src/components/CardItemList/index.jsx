@@ -1,21 +1,21 @@
-import rice from "../../assets/rice.png";
-import buyAdd from "../../assets/buy-add.png";
+import placeholderImg from '../../assets/placeholder-Img.svg'
+import { Container } from './styles'
+
 
 export function CardItemList() {
     return (
-        <li className="product-list-item">
-            <div className="product-item-date">
-                <img src={rice} alt="rice" className="list-item-img" />
-                <p className="list-item-validity">VAL: 13 / 08 / 2022</p>
+        <Container>
+            <div className="product-img-wrapper">
+                <img src={placeholderImg} alt="rice" className="list-item-img" />
             </div>
 
             <p className="list-item-name">Arroz Branco</p>
 
-            <div className="buy-add-icon-container">
-                <button className="buy-add-icon">
-                    <img src={buyAdd} alt="buy-add-icon" />
-                </button>
+            <div className="amount-container">
+                <span>
+                    QTD: 2
+                </span>
             </div>
-        </li>
+        </Container>
     )
 }

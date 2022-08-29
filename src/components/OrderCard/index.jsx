@@ -6,12 +6,13 @@ import {CardItemList} from "../CardItemList"
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Container } from "./style";
 
 
 
 export function OrderCard({name, carrinho}){
   return(
-    <div>
+    <Container>
     <p className="order__ong-name">{name}</p>
     <div className="order__date">
       <p className="order__date__p">Data de retirada:</p>
@@ -19,9 +20,9 @@ export function OrderCard({name, carrinho}){
     </div>
 
     <Swiper
-      slidesPerView={3}
+      slidesPerView={5}
       spaceBetween={30}
-      slidesPerGroup={3}
+      slidesPerGroup={5}
       loop={true}
       loopFillGroupWithBlank={true}
       pagination={{
@@ -30,12 +31,12 @@ export function OrderCard({name, carrinho}){
       modules={[Pagination, Navigation]}
       className="mySwiper-sm"
     >
-      <SwiperSlide>
+      <SwiperSlide className="swiper-flex">
         {carrinho.map(item => (
           <CardItemList />
         ))}
       </SwiperSlide>
     </Swiper>
-  </div>
+  </Container>
   )
 }
