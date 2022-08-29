@@ -20,9 +20,9 @@ export function OrderCard({name, carrinho}){
     </div>
 
     <Swiper
-      slidesPerView={3}
+      slidesPerView={5}
       spaceBetween={30}
-      slidesPerGroup={3}
+      slidesPerGroup={5}
       loop={true}
       loopFillGroupWithBlank={true}
       pagination={{

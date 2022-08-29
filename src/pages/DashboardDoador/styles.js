@@ -19,13 +19,14 @@ export const Container = styled.div`
 
   .mySwiper {
     max-width: 520px;
-    min-height: 245px;
+    min-height: 285px;
     margin-left: 4.5rem;
   }
 
   .mySwiper-sm {
-    max-width: 240px;
-    min-height: 180px;
+    width: 100%;
+    max-width: 42rem;
+    min-height: 20rem;
   }
 
   .header__logo-donare {
@@ -186,12 +187,17 @@ export const Container = styled.div`
     background: rgba(76, 149, 108, 0.05);
     border: 1px solid #38463e;
     border-radius: 30px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .box-2 {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+
+    width: 100%;
   }
 
   .order {
@@ -205,17 +211,31 @@ export const Container = styled.div`
     font-size: 2.4rem;
     font-family: "Poppins", sans-serif;
     text-align: center;
+
+    margin: 1.2rem 0 2rem;
   }
 
   .order__ong-name {
     font-family: "Poppins", sans-serif;
-    font-size: 1.9rem;
-    text-align: initial;
+    font-size: 2rem;
+    font-weight: 500;
+
+    color: #000000;
+
+    margin: .8rem 0;
   }
 
   .order__date {
+    width: 100%;
+    margin-bottom: .6rem;
+
     display: flex;
     justify-content: space-between;
+
+    font-size: 1.6rem;
+    letter-spacing: 0.004em;
+
+    color: #000000;
   }
 
   .order__aliments {

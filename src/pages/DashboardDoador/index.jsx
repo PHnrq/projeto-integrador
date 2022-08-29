@@ -114,9 +114,9 @@ export function DashboardDoador({ currentUser }) {
           </div>
 
           <div className="div-2">
+            <h3 className="order__title">Fila de pedidos</h3>
             <div className="box-2">
               <div className="order">
-                <h3 className="order__title">Fila de pedidos</h3>
                 {orderQueue.map((order, i) => (
                   <OrderCard name={order.nome} carrinho={order.carrinho} />
                 ))}
