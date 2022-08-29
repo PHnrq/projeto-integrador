@@ -44,10 +44,22 @@
           "amount": 10,
           "expirationDate": "2022-09-02",
           "productImage": ""
+        },
+        {
+          "nameProduct": "Feijão Preto",
+          "amount": 3,
+          "expirationDate": "2022-08-30",
+          "productImage": ""
+        },
+        {
+          "nameProduct": "Farinha",
+          "amount": 20,
+          "expirationDate": "2022-08-30",
+          "productImage": ""
         }
       ],
       "chart": {
-        "nome": "ONG Criança Feliz",
+        "nome": "",
         "carrinho": [
           {
             "nameProduct": "Feijão Preto",

@@ -20,6 +20,7 @@ import buyConfirm from "../../assets/buy-confirm.png";
 import leftArrow from "../../assets/left-arrow.png";
 import rightArrow from "../../assets/right-arrow.png";
 import sugar from "../../assets/sugar.png";
+import { CardProdutoOng } from "../../components/CardProdutoOng";
 
 export function DashboardOng({ currentUser }) {
   const ufNumber = [
@@ -317,7 +318,7 @@ export function DashboardOng({ currentUser }) {
               {selectedDonors.products?
                 selectedDonors.products.map((product => (
                   <SwiperSlide>
-                    <CardItemList />
+                    <CardProdutoOng expirationDate={product.expirationDate} nameProduct={product.nameProduct}/>
                   </SwiperSlide>
                 )))
                 : null};
