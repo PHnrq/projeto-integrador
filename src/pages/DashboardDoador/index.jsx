@@ -4,6 +4,7 @@ import { Container } from "./styles";
 import { userData } from "../../services/userData";
 import { OrderCard } from "../../components/OrderCard";
 import { Header } from "../../components/HeaderDashboard";
+import { Footer } from "../../components/FooterDashboard";
 import { ListaProdutosCadastrados } from "./ListaProdutosCadastrados";
 import { ModalCadastroProdutos } from "../../components/ModalCadastroProdutos";
 
@@ -53,6 +54,7 @@ export function DashboardDoador({ currentUser }) {
           </div>
         </div>
       </main>
+      <Footer />
     </Container>
   );
 }
