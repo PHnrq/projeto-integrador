@@ -19,7 +19,8 @@ export const Container = styled.div`
 
   .mySwiper {
     max-width: 520px;
-    min-height: 270px;
+    min-height: 245px;
+    margin-left: 4.5rem;
   }
 
   .mySwiper-sm {
@@ -38,6 +39,9 @@ export const Container = styled.div`
   .container {
     display: flex;
     justify-content: space-between;
+
+    width: 100%;
+    max-width: 120rem;
   }
 
   .div {
@@ -79,6 +83,9 @@ export const Container = styled.div`
   .registered-products__title {
     font-family: "Poppins", sans-serif;
     font-size: 3.6rem;
+    text-align: center;
+
+    margin-bottom: 3.6rem;
   }
 
   .registered-products__view-all {
@@ -152,7 +159,7 @@ export const Container = styled.div`
   }
 
   .btn-add-to-card {
-    width: 80%;
+    width: 90%;
     padding: 2rem;
     background: #4c956c;
     font-size: 1.6rem;
@@ -170,7 +177,8 @@ export const Container = styled.div`
   }
 
   .div-2 {
-    width: 280px;
+    width: 100%;
+    max-width: 46.5rem;
     display: flex;
     justify-content: center;
     align-items: flex-start;
