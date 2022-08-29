@@ -1,40 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  header {
-    padding: 0.9rem 8.2rem;
-    background: #4c956c;
-    font-family: "Baloo Bhai 2", sans-serif;
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-  }
-
   main {
     display: flex;
     justify-content: space-around;
     padding-top: 2.8rem;
   }
 
-  .mySwiper {
-    max-width: 520px;
-    min-height: 285px;
-    margin-left: 4.5rem;
-  }
-
   .mySwiper-sm {
     width: 100%;
     max-width: 42rem;
     min-height: 20rem;
-  }
-
-  .header__logo-donare {
-    width: 9rem;
-  }
-
-  .header__avatar {
-    width: 3rem;
   }
 
   .container {
@@ -50,113 +26,6 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     margin-right: 3rem;
-  }
-
-  .products {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .aliments {
-    display: flex;
-  }
-
-  .box-1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .btn-left,
-  .btn-right {
-    width: 4rem;
-  }
-  .products {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .registered-products {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .registered-products__title {
-    font-family: "Poppins", sans-serif;
-    font-size: 3.6rem;
-    text-align: center;
-
-    margin-bottom: 3.6rem;
-  }
-
-  .registered-products__view-all {
-    font-family: "Poppins", sans-serif;
-    color: #2c6e49;
-    font-size: 1.2rem;
-    margin-bottom: 0.6rem;
-    align-self: flex-end;
-    justify-self: end;
-  }
-
-  .aliments {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: space-between;
-  }
-
-  .aliment {
-    margin-right: 1.9rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: space-between;
-  }
-
-  .aliment__div {
-    border: solid #afb1b6;
-    border-radius: 8px;
-    background: #ffff;
-    width: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .aliment__div img {
-    border-radius: 5px;
-  }
-
-  .aliment__image {
-    max-width: 100px;
-    max-height: 80px;
-  }
-  .aliment__validity {
-    width: 100%;
-  }
-
-  .aliment__div p {
-    text-align: center;
-    color: #ffff;
-    background: #d68c45;
-    border-radius: 0px 0px 5px 5px;
-  }
-
-  .aliment__item-name {
-    font-size: 1.5rem;
-    margin-top: 1.2rem;
-  }
-
-  .aliment__quantity-div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 5rem;
-  }
-
-  .aliment__add {
-    display: flex;
   }
 
   .btn-add-to-card {
