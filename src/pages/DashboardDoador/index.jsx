@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Container } from "./styles";
 import { Header } from "../../components/HeaderDashboard";
 import { ModalCadastroProdutos } from "../../components/ModalCadastroProdutos";
+import { CardProdutoDoador } from "../../components/CardProdutoDoador";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -11,18 +12,20 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import acucarCristal from "../../assets/açucar-cristal.png";
-import btnLeft from "../../assets/button-left.svg";
-import btnRigth from "../../assets/button-rigth.svg";
-import feijaoKicaldo from "../../assets/feijao-kicaldo.png";
 import iconBtn from "../../assets/icon-btn.png";
-import macarrao from "../../assets/macarrão.png";
-import massaDonaBenta from "../../assets/massa-dona-benta.png";
-import arrozBranco from "../../assets/arroz-branco.png";
-import { CardProdutoDoador } from "../../components/CardProdutoDoador";
+
+import { userData } from "../../services/userData";
+import { OrderCard } from "../../components/OrderCard";
 
 export function DashboardDoador({ currentUser }) {
   const [showProductRegistration, setShowProductRegistration] = useState(false);
+  const [orderQueue, setOrderQueue] = useState([]);
+
+  useEffect(() => {
+    userData.get(`/users/${currentUser.id}`).then((response) => {
+      setOrderQueue([...orderQueue, response.data.chart]);
+    });
+  }, []);
 
   return (
     <Container>
@@ -57,7 +60,7 @@ export function DashboardDoador({ currentUser }) {
                 >
                   {currentUser.products.map((product, index) => (
                     <SwiperSlide>
-                      <CardProdutoDoador 
+                      <CardProdutoDoador
                         nameProduct={product.nameProduct}
                         amount={product.amount}
                         expirationDate={product.expirationDate}
@@ -75,85 +78,18 @@ export function DashboardDoador({ currentUser }) {
               Produtos
             </button>
           </div>
+
           <div className="div-2">
             <div className="box-2">
               <div className="order">
                 <h3 className="order__title">Fila de pedidos</h3>
-                <p className="order__ong-name">ONG Criança Feliz</p>
-                <div className="order__date">
-                  <p className="order__date__p">Data de retirada:</p>
-                  <p className="order__date__number">27/07/2023</p>
-                </div>
+                {orderQueue.map((order, i) => (
+                  <OrderCard 
+                    name={order.nome}
+                    carrinho={order.carrinho}  
+                  />
+                ))}
 
-                <Swiper
-                  slidesPerView={3}
-                  spaceBetween={30}
-                  slidesPerGroup={3}
-                  loop={true}
-                  loopFillGroupWithBlank={true}
-                  pagination={{
-                    clickable: true,
-                  }}
-                  modules={[Pagination, Navigation]}
-                  className="mySwiper-sm"
-                >
-                  <SwiperSlide>
-                    <div className="order__aliment">
-                      <img
-                        className="order__aliment__image"
-                        src={arrozBranco}
-                        alt=""
-                      />
-                      <p className="order__aliment__title">Arroz branco</p>
-                      <div className="order__aliment__div">
-                        <p className="order__quantity">QTD</p>
-                        <p className="order__total">1</p>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="order__aliment">
-                      <img
-                        className="order__aliment__image"
-                        src={arrozBranco}
-                        alt=""
-                      />
-                      <p className="order__aliment__title">Arroz branco</p>
-                      <div className="order__aliment__div">
-                        <p className="order__quantity">QTD</p>
-                        <p className="order__total">1</p>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="order__aliment">
-                      <img
-                        className="order__aliment__image"
-                        src={arrozBranco}
-                        alt=""
-                      />
-                      <p className="order__aliment__title">Arroz branco</p>
-                      <div className="order__aliment__div">
-                        <p className="order__quantity">QTD</p>
-                        <p className="order__total">1</p>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="order__aliment">
-                      <img
-                        className="order__aliment__image"
-                        src={arrozBranco}
-                        alt=""
-                      />
-                      <p className="order__aliment__title">Arroz branco</p>
-                      <div className="order__aliment__div">
-                        <p className="order__quantity">QTD</p>
-                        <p className="order__total">1</p>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                </Swiper>
               </div>
             </div>
           </div>
