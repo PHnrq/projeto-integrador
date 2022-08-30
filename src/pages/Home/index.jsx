@@ -24,13 +24,10 @@ export function Home() {
               Missão
             </a>
             <a href="#results" className="header-menu-item">
-              Resultados
+              Publicações
             </a>
             <a href="#about" className="header-menu-item">
               Sobre Nós
-            </a>
-            <a href="#contact" className="header-menu-item">
-              Contate-nos
             </a>
             <button
               className="btn-create-account"
@@ -38,7 +35,7 @@ export function Home() {
                 setShowSingInForm(true);
               }}
             >
-              Fazer parte
+              Cadastro
             </button>
             <Link to="/login">
               <button className="btn-login">Login</button>
@@ -64,8 +61,8 @@ export function Home() {
       </header>
 
       <main className="main">
-        <div className="publications">
-          <div className="publi-text" id="missao">
+        <div className="publications" id="missao">
+          <div className="publi-text">
             <h3 className="publi-title">A diferença por meio da ação</h3>
             <p className="publi-paragraph">
               Nossa missão é reduzir o desperdício de alimentos e ajudar pessoas
@@ -87,7 +84,6 @@ export function Home() {
         </div>
 
         <div className="our-results" id="results">
-          <h3 className="results-title">Nossos Resutados</h3>
           <div className="tons-people-city-container">
             <div className="tons">
               <p className="tons-quantity">1 TONELADA</p>
@@ -109,57 +105,33 @@ export function Home() {
           <div className="about-text">
             <h3 className="about-title">Sobre Nós</h3>
             <p className="about-paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Soluta dolore
-              animi minus tenetur incidunt recusandae facere. Corporis deleniti
-              totam quis possimus quod mollitia, ipsam expedita odit aliquam
-              reiciendis eligendi unde!
+              Somos um grupo de desenvolvedores que acredita que iniciativas como esta podem mudar o mundo!
             </p>
           </div>
         </div>
-
-        <div className="contact" id="contact">
-          <div className="contact-text">
-            <p>Pronto para fazer parte?</p>
-            <p className="contact-paragraph">Contate-nos para tirar dúvidas</p>
-          </div>
-          <div>
-            <button
-              className="btn-create-account"
-              onClick={() => {
-                setShowSingInForm(true);
-              }}
-            >
-              Fazer parte
-            </button>
-            <button className="btn-contact">Entrar em contato</button>
-          </div>
-        </div>
-
-        <div className="footer">
-          <div className="footer-logo-container">
-            <img className="logo" src={logo} alt="Donare" />
-            <p className="footer-text">&copy; Copyright 2022</p>
-            <p className="footer-text">Privacy | Terms</p>
-          </div>
-
-          <div className="footer-menu">
-            <a href="#home" className="footer-menu-item">
-              Início
-            </a>
-            <a href="#missao" className="footer-menu-item">
-              Missão
-            </a>
-            <a href="#results" className="footer-menu-item">
-              Resultados
-            </a>
-            <a href="#about" className="footer-menu-item">
-              Sobre nós
-            </a>
-          </div>
-        </div>
       </main>
+      <footer className="footer">
+        <div className="footer-logo-container">
+          <img className="logo" src={logo} alt="Donare" />
+          <p className="footer-text">&copy; Copyright 2022</p>
+          <p className="footer-text">Privacy | Terms</p>
+        </div>
+
+        <div className="footer-menu">
+          <a href="#home" className="footer-menu-item">
+            Início
+          </a>
+          <a href="#missao" className="footer-menu-item">
+            Missão
+          </a>
+          <a href="#results" className="footer-menu-item">
+            Publicações
+          </a>
+          <a href="#about" className="footer-menu-item">
+            Sobre nós
+          </a>
+        </div>
+      </footer>
     </Container>
   );
 }
