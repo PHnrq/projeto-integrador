@@ -29,7 +29,7 @@ export function OrderCard({ name, carrinho }) {
         {carrinho.map((item) => {
           return (
             <SwiperSlide className="swiper-flex">
-              <CardItemList />
+              <CardItemList nameProduct={item.nameProduct} amount={item.amount}/>
             </SwiperSlide>
           );
         })}
