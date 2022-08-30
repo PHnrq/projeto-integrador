@@ -197,159 +197,161 @@ export function DashboardOng({ currentUser }) {
     <Container>
       <Header />
       <main className="main">
-        <div className="right-container">
-          <section className="find-donors">
-            <div className="search-radius-container">
-              <h2 className="find-donors-title">Doadores em:</h2>
+        <div className="main-wrapper">
+          <div className="right-container">
+            <section className="find-donors">
+              <div className="search-radius-container">
+                <h2 className="find-donors-title">Doadores em:</h2>
 
-              <form className="filter-form">
-                <label htmlFor="state" className="form__label label-md">
-                  Cidade
-                  <select
-                    className="form__input input-md"
-                    id="city"
-                    name="city"
-                    onChange={(e) => handleCitiesValueChange(e)}
-                  >
-                    <option value="">Selcionar Cidade</option>
-                    {cities.map((city, index) => (
-                      <option key={index} value={city}>
-                        {city}
-                      </option>
-                    ))}
-                  </select>
-                  <span className="warning-input"></span>
-                </label>
+                <form className="filter-form">
+                  <label htmlFor="state" className="form__label label-md">
+                    Cidade
+                    <select
+                      className="form__input input-md"
+                      id="city"
+                      name="city"
+                      onChange={(e) => handleCitiesValueChange(e)}
+                    >
+                      <option value="">Selcionar Cidade</option>
+                      {cities.map((city, index) => (
+                        <option key={index} value={city}>
+                          {city}
+                        </option>
+                      ))}
+                    </select>
+                    <span className="warning-input"></span>
+                  </label>
 
-                <label htmlFor="state" className="form__label label-sm">
-                  Estado
-                  <select
-                    className="form__input input-sm"
-                    id="uf"
-                    name="uf"
-                    onChange={(e) => handleUfValueChange(e)}
-                    value={ufValue}
-                  >
-                    <option value="">UF</option>
-                    <option value="AC">AC</option>
-                    <option value="AL">AL</option>
-                    <option value="AP">AP</option>
-                    <option value="AM">AM</option>
-                    <option value="BA">BH</option>
-                    <option value="CE">CE</option>
-                    <option value="DF">DF</option>
-                    <option value="ES">ES</option>
-                    <option value="GO">GO</option>
-                    <option value="MA">MA</option>
-                    <option value="MS">MS</option>
-                    <option value="MT">MT</option>
-                    <option value="MG">MG</option>
-                    <option value="PA">PA</option>
-                    <option value="PB">PB</option>
-                    <option value="PR">PR</option>
-                    <option value="PE">PE</option>
-                    <option value="PI">PI</option>
-                    <option value="RJ">RJ</option>
-                    <option value="RN">RN</option>
-                    <option value="RS">RS</option>
-                    <option value="RO">RO</option>
-                    <option value="RR">RR</option>
-                    <option value="SC">SC</option>
-                    <option value="SP">SP</option>
-                    <option value="SE">SE</option>
-                    <option value="TO">TO</option>
-                  </select>
-                  <span className="warning-input"></span>
-                </label>
-              </form>
-            </div>
+                  <label htmlFor="state" className="form__label label-sm">
+                    Estado
+                    <select
+                      className="form__input input-sm"
+                      id="uf"
+                      name="uf"
+                      onChange={(e) => handleUfValueChange(e)}
+                      value={ufValue}
+                    >
+                      <option value="">UF</option>
+                      <option value="AC">AC</option>
+                      <option value="AL">AL</option>
+                      <option value="AP">AP</option>
+                      <option value="AM">AM</option>
+                      <option value="BA">BH</option>
+                      <option value="CE">CE</option>
+                      <option value="DF">DF</option>
+                      <option value="ES">ES</option>
+                      <option value="GO">GO</option>
+                      <option value="MA">MA</option>
+                      <option value="MS">MS</option>
+                      <option value="MT">MT</option>
+                      <option value="MG">MG</option>
+                      <option value="PA">PA</option>
+                      <option value="PB">PB</option>
+                      <option value="PR">PR</option>
+                      <option value="PE">PE</option>
+                      <option value="PI">PI</option>
+                      <option value="RJ">RJ</option>
+                      <option value="RN">RN</option>
+                      <option value="RS">RS</option>
+                      <option value="RO">RO</option>
+                      <option value="RR">RR</option>
+                      <option value="SC">SC</option>
+                      <option value="SP">SP</option>
+                      <option value="SE">SE</option>
+                      <option value="TO">TO</option>
+                    </select>
+                    <span className="warning-input"></span>
+                  </label>
+                </form>
+              </div>
 
-            <div className="map-and-donors-list">
-              <ul className="donors-list">
-                {allDonors.map((donor) => {
-                  if (citiesValue) {
-                    if (ufValue === donor.uf && citiesValue === donor.city) {
-                      return (
-                        <li
-                          key={donor.id}
-                          className="donors-list-item"
-                          onClick={() => handleSelectedDonors(donor)}
-                        >
-                          {donor.name}
-                        </li>
-                      );
+              <div className="map-and-donors-list">
+                <ul className="donors-list">
+                  {allDonors.map((donor) => {
+                    if (citiesValue) {
+                      if (ufValue === donor.uf && citiesValue === donor.city) {
+                        return (
+                          <li
+                            key={donor.id}
+                            className="donors-list-item"
+                            onClick={() => handleSelectedDonors(donor)}
+                          >
+                            {donor.name}
+                          </li>
+                        );
+                      }
+                    } else {
+                      if (ufValue === donor.uf) {
+                        return (
+                          <li
+                            key={donor.id}
+                            className="donors-list-item"
+                            onClick={() => handleSelectedDonors(donor)}
+                          >
+                            {donor.name}
+                          </li>
+                        );
+                      }
                     }
-                  } else {
-                    if (ufValue === donor.uf) {
-                      return (
-                        <li
-                          key={donor.id}
-                          className="donors-list-item"
-                          onClick={() => handleSelectedDonors(donor)}
-                        >
-                          {donor.name}
-                        </li>
-                      );
-                    }
-                  }
-                })}
-              </ul>
-            </div>
-          </section>
+                  })}
+                </ul>
+              </div>
+            </section>
 
-          <section className="available-products">
-            <h2 className="available-products-title">
-              Produtos disponives em&nbsp;
-              <span className="donor-name">{selectedDonors.name}</span>
-            </h2>
+            <section className="available-products">
+              <h2 className="available-products-title">
+                Produtos disponives em&nbsp;
+                <span className="donor-name">{selectedDonors.name}</span>
+              </h2>
 
-            <Swiper
-              slidesPerView={3}
-              spaceBetween={30}
-              slidesPerGroup={3}
-              loop={true}
-              loopFillGroupWithBlank={true}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[Pagination, Navigation]}
-              className="mySwiper"
-            >
-              {selectedDonors.products?
-                selectedDonors.products.map((product => (
-                  <SwiperSlide>
-                    <CardProdutoOng expirationDate={product.expirationDate} nameProduct={product.nameProduct}/>
-                  </SwiperSlide>
-                )))
-                : null};
+              <Swiper
+                slidesPerView={3}
+                spaceBetween={30}
+                slidesPerGroup={3}
+                loop={true}
+                loopFillGroupWithBlank={true}
+                pagination={{
+                  clickable: true,
+                }}
+                modules={[Pagination, Navigation]}
+                className="mySwiper"
+              >
+                {selectedDonors.products?
+                  selectedDonors.products.map((product => (
+                    <SwiperSlide>
+                      <CardProdutoOng expirationDate={product.expirationDate} nameProduct={product.nameProduct}/>
+                    </SwiperSlide>
+                  )))
+                  : null};
 
-            </Swiper>
-          </section>
-        </div>
-
-        <div className="left-container">
-          <form className="demand-form" onSubmit={(e) => handleSubmit(e)} >
-            <h2 className="demand-title">Meu pedido</h2>
-
-            <div className="donor-demand-container">
-              <p className="donor-demand-name">Mercado Mão Amiga</p>
-              {chart.carrinho.map(item =>(
-                <CardProduto nameProduct={item.nameProduct} amount={item.amount}/>
-              ))}
-            </div>
-
-            <div className="demand-get-date">
-              <p className="demand-text">Selecione a data de retirada</p>
-              <input type="date" name="get-date" id="get-date" />
-            </div>
-
-            <div className="submit-btn-container">
-            <button type="submit" className="submit-btn">
-              <img src={buyConfirm} alt="buy-confirm-icon" />
-              &nbsp;Finalizar Pedido
-            </button>
+              </Swiper>
+            </section>
           </div>
-          </form>
+
+          <div className="left-container">
+            <form className="demand-form" onSubmit={(e) => handleSubmit(e)} >
+              <h2 className="demand-title">Meu pedido</h2>
+
+              <div className="donor-demand-container">
+                <p className="donor-demand-name">Mercado Mão Amiga</p>
+                {chart.carrinho.map(item =>(
+                  <CardProduto nameProduct={item.nameProduct} amount={item.amount}/>
+                ))}
+              </div>
+
+              <div className="demand-get-date">
+                <p className="demand-text">Selecione a data de retirada</p>
+                <input type="date" name="get-date" id="get-date" />
+              </div>
+
+              <div className="submit-btn-container">
+              <button type="submit" className="submit-btn">
+                <img src={buyConfirm} alt="buy-confirm-icon" />
+                &nbsp;Finalizar Pedido
+              </button>
+            </div>
+            </form>
+          </div>
         </div>
       </main>
     </Container>

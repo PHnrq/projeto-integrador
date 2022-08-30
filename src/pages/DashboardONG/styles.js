@@ -12,10 +12,17 @@ export const Container = styled.div`
 }
 
 .main {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.main-wrapper {
     width: 100%;
+    max-width: 1200px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     padding-top: 4rem;
 }
@@ -37,18 +44,19 @@ export const Container = styled.div`
 }
 
 .find-donors-title {
-    width: 50%;
 
     text-align: center;
     font-weight: 700;
-    font-size: 3.6rem;
+    font-size: 3.2rem;
     color: var(--dark-color);
+
+    margin-left: 20px;
 }
 
 .search-radius-container {
     display: flex;
     align-items: center;
-    gap: .6rem;
+    gap: 2.4rem;
     padding-bottom: 2rem;
 
     text-align: start;
@@ -157,18 +165,21 @@ export const Container = styled.div`
 }
 
 .left-container {
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .demand-form {
-    width: 70%;
-    height: 80vh;
+    position: relative;
+    
+    width: 100%;
+    max-width: 420px;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     text-align: center;
 
@@ -181,7 +192,7 @@ export const Container = styled.div`
 .demand-title {
     width: 100%;
     height: 20%;
-    margin-top: 4rem;
+    margin-top: -2.6rem;
     font-weight: 600;
     font-size: 2.4rem;
     line-height: 2.8rem;
@@ -302,7 +313,9 @@ export const Container = styled.div`
 }
 
 .submit-btn-container {
-    width: 70%;
+    position: absolute;
+    top: 570px;
+    width: 100%;
     height: 7rem;
     display: flex;
     flex-direction: row;
