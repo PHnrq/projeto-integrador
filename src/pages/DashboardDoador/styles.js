@@ -28,23 +28,6 @@ export const Container = styled.div`
     margin-right: 3rem;
   }
 
-  .btn-add-to-card {
-    width: 90%;
-    padding: 2rem;
-    background: #4c956c;
-    font-size: 1.6rem;
-    color: #ffff;
-    border-style: none;
-    border-radius: 16px;
-    cursor: pointer;
-    margin-top: 2.9rem;
-  }
-
-  .icon-btn {
-    width: 1.5rem;
-    position: relative;
-    top: 0.2rem;
-  }
 
   .div-2 {
     width: 100%;
