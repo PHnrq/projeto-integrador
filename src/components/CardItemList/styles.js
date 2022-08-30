@@ -5,6 +5,8 @@ export const Container = styled.li`
   flex-direction: column;
   gap: .8rem;
 
+  max-width: 8rem;
+
   .list-item-img {
     width: 80px;
   }
