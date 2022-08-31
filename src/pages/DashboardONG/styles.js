@@ -315,7 +315,7 @@ export const Container = styled.div`
 .submit-btn-container {
     position: absolute;
     top: 570px;
-    width: 100%;
+    width: 100.5%;
     height: 7rem;
     display: flex;
     flex-direction: row;
