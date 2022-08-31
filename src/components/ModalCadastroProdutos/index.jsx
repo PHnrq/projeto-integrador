@@ -5,11 +5,18 @@ import { userData } from "../../services/userData";
 import plusIcon from "../../assets/plus-icon.svg";
 import closeIcon from "../../assets/close_FILL0_wght400_GRAD0_opsz48.svg";
 
-export function ModalCadastroProdutos({setShowProductRegistration, currentUserId}) {
+export function ModalCadastroProdutos({
+  setShowProductRegistration,
+  setCurrentUserProducts,
+  currentUserId,
+}) {
   return (
     <Container>
       <div className="modal">
-        <button className="btn-close-form" onClick={() => setShowProductRegistration(false)}>
+        <button
+          className="btn-close-form"
+          onClick={() => setShowProductRegistration(false)}
+        >
           <img src={closeIcon} alt="Fechar" />
         </button>
 
@@ -51,15 +58,24 @@ export function ModalCadastroProdutos({setShowProductRegistration, currentUserId
             return errors;
           }}
           onSubmit={async (values) => {
-            userData.get(`/users/${currentUserId}`).then(response => {
-              if(response.data.products){
-                userData.put(`/users/${currentUserId}`, {...response.data, products: [...response.data.products, values]})
-              }else{
-                userData.put(`/users/${currentUserId}`, {...response.data, products: [values]})
-              }
-            })
+            userData.get(`/users/${currentUserId}`).then((response) => {
+              if (response.data.products) {
+                userData.put(`/users/${currentUserId}`, {
+                  ...response.data,
+                  products: [...response.data.products, values],
+                });
 
-            setShowProductRegistration(false)
+                setCurrentUserProducts([...response.data.products, values])
+              } else {
+                userData.put(`/users/${currentUserId}`, {
+                  ...response.data,
+                  products: [values],
+                });
+              }
+            });
+
+            setCurrentUserProducts([])
+            setShowProductRegistration(false);
           }}
         >
           {(props) => (
@@ -119,7 +135,10 @@ export function ModalCadastroProdutos({setShowProductRegistration, currentUserId
                 ) : null}
               </label>
 
-              <label htmlFor="productImage" className="form__label label-flex disable">
+              <label
+                htmlFor="productImage"
+                className="form__label label-flex disable"
+              >
                 <span className="form__input-file__label disable">
                   Imagem do produto
                 </span>
@@ -146,7 +165,7 @@ export function ModalCadastroProdutos({setShowProductRegistration, currentUserId
               ) : null} */}
 
               <button type="submit" className="form-btn">
-                <img src={plusIcon} alt=""/>
+                <img src={plusIcon} alt="" />
                 Adicionar produto
               </button>
             </Form>
