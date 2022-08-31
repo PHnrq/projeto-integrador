@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { Container } from "./styles";
-import { userData } from "../../services/userData";
-import { OrderCard } from "../../components/OrderCard";
+
 import { Header } from "../../components/HeaderDashboard";
 import { ListaProdutosCadastrados } from "./ListaProdutosCadastrados";
 import { ModalCadastroProdutos } from "../../components/ModalCadastroProdutos";
+import { ListaPedidos } from "./ListaPedidos";
 
 export function DashboardDoador({ currentUser }) {
   const [currentUserProducts, setCurrentUserProducts] = useState(
@@ -35,16 +35,7 @@ export function DashboardDoador({ currentUser }) {
             />
           </div>
 
-          <div className="div-2">
-            <h3 className="order__title">Fila de pedidos</h3>
-            <div className="box-2">
-              <div className="order">
-                {orderQueue.map((order) => (
-                  <OrderCard name={order.nome} carrinho={order.carrinho} />
-                ))}
-              </div>
-            </div>
-          </div>
+          <ListaPedidos orderQueue={orderQueue}/>
         </div>
       </main>
     </Container>
