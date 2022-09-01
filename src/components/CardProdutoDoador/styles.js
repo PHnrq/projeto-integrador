@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 10.8rem;
+  max-width: 11.8rem;
   padding: .5rem .3rem;
 
   display: flex;
@@ -25,7 +25,7 @@ export const Container = styled.div`
     margin: -1.7rem 0 0;
 
     background-color: var(--gold);
-    border-radius: 0 0 .8rem .8rem;
+    /* border-radius: 0 0 .8rem .8rem; */
 
     font-weight: 400;
     font-size: 1.2rem;

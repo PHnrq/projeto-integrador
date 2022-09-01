@@ -41,7 +41,7 @@ export function CardProdutoDoador({amount, expirationDate, nameProduct, index, h
 
       <div className="add-decrease-remove-wrapper">
         <div>
-          <p>QTD</p>
+          {/* <p>QTD</p> */}
           <div className="amount__modifier">
             <button onClick={() => handleAmountDecrease()}>-</button>
             <span>{productAmount}</span>
