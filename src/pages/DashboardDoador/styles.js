@@ -9,7 +9,6 @@ export const Container = styled.div`
   main {
     display: flex;
     justify-content: space-around;
-    padding-top: 2.8rem;
     padding: 5.2rem;
   }
 
