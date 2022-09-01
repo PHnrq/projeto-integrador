@@ -5,8 +5,8 @@ import { Footer } from "../../components/FooterDashboard";
 import { CardProduto } from "../../components/CardProdutosPedido";
 import { localidadeApi } from "../../services/localidadeApi";
 import { userData } from "../../services/userData";
+import {ModalSucesso} from "../../components/ModalSucesso"
 import { Container } from "./styles";
-import { CardItemList } from "../../components/CardItemList";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -15,12 +15,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import bean from "../../assets/bean.png";
-
 import buyConfirm from "../../assets/buy-confirm.png";
-import leftArrow from "../../assets/left-arrow.png";
-import rightArrow from "../../assets/right-arrow.png";
-import sugar from "../../assets/sugar.png";
 import { CardProdutoOng } from "../../components/CardProdutoOng";
 
 export function DashboardOng({ currentUser }) {
@@ -139,8 +134,10 @@ export function DashboardOng({ currentUser }) {
   const [selectedDonors, setSelectedDonors] = useState({});
   const [ufValue, setUfValue] = useState(currentUser.uf);
   const [citiesValue, setCitiesValue] = useState("");
-  const [cart, setCart] = useState([])
-
+  const [cart, setCart] = useState([]);
+  const [dateInput, setDateInput] = useState("")
+  const [warningMsg, setWarningMsg] = useState("")
+  const [showSucessModal, setShowSucessModal] = useState(false)
 
   useEffect(() => {
     const stateSelected = ufNumber.find((i) => i.sigla === ufValue);
@@ -171,14 +168,80 @@ export function DashboardOng({ currentUser }) {
     setSelectedDonors(val);
   }
 
+  function handleDateInputChange(e){
+    setDateInput(e.target.value);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
-    userData.get(`/users/1`).then( response => (
-      userData.put(`/users/1`, { ...response.data, chart: []})
-    ))}
+    if(dateInput !== ""){
+      setWarningMsg("")
+
+      userData.get(`/users/${selectedDonors.id}`).then((response) => {
+        if (response.data.chart) {
+          userData.put(`/users/${selectedDonors.id}`, {
+            ...response.data,
+            chart: [
+              ...response.data.chart,
+              {
+                client: currentUser.name,
+                withdraw: dateInput,
+                cart: cart,
+              },
+            ],
+          });
+        } else {
+          userData.put(`/users/${selectedDonors.id}`, {
+            ...response.data,
+            chart: [
+              {
+                client: currentUser.name,
+                withdraw: dateInput,
+                cart: cart,
+              },
+            ],
+          });
+        }
+      });
+
+      setShowSucessModal(true);
+      setCart([])
+      setDateInput("")
+    }
+    else{
+      setWarningMsg("Escolha a data de retirada do pedido")
+    }
+  }
+
+  function handleRemoveProduct(index) {
+    console.log("delete");
+    const filterProducts = cart.filter(
+      (product) => cart.indexOf(product) !== index
+    );
+    setCart(filterProducts);
+  }
+
+  function handleUpdateAmount(updatedAmount, index) {
+    console.log("update");
+    const updateCurrentUserProducts = cart;
+    updateCurrentUserProducts[index].amount = updatedAmount;
+    setCart(updateCurrentUserProducts);
+  }
 
   return (
     <Container>
+      {
+        showSucessModal && <ModalSucesso 
+          withdraw={dateInput} 
+          street={selectedDonors.street} 
+          number={selectedDonors.number}
+          district={selectedDonors.district}
+          city={selectedDonors.city} 
+          uf={selectedDonors.uf}
+          cep={selectedDonors.cep}
+          setShowSucessModal={setShowSucessModal}
+        />
+      }
       <Header />
       <main className="main">
         <div className="main-wrapper">
@@ -300,46 +363,71 @@ export function DashboardOng({ currentUser }) {
                 modules={[Pagination, Navigation]}
                 className="mySwiper"
               >
-                {selectedDonors.products?
-                  selectedDonors.products.map((product => (
-                    <SwiperSlide>
-                      <CardProdutoOng 
-                        expirationDate={product.expirationDate} 
-                        nameProduct={product.nameProduct}
-                        product={product}
-                        setCart={setCart}
-                        cart={cart}
+                {selectedDonors.products
+                  ? selectedDonors.products.map((product) => (
+                      <SwiperSlide>
+                        <CardProdutoOng
+                          expirationDate={product.expirationDate}
+                          nameProduct={product.nameProduct}
+                          product={product}
+                          setCart={setCart}
+                          cart={cart}
                         />
-                    </SwiperSlide>
-                  )))
-                  : null};
-
+                      </SwiperSlide>
+                    ))
+                  : null}
+                ;
               </Swiper>
             </section>
           </div>
 
           <div className="left-container">
-            <form className="demand-form" onSubmit={(e) => handleSubmit(e)} >
+            <form className="demand-form" onSubmit={(e) => handleSubmit(e)}>
               <h2 className="demand-title">Meu pedido</h2>
 
               <div className="donor-demand-container">
-                <p className="donor-demand-name">Mercado Mão Amiga</p>
-                {cart.map(item =>(
-                  <CardProduto nameProduct={item.nameProduct} amount={item.amount}/>
-                ))}
+                <p className="donor-demand-name">{selectedDonors.name}</p>
+                <Swiper
+                  slidesPerView={2}
+                  spaceBetween={30}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  modules={[Pagination]}
+                  className="mySwiper-sm"
+                >
+                  {cart.map((product, index) => (
+                    <SwiperSlide className="swiper-flex">
+                      <CardProduto
+                        index={index}
+                        nameProduct={product.nameProduct}
+                        expirationDate={product.expirationDate}
+                        handleRemoveProduct={handleRemoveProduct}
+                        handleUpdateAmount={handleUpdateAmount}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
 
               <div className="demand-get-date">
                 <p className="demand-text">Selecione a data de retirada</p>
-                <input type="date" name="get-date" id="get-date" />
+                <input 
+                  type="date" 
+                  name="get-date" 
+                  id="get-date" 
+                  onChange={(e) => handleDateInputChange(e)}
+                  value={dateInput}
+                  />
+                  <span className="warningMsg">{warningMsg}</span>
               </div>
 
               <div className="submit-btn-container">
-              <button type="submit" className="submit-btn">
-                <img src={buyConfirm} alt="buy-confirm-icon" />
-                &nbsp;Finalizar Pedido
-              </button>
-            </div>
+                <button type="submit" className="submit-btn">
+                  <img src={buyConfirm} alt="buy-confirm-icon" />
+                  &nbsp;Finalizar Pedido
+                </button>
+              </div>
             </form>
           </div>
         </div>

@@ -20,8 +20,6 @@ export function ListaProdutosCadastrados({
   currentUserId
 }) 
 {
- 
-
   function handleRemoveProduct(index) {
     const filterProducts = currentUserProducts.filter(
       (product) => currentUserProducts.indexOf(product) !== index

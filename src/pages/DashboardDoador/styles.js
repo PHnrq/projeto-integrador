@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  
   main {
     display: flex;
     justify-content: space-around;
-    padding-top: 2.8rem;
+    padding: 5.2rem;
   }
 
   .mySwiper-sm {

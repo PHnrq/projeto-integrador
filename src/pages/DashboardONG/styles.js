@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+
+
 .container {
     width: 100%;
     height: 100%;
@@ -15,7 +21,14 @@ export const Container = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
+   padding: 5.2rem;
 }
+
+.mySwiper-sm {
+    width: 100%;
+    max-width: 42rem;
+    min-height: 22rem;
+  }
 
 .main-wrapper {
     margin-bottom: 4rem;
@@ -24,7 +37,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: stretch;
     padding-top: 4rem;
 }
 
@@ -177,6 +190,7 @@ export const Container = styled.div`
 .demand-form {
     
     width: 100%;
+    height: 100%;
     max-width: 420px;
     min-height: 400px;
     display: flex;
@@ -378,6 +392,12 @@ export const Container = styled.div`
 
   .label-sm {
     width: 70px;
+  }
+
+  .warningMsg{
+    font-size: 12px;
+    font-weight: 500;
+    color: tomato;
   }
 
 `;

@@ -8,7 +8,7 @@ export function ListaPedidos({ orderQueue }) {
       <div className="box-2">
         <div className="order">
           {orderQueue.map((order) => (
-            <OrderCard name={order.nome} carrinho={order.carrinho} />
+            <OrderCard client={order.client} cart={order.cart} />
           ))}
         </div>
       </div>

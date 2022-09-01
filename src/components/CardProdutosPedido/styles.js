@@ -9,7 +9,6 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 1.2rem;
 
-  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: .8rem;
 
   button{
