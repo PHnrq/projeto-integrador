@@ -6,7 +6,6 @@ import { CardProduto } from "../../components/CardProdutosPedido";
 import { localidadeApi } from "../../services/localidadeApi";
 import { userData } from "../../services/userData";
 import { Container } from "./styles";
-import { CardItemList } from "../../components/CardItemList";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -15,12 +14,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import bean from "../../assets/bean.png";
-
 import buyConfirm from "../../assets/buy-confirm.png";
-import leftArrow from "../../assets/left-arrow.png";
-import rightArrow from "../../assets/right-arrow.png";
-import sugar from "../../assets/sugar.png";
 import { CardProdutoOng } from "../../components/CardProdutoOng";
 
 export function DashboardOng({ currentUser }) {
@@ -139,8 +133,7 @@ export function DashboardOng({ currentUser }) {
   const [selectedDonors, setSelectedDonors] = useState({});
   const [ufValue, setUfValue] = useState(currentUser.uf);
   const [citiesValue, setCitiesValue] = useState("");
-  const [cart, setCart] = useState([])
-
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const stateSelected = ufNumber.find((i) => i.sigla === ufValue);
@@ -173,9 +166,27 @@ export function DashboardOng({ currentUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    userData.get(`/users/1`).then( response => (
-      userData.put(`/users/1`, { ...response.data, chart: []})
-    ))}
+    userData
+      .get(`/users/1`)
+      .then((response) =>
+        userData.put(`/users/1`, { ...response.data, chart: [] })
+      );
+  }
+
+  function handleRemoveProduct(index) {
+    console.log("delete");
+    const filterProducts = cart.filter(
+      (product) => cart.indexOf(product) !== index
+    );
+    setCart(filterProducts);
+  }
+
+  function handleUpdateAmount(updatedAmount, index) {
+    console.log("update");
+    const updateCurrentUserProducts = cart;
+    updateCurrentUserProducts[index].amount = updatedAmount;
+    setCart(updateCurrentUserProducts);
+  }
 
   return (
     <Container>
@@ -300,33 +311,52 @@ export function DashboardOng({ currentUser }) {
                 modules={[Pagination, Navigation]}
                 className="mySwiper"
               >
-                {selectedDonors.products?
-                  selectedDonors.products.map((product => (
-                    <SwiperSlide>
-                      <CardProdutoOng 
-                        expirationDate={product.expirationDate} 
-                        nameProduct={product.nameProduct}
-                        product={product}
-                        setCart={setCart}
-                        cart={cart}
+                {selectedDonors.products
+                  ? selectedDonors.products.map((product) => (
+                      <SwiperSlide>
+                        <CardProdutoOng
+                          expirationDate={product.expirationDate}
+                          nameProduct={product.nameProduct}
+                          product={product}
+                          setCart={setCart}
+                          cart={cart}
                         />
-                    </SwiperSlide>
-                  )))
-                  : null};
-
+                      </SwiperSlide>
+                    ))
+                  : null}
+                ;
               </Swiper>
             </section>
           </div>
 
           <div className="left-container">
-            <form className="demand-form" onSubmit={(e) => handleSubmit(e)} >
+            <form className="demand-form" onSubmit={(e) => handleSubmit(e)}>
               <h2 className="demand-title">Meu pedido</h2>
 
               <div className="donor-demand-container">
                 <p className="donor-demand-name">Mercado Mão Amiga</p>
-                {cart.map(item =>(
-                  <CardProduto nameProduct={item.nameProduct} amount={item.amount}/>
-                ))}
+                <Swiper
+                  slidesPerView={2}
+                  spaceBetween={30}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  modules={[Pagination]}
+                  className="mySwiper-sm"
+                >
+                  {cart.map((product, index) => (
+                    <SwiperSlide className="swiper-flex">
+                      <CardProduto
+                        index={index}
+                        nameProduct={product.nameProduct}
+                        amount={product.amount}
+                        expirationDate={product.expirationDate}
+                        handleRemoveProduct={handleRemoveProduct}
+                        handleUpdateAmount={handleUpdateAmount}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
 
               <div className="demand-get-date">
@@ -335,11 +365,11 @@ export function DashboardOng({ currentUser }) {
               </div>
 
               <div className="submit-btn-container">
-              <button type="submit" className="submit-btn">
-                <img src={buyConfirm} alt="buy-confirm-icon" />
-                &nbsp;Finalizar Pedido
-              </button>
-            </div>
+                <button type="submit" className="submit-btn">
+                  <img src={buyConfirm} alt="buy-confirm-icon" />
+                  &nbsp;Finalizar Pedido
+                </button>
+              </div>
             </form>
           </div>
         </div>
