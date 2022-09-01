@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
-  max-width: 10.8rem;
+  width: 85%;
+  /* max-width: 10.8rem; */
   padding: .5rem .3rem;
 
   display: flex;
@@ -17,15 +17,19 @@ export const Container = styled.div`
     cursor: pointer;
   }
 
+  img{
+    width: 100%;
+  }
+
   .available-at-tag{
     position: relative;
     
     width: 100%;
     z-index: 1;
     margin: -1.7rem 0 0;
+    padding: .4rem 0;
 
     background-color: var(--gold);
-    border-radius: 0 0 .8rem .8rem;
 
     font-weight: 400;
     font-size: 1.2rem;

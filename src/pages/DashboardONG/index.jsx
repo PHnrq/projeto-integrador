@@ -311,7 +311,6 @@ export function DashboardOng({ currentUser }) {
                   </label>
                 </form>
               </div>
-
               <div className="map-and-donors-list">
                 <ul className="donors-list">
                   {allDonors.map((donor) => {

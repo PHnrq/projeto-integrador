@@ -54,6 +54,8 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    border-bottom: 1px solid grey;
 }
 
 .find-donors-title {
@@ -77,6 +79,8 @@ export const Container = styled.div`
     font-weight: 400;
     font-size: 2.2rem;
     color: var(--dark-color);
+
+    
 }
 
 #search-radius {
@@ -130,7 +134,7 @@ export const Container = styled.div`
 }
 
 .donor-name {
-    color: var(--terciary-color);
+    color: var(--primary-color);
 }
 
 .see-all-container {
