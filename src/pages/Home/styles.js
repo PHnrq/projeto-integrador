@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import headerBg from "../../assets/header-background.png";
 
+import mobileMenu from "../../assets/mobile-menu.png";
+
 export const Container = styled.div`
   width: 100%;
   height: 100%;
@@ -112,9 +114,9 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    padding-right: 1.5rem;
     align-items: center;
     background-color: var(--secondary-color);
+    padding-inline: 2rem;
   }
 
   .publi-text {
@@ -156,6 +158,8 @@ export const Container = styled.div`
   .image2 {
     max-width: 75%;
     position: absolute;
+
+    border-radius: 1rem;
   }
 
   .image1 {
@@ -227,8 +231,10 @@ export const Container = styled.div`
   }
 
   .about-image {
-    width: 5  0%;
+    width: 50%;
     height: 80%;
+
+    border-radius: 1rem;
   }
 
   .about-text {
@@ -335,4 +341,105 @@ export const Container = styled.div`
   .footer-menu-item:hover {
     text-decoration: underline;
   }
+
+  /// MEDIA QUERY ///
+
+  // MOBILE MENU //
+  .mobile-open-menu {
+    display: none;
+  }
+
+  .mobile-close-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  // MAX WIDTH 930PX //
+
+  .mobile-open-menu {
+    @media only screen and (max-width: 930px){
+      background-image: url(${mobileMenu});
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: transparent;
+      display: flex;
+      width: 4.8rem;
+      height: 4.8rem;
+  }
+}
+
+  .header-menu {
+    @media only screen and (max-width: 930px){
+      display: none
+  }
+}
+
+  .about-image {
+    @media only screen and (max-width: 930px){
+      margin-left: 5rem;
+      width: 40%;
+      border-radius: 1rem;
+  }
+}
+
+  .about-text {
+    @media only screen and (max-width: 930px){
+      width: 60%;
+  }
+}
+
+  // MAX WIDTH 768PX //
+
+  .publi-image {
+    @media only screen and (max-width: 768px){
+      display: none
+  }
+}
+
+  .publi-text {
+    @media only screen and (max-width: 768px){
+      max-width: 86%;
+      margin-block: 2rem;
+      margin-inline: auto;
+  }
+}
+
+  .about {
+  @media only screen and (max-width: 768px){
+      width: 100%;
+      height: 32rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+}
+
+
+// OUTROS MEDIAS //
+
+.about-image {
+  @media only screen and (max-width: 760px){
+    display: none;
+  }
+}
+
+.about-text {
+  @media only screen and (max-width: 760px){
+    width: 92%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+  }
+}
+
+.our-results {
+  @media only screen and (max-width: 760px){
+    height: 40rem;
+  }
+}
+
 `;

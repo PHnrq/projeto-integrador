@@ -9,8 +9,19 @@ import publi1 from "../../assets/publi1.png";
 import publi2 from "../../assets/publi2.png";
 import aboutImg from "../../assets/image.svg";
 
+export function openMenu() {
+  document.body.classList.add('menu-expanded')
+}
+
+export function closeMenu() {
+  document.body.classList.remove('menu-expanded')
+}
+
 export function Home() {
   const [showSingInForm, setShowSingInForm] = useState(false);
+
+  
+
 
   return (
     <Container>
@@ -19,6 +30,21 @@ export function Home() {
       <header className="header" id="home">
         <div className="header-bar">
           <img className="logo" src={logo} alt="Donare" />
+
+          <button href="#" className="mobile-open-menu" aria-expanded="false" aria-label="Abrir menu" onClick={openMenu()} ></button>
+
+          <button href="#" className="mobile-close-menu" aria-expanded="true" aria-label="Fechar menu" onClick={closeMenu()} ></button>
+
+          <div className="mobile-menu">
+            <ul>
+              <li><a href="#missao" onclick="closeMenu()">Missão</a></li>
+              <li><a href="#results" onclick="closeMenu()">Publicações</a></li>
+              <li><a href="#about" onclick="closeMenu()">Sobre Nós</a></li>
+              <li><a onClick={() => {setShowSingInForm(true);}} onclick="closeMenu()">Cadastro</a></li>
+              <li><Link to="/login" onclick="closeMenu()">Login</Link></li>
+            </ul>
+          </div>
+
           <nav className="header-menu">
             <a href="#missao" className="header-menu-item">
               Missão
