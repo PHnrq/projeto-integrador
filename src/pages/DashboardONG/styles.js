@@ -394,4 +394,10 @@ export const Container = styled.div`
     width: 70px;
   }
 
+  .warningMsg{
+    font-size: 12px;
+    font-weight: 500;
+    color: tomato;
+  }
+
 `;
