@@ -8,10 +8,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Container } from "./style";
 
-export function OrderCard({ name, carrinho }) {
+export function OrderCard({ client, cart }) {
   return (
     <Container>
-      <p className="order__ong-name">{name}</p>
+      <p className="order__ong-name">{client}</p>
       <div className="order__date">
         <p className="order__date__p">Data de retirada:</p>
         <p className="order__date__number">27/07/2023</p>
@@ -26,10 +26,10 @@ export function OrderCard({ name, carrinho }) {
         modules={[Pagination]}
         className="mySwiper-sm"
       >
-        {carrinho.map((item) => {
+        {cart.map((product) => {
           return (
             <SwiperSlide className="swiper-flex">
-              <CardItemList nameProduct={item.nameProduct} amount={item.amount}/>
+              <CardItemList nameProduct={product.nameProduct} amount={product.amount}/>
             </SwiperSlide>
           );
         })}
