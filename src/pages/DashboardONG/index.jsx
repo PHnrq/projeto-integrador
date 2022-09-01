@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { Header } from "../../components/HeaderDashboard";
+import { Footer } from "../../components/FooterDashboard";
 import { CardProduto } from "../../components/CardProdutosPedido";
 import { localidadeApi } from "../../services/localidadeApi";
 import { userData } from "../../services/userData";
@@ -354,6 +355,7 @@ export function DashboardOng({ currentUser }) {
           </div>
         </div>
       </main>
+      <Footer />
     </Container>
   );
 }
