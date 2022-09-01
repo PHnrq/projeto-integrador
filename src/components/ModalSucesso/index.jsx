@@ -1,23 +1,23 @@
- import "./style.css"
+ import { Container } from "./style"
  
- export function ModalSucesso(){
+ export function ModalSucesso({withdraw, street, number, district, city, uf, cep, setShowSucessModal}){
   return(
-  <section class="container">
+  <Container>
       <div class="modal">
         <h3 class="modal-title">Pedido realizado com sucesso</h3>
 
         <p>
-          Retirar pedido dia <span class="data">12/10/2022</span> no seguinte endereço:
+          Retirar pedido dia <span class="data">{withdraw}</span> no seguinte endereço:
           <br/>
           <i class="address">
-            Rua Frederico Moura, 267 - Cidade Nova, Franca/SP
+            {street}, {number} - {district}, {city}/{uf}
             <br/>
-            CEP: 14401-150
+            CEP: {cep}
           </i>
         </p>
 
-        <button class="btn">Voltar pra tela inicial</button>
+        <button class="btn" onClick={() => setShowSucessModal(false)}>Voltar pra tela inicial</button>
       </div>
-  </section>
+  </Container>
   )
  }
