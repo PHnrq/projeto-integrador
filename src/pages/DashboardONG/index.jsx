@@ -139,25 +139,8 @@ export function DashboardOng({ currentUser }) {
   const [selectedDonors, setSelectedDonors] = useState({});
   const [ufValue, setUfValue] = useState(currentUser.uf);
   const [citiesValue, setCitiesValue] = useState("");
+  const [cart, setCart] = useState([])
 
-  const [chart, setChart] = useState({
-    nome: currentUser.name,
-    carrinho: [
-
-      {
-        "nameProduct": "Feijão Preto",
-        "amount": 3,
-        "expirationDate": "2022-09-09",
-        "productImage": ""
-      },
-      {
-        "nameProduct": "Arroz",
-        "amount": 7,
-        "expirationDate": "2022-09-07",
-        "productImage": ""
-      }
-    ]
-  });
 
   useEffect(() => {
     const stateSelected = ufNumber.find((i) => i.sigla === ufValue);
@@ -191,7 +174,7 @@ export function DashboardOng({ currentUser }) {
   function handleSubmit(e) {
     e.preventDefault();
     userData.get(`/users/1`).then( response => (
-      userData.put(`/users/1`, { ...response.data, chart:chart})
+      userData.put(`/users/1`, { ...response.data, chart: []})
     ))}
 
   return (
@@ -320,7 +303,13 @@ export function DashboardOng({ currentUser }) {
                 {selectedDonors.products?
                   selectedDonors.products.map((product => (
                     <SwiperSlide>
-                      <CardProdutoOng expirationDate={product.expirationDate} nameProduct={product.nameProduct}/>
+                      <CardProdutoOng 
+                        expirationDate={product.expirationDate} 
+                        nameProduct={product.nameProduct}
+                        product={product}
+                        setCart={setCart}
+                        cart={cart}
+                        />
                     </SwiperSlide>
                   )))
                   : null};
@@ -335,7 +324,7 @@ export function DashboardOng({ currentUser }) {
 
               <div className="donor-demand-container">
                 <p className="donor-demand-name">Mercado Mão Amiga</p>
-                {chart.carrinho.map(item =>(
+                {cart.map(item =>(
                   <CardProduto nameProduct={item.nameProduct} amount={item.amount}/>
                 ))}
               </div>
