@@ -17,12 +17,17 @@ export const Container = styled.div`
     cursor: pointer;
   }
 
+  img{
+    width: 100%;
+  }
+
   .available-at-tag{
     position: relative;
     
     width: 100%;
     z-index: 1;
     margin: -1.7rem 0 0;
+    padding: .4rem 0;
 
     background-color: var(--gold);
     /* border-radius: 0 0 .8rem .8rem; */
@@ -53,6 +58,7 @@ export const Container = styled.div`
   .add-decrease-remove-wrapper{
     font-size: 1.2rem;
     letter-spacing: 0.004em;
+    padding: 0 .4rem;
 
     color: #000000;
   }
@@ -61,6 +67,18 @@ export const Container = styled.div`
     font-size: 1.4rem;
 
     display: flex;
-    gap: 0.2rem;
+    gap: 0.4rem;
+  }
+
+  .btn_add-remove{
+    background-color: var(--arrow-btn-color);
+    display: flex;
+    align-items: center;  
+    border-radius: .5rem;
+
+    img{
+      width: 1.8rem;
+      height: 1.8rem;
+    }
   }
 `

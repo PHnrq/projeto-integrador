@@ -64,7 +64,7 @@ export function ListaProdutosCadastrados({
         >
           {currentUserProducts.map((product, index) => (
             <SwiperSlide className='swiper-flex'>
-              <div key={index}>
+              <div key={index} className="card-wrapper">
                 <CardProdutoDoador
                   index={index}
                   nameProduct={product.nameProduct}

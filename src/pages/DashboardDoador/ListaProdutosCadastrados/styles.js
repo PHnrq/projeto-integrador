@@ -36,6 +36,10 @@ export const Container = styled.div`
     gap: 2.4rem;
   }
 
+  .card-wrapper{
+    width: 100%;
+  }
+
   .btn-add-to-card {
     width: 100%;
     padding: 2rem;

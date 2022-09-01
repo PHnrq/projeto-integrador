@@ -26,7 +26,7 @@ export const GlobalStyle = createGlobalStyle`
     --dark-color: #000000;
     --light-dark-color: #09150E;
     --header-color: rgba(76, 149, 108, 0.9);
-    --arrow-btn-color: rgba(76, 149, 108, 0.25);
+    --arrow-btn-color: rgba(76, 149, 108, 0.1);
     --other-color: rgba(76, 149, 108, 0.05);
     --border-color: #9B9696;
     --border2-color: #38463E;
