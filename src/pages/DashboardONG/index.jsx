@@ -300,7 +300,7 @@ export function DashboardOng({ currentUser }) {
 
             <section className="available-products">
               <h2 className="available-products-title">
-                Produtos disponives em&nbsp;
+                Produtos disponíves em&nbsp;
                 <span className="donor-name">{selectedDonors.name}</span>
               </h2>
 

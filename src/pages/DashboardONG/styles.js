@@ -18,6 +18,7 @@ export const Container = styled.div`
 }
 
 .main-wrapper {
+    margin-bottom: 4rem;
     width: 100%;
     max-width: 1200px;
     display: flex;
@@ -32,7 +33,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4.2rem;
 }
 
 .find-donors {
@@ -45,16 +45,17 @@ export const Container = styled.div`
 
 .find-donors-title {
 
+    margin-top: 1rem;
     text-align: center;
     font-weight: 700;
     font-size: 3.2rem;
     color: var(--dark-color);
-
-    margin-left: 20px;
 }
 
 .search-radius-container {
+    width: 100%;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     gap: 2.4rem;
     padding-bottom: 2rem;
@@ -73,7 +74,9 @@ export const Container = styled.div`
 }
 
 .map-and-donors-list {
-    width: 70%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -103,14 +106,14 @@ export const Container = styled.div`
 .available-products-title {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
     font-weight: 500;
     font-size: 2.4rem;
     line-height: 2.8rem;
     color: var(--dark-color);
-    margin-top: 4rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
 }
 
 .donor-name {
@@ -172,27 +175,26 @@ export const Container = styled.div`
 }
 
 .demand-form {
-    position: relative;
     
     width: 100%;
     max-width: 420px;
-    min-height: 600px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
 
     background-color: var(--other-color);
-    border: 1px solid var(--border2-color);
-    border-radius: 3rem 3rem 0 0;
+    border-radius: 3rem;
     border-bottom: none;
 }
 
 .demand-title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     width: 100%;
     height: 20%;
-    margin-top: -2.6rem;
     font-weight: 600;
     font-size: 2.4rem;
     line-height: 2.8rem;
@@ -209,6 +211,7 @@ export const Container = styled.div`
 }
 
 .donor-demand-name {
+    margin-bottom: 2rem;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -221,6 +224,7 @@ export const Container = styled.div`
 }
 
 .donor-demand-others-data {
+    margin-bottom: 1rem;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -237,7 +241,7 @@ export const Container = styled.div`
     align-items: center;
     margin-right: 1rem;
 
-    border: 2px solid var(--border3-color);
+    
     border-radius: 8px;
 }
 
@@ -247,6 +251,7 @@ export const Container = styled.div`
 }
 
 .item-name-qtd-container {
+    margin-top: 1.2rem;
     width: 100%;
     height: 100%;
     display: flex;
@@ -282,6 +287,8 @@ export const Container = styled.div`
 }
 
 .demand-get-date {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
     width: 85%;
     height: 20%;
     display: flex;
@@ -313,14 +320,13 @@ export const Container = styled.div`
 }
 
 .submit-btn-container {
-    position: absolute;
-    top: 570px;
-    width: 100.5%;
+    width: 100%;
     height: 7rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    align-self: flex-end;
     background-color: var(--primary-color);
     border: none;
     border-radius: 0 0 2rem 2rem;
