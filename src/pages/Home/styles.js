@@ -2,29 +2,33 @@ import styled from "styled-components";
 
 import headerBg from "../../assets/header-background.png";
 
+import mobileMenu from "../../assets/mobile-menu.png";
+
 export const Container = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  height: 100%;
 
   .header {
     width: 100%;
+    height: 110vh;
     background-image: url(${headerBg});
     background-repeat: no-repeat;
   }
 
   .header-bar {
     width: 100%;
-    height: 9.4rem;
+    height: 14%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-inline: 4rem;
+    gap: 5rem;
     align-items: center;
-    padding-inline: 3rem;
     background-color: var(--primary-color);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     opacity: 0.9;
   }
+
   .header-menu-item {
     font-weight: 400;
     font-size: 1.8rem;
@@ -32,6 +36,10 @@ export const Container = styled.div`
     text-decoration: none;
     margin-right: 3.2rem;
     color: var(--secondary-color);
+  }
+
+  .header-menu-item:hover {
+    text-decoration: underline;
   }
 
   .btn-create-account,
@@ -54,21 +62,27 @@ export const Container = styled.div`
     margin-right: 3.2rem;
   }
 
+  .btn-create-account:hover {
+    scale: 1.1;
+  }
+
   .btn-login {
     background-color: transparent;
     border: 1px solid var(--button-color);
   }
 
+  .btn-login:hover {
+    background-color: var(--button-color);
+  }
+
   .header-content {
-    max-width: 500px;
-    width: 100%;
+    max-width: 50rem;
+    height: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: flex-start;
-    gap: 5.2rem;
-    padding: 9.2rem 0 15.6rem;
-    margin-left: 11.4rem;
+    margin-left: 10%;
   }
 
   .header-subtitle {
@@ -91,17 +105,18 @@ export const Container = styled.div`
 
   .main {
     width: 100%;
+    height: 88%;
   }
 
   .publications {
     width: 100%;
-    padding: 1.6rem;
-    height: fit-content;
+    height: 40%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     background-color: var(--secondary-color);
+    padding-inline: 2rem;
   }
 
   .publi-text {
@@ -110,6 +125,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: flex-start;
     gap: 2.4rem;
+    margin-block: 1rem;
   }
 
   .publi-title {
@@ -132,16 +148,18 @@ export const Container = styled.div`
   }
 
   .publi-image {
-    position: relative;
     width: 100%;
-    max-width: 30%;
-    height: 40rem;
+    max-width: 40%;
+    height: 45rem;
+    position: relative;
   }
 
   .image1,
   .image2 {
-    width: 28rem;
+    max-width: 75%;
     position: absolute;
+
+    border-radius: 1rem;
   }
 
   .image1 {
@@ -156,7 +174,7 @@ export const Container = styled.div`
 
   .our-results {
     width: 100%;
-    height: 30rem;
+    height: 25rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -177,13 +195,16 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    text-align: center;
+    gap: 2rem;
+    flex-wrap: wrap;
   }
 
   .tons-quantity,
   .people-quantity,
   .city-quantity {
     font-weight: 500;
-    font-size: 4.8rem;
+    font-size: 400%;
     line-height: 140.62%;
     color: var(--secondary-color);
   }
@@ -193,7 +214,7 @@ export const Container = styled.div`
   .city-text {
     text-align: center;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 180%;
     line-height: 140.62%;
     color: var(--secondary-color);
   }
@@ -205,12 +226,15 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    padding-inline: 2rem;
     background-color: var(--secondary-color);
   }
 
   .about-image {
     width: 50%;
     height: 80%;
+
+    border-radius: 1rem;
   }
 
   .about-text {
@@ -278,7 +302,7 @@ export const Container = styled.div`
 
   .footer {
     width: 100%;
-    height: 20rem;
+    height: 18rem;
     background-color: var(--footer-color);
     color: var(--secondary-color);
     display: flex;
@@ -297,18 +321,125 @@ export const Container = styled.div`
   }
 
   .footer-menu {
-    width: 40%;
+    width: 50%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     font-weight: 700;
     font-size: 1.6rem;
     line-height: 2rem;
+    flex-wrap: wrap;
+    gap: 2rem;
   }
 
   .footer-menu-item {
     color: var(--secondary-color);
     text-decoration: none;
   }
+
+  .footer-menu-item:hover {
+    text-decoration: underline;
+  }
+
+  /// MEDIA QUERY ///
+
+  // MOBILE MENU //
+  .mobile-open-menu {
+    display: none;
+  }
+
+  .mobile-close-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  // MAX WIDTH 930PX //
+
+  .mobile-open-menu {
+    @media only screen and (max-width: 930px){
+      background-image: url(${mobileMenu});
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: transparent;
+      display: flex;
+      width: 4.8rem;
+      height: 4.8rem;
+  }
+}
+
+  .header-menu {
+    @media only screen and (max-width: 930px){
+      display: none
+  }
+}
+
+  .about-image {
+    @media only screen and (max-width: 930px){
+      margin-left: 5rem;
+      width: 40%;
+      border-radius: 1rem;
+  }
+}
+
+  .about-text {
+    @media only screen and (max-width: 930px){
+      width: 60%;
+  }
+}
+
+  // MAX WIDTH 768PX //
+
+  .publi-image {
+    @media only screen and (max-width: 768px){
+      display: none
+  }
+}
+
+  .publi-text {
+    @media only screen and (max-width: 768px){
+      max-width: 86%;
+      margin-block: 2rem;
+      margin-inline: auto;
+  }
+}
+
+  .about {
+  @media only screen and (max-width: 768px){
+      width: 100%;
+      height: 32rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+}
+
+
+// OUTROS MEDIAS //
+
+.about-image {
+  @media only screen and (max-width: 760px){
+    display: none;
+  }
+}
+
+.about-text {
+  @media only screen and (max-width: 760px){
+    width: 92%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+  }
+}
+
+.our-results {
+  @media only screen and (max-width: 760px){
+    height: 40rem;
+  }
+}
+
 `;
