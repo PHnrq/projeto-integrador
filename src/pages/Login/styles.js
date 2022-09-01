@@ -29,8 +29,6 @@ export const Container = styled.div`
     align-items: center;
     justify-content: flex-start;
 
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
     font-weight: 400;
     font-size: 1.6rem;
     line-height: 2.3rem;
@@ -59,28 +57,23 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    max-width: 472px;
-    height: 542px;
     border-radius: 10px;
     background-color: #f5f5f5;
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
 
     font-size: 1.6rem;
 
-    padding: 3.2rem 3.6rem;
+    padding: 4.2rem 3.6rem;
   }
 
   .main-right__login__input {
-    width: 80%;
-    height: 3.5rem;
+    width: 330px;
+    height: 3.2rem;
     border-radius: 10px;
     border: 1px solid #ccc;
     padding: 2.4rem 1.6rem;
     margin-bottom: 3.2rem;
 
-    font-family: "Work Sans";
-    font-style: normal;
     font-weight: 400;
     font-size: 1.6rem;
 
@@ -103,7 +96,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
 
-    width: 80%;
+    width: 100%;
     height: 3.5rem;
     border-radius: 10px;
     border: none;
@@ -122,19 +115,14 @@ export const Container = styled.div`
 
   .btn-text {
     margin-left: 0.4rem;
-    font-family: "Work Sans";
-    font-style: normal;
-    font-weight: 400;
     font-size: 1.6rem;
     text-align: center;
     letter-spacing: -0.02em;
   }
 
   .main-right__login__link {
-    font-family: "Work Sans";
-    font-style: normal;
     font-weight: 100;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     text-align: center;
     letter-spacing: -0.02em;
     color: var(--geen);
@@ -151,13 +139,36 @@ export const Container = styled.div`
   .main-right__register {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-    font-family: Work Sans;
   }
 
   .btn-register {
     background-color: var(--gold);
     color: #fff;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    font-weight: 500;
     margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width: 768px){
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .main-left__logo{
+      width: 32rem
+    }
+
+    .main-left__description{
+      display: none;
+    }
+
+    .main-right__login{
+      padding: 4.2rem 1.6rem;
+    }
+  }
+
+  @media screen and (max-width: 376px){
+    .main-right__login__input{
+      width: 30rem
+    }
   }
 `;
