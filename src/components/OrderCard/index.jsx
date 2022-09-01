@@ -8,13 +8,13 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Container } from "./style";
 
-export function OrderCard({ client, cart }) {
+export function OrderCard({ client, cart, withdraw }) {
   return (
     <Container>
       <p className="order__ong-name">{client}</p>
       <div className="order__date">
         <p className="order__date__p">Data de retirada:</p>
-        <p className="order__date__number">27/07/2023</p>
+        <p className="order__date__number">{withdraw}</p>
       </div>
 
       <Swiper

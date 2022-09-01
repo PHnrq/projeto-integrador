@@ -23,6 +23,7 @@ export const Container = styled.div`
 
     display: flex;
     justify-content: space-between;
+    gap: .6rem;
 
     font-size: 1.6rem;
     letter-spacing: 0.004em;
