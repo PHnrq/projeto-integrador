@@ -7,7 +7,7 @@ import trashImg from "../../assets/trash.png";
 
 //Receber como paramentro todas a propriedades necessarias.
 export function CardProduto({amount, nameProduct, index, handleRemoveProduct, handleUpdateAmount}) {
-  const [productAmount, setProductAmount] = useState(parseInt(amount))
+  const [productAmount, setProductAmount] = useState(1)
 
   function handleAmountDecrease() {
     if(productAmount <= 1){
