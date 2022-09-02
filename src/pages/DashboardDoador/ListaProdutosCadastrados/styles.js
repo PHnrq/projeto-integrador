@@ -14,6 +14,7 @@ export const Container = styled.div`
   .registered-products {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   .registered-products__title {
@@ -51,10 +52,19 @@ export const Container = styled.div`
     cursor: pointer;
     margin-top: 2.9rem;
   }
-
   .icon-btn {
     width: 1.5rem;
     position: relative;
     top: 0.2rem;
   }
+  @media screen and (max-width: 768px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .btn-add-to-card {
+      width: 60%;
+    }
+  }
+
+
 `
