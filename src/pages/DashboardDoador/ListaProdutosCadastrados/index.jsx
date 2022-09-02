@@ -60,7 +60,7 @@ export function ListaProdutosCadastrados({
           clickable: true,
         }}
         modules={[Pagination]}
-          className="mySwiper"
+        className="mySwiper"
         >
           {currentUserProducts.map((product, index) => (
             <SwiperSlide className='swiper-flex'>

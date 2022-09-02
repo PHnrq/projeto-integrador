@@ -16,6 +16,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 
   .registered-products__title {
@@ -24,6 +25,7 @@ export const Container = styled.div`
     text-align: center;
 
     margin-bottom: 3.6rem;
+    margin-left: 3.1rem;
   }
 
   .mySwiper {
@@ -69,9 +71,17 @@ export const Container = styled.div`
     .registered-products__title {
       font-size: 3rem;
     }
-    .btn-add-to-card {
-      width: 60%;
+    .mySwiper {
+      max-width: 400px;
     }
+    .btn-add-to-card {
+      width: 70%;
+    }
+    .swiper-flex {
+      gap: 1rem;
+
+    }
+
   }
 
 
