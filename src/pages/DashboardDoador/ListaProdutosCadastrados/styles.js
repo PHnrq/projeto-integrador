@@ -7,6 +7,7 @@ export const Container = styled.div`
  .products {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
   }
@@ -35,10 +36,14 @@ export const Container = styled.div`
   .swiper-flex{
     display: flex;
     gap: 2.4rem;
+    justify-content: center;
+    align-items: center;
   }
 
   .card-wrapper{
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .btn-add-to-card {
@@ -61,6 +66,9 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    .registered-products__title {
+      font-size: 3rem;
+    }
     .btn-add-to-card {
       width: 60%;
     }
