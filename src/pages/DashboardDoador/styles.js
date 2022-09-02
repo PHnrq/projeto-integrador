@@ -32,4 +32,17 @@ export const Container = styled.div`
     align-items: center;
     margin-right: 3rem;
   }
+
+  @media screen and (max-width: 768px){
+    .container {
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+  }
+
+  @media screen and (max-width: 376px){
+    
+  }
 `;
