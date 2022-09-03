@@ -90,11 +90,13 @@ export const Container = styled.div`
       max-width: 350px;
     }
     .registered-products__title {
+      font-size: 2.6rem;
       margin-bottom: 1rem;
     }
-    .header {
-      height: 70px;
+    .btn-add-to-card {
+      margin-top: 1.5rem;
     }
+
 
 
     }

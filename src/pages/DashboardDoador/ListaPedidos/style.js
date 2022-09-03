@@ -36,4 +36,9 @@ export const Container = styled.div`
 
     justify-content: flex-start;
   }
+  @media screen and (max-width: 375px) {
+    .order__title {
+      font-size: 2.1rem;
+    }
+  }
 `;

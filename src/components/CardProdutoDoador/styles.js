@@ -81,4 +81,8 @@ export const Container = styled.div`
       height: 1.8rem;
     }
   }
+
+  @media screen and (max-width: 375px) {
+    max-width: 10rem;
+  }
 `
