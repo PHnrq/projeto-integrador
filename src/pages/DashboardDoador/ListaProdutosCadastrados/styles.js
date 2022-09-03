@@ -27,7 +27,7 @@ export const Container = styled.div`
     font-family: "Poppins", sans-serif;
     font-size: 3.6rem;
     text-align: center;
-    margin-bottom: 3.6rem;
+    margin-bottom: 3rem;
   }
 
   .mySwiper {
@@ -85,12 +85,12 @@ export const Container = styled.div`
     }
 
     @media screen and (max-width: 375px) {
-      padding-left: 2rem;
+      padding-left: 3rem;
       .mySwiper {
-      max-width: 320px;
+      max-width: 350px;
     }
     .registered-products__title {
-      margin-bottom: 1.7rem;
+      margin-bottom: 1rem;
     }
 
 
