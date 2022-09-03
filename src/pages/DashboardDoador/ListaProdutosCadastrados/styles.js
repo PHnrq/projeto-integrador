@@ -92,6 +92,9 @@ export const Container = styled.div`
     .registered-products__title {
       margin-bottom: 1rem;
     }
+    .header {
+      height: 70px;
+    }
 
 
     }
