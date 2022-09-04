@@ -86,7 +86,7 @@ export const Container = styled.div`
 
     @media screen and (max-width: 768px) {
       .registered-products__title {
-        margin-bottom: 1rem;
+        margin-bottom: 0.8rem;
       }
 
 
