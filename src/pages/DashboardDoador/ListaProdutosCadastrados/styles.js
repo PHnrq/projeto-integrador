@@ -72,23 +72,17 @@ export const Container = styled.div`
     align-items: center;
     .registered-products__title {
       font-size: 3rem;
+      margin-bottom: 0.8rem;
     }
     .mySwiper {
       max-width: 400px;
     }
     .btn-add-to-card {
+      margin-top: 2rem;
       width: 70%;
     }
     .swiper-flex {
       gap: 1rem;
-
-    }
-
-    @media screen and (max-width: 768px) {
-      .registered-products__title {
-        margin-bottom: 0.8rem;
-      }
-
 
     }
 
