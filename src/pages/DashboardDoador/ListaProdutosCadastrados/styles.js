@@ -84,6 +84,14 @@ export const Container = styled.div`
 
     }
 
+    @media screen and (max-width: 768px) {
+      .registered-products__title {
+        margin-bottom: 1rem;
+      }
+
+
+    }
+
     @media screen and (max-width: 375px) {
       padding-left: 3rem;
       .mySwiper {
@@ -91,7 +99,6 @@ export const Container = styled.div`
     }
     .registered-products__title {
       font-size: 2.6rem;
-      margin-bottom: 1rem;
     }
     .btn-add-to-card {
       margin-top: 1.5rem;
