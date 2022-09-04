@@ -26,6 +26,16 @@ export const Container = styled.header`
         margin-right: 3.2rem;
         padding: .6rem 0;
     }
+    @media screen and (max-width: 768px) {
+        height: 7.2rem;
+        .header__logo {
+            width: 9.3rem;
+        }
+        .logout {
+            width: 7rem;
+        }
+
+    }
 
     @media screen and (max-width: 375px) {
         height: 6.3rem;
