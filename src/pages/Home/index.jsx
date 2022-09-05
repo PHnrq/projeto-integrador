@@ -20,11 +20,15 @@ export function Home() {
     document.querySelector('nav').classList.toggle('header-menu-hidden')
   }
 
+  function handleCookies(){
+    setIsCookiesOpen(false)
+  }
+
   return (
     <Container>
-      {/* {isCookiesOpen && <ModalCookies setIsCookiesOpen={setIsCookiesOpen}/>} */}
+      {/* {isCookiesOpen && <ModalCookies setIsCookiesOpen={handleCookies}/>} */}
 
-      {showSingInForm && <FormCadastro setShowSingInForm={setIsCookiesOpen} />}
+      {showSingInForm && <FormCadastro setShowSingInForm={setShowSingInForm} />}
 
       <header className="header" id="home">
         <div className="header-bar">
