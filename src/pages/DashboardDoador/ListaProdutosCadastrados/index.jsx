@@ -67,6 +67,7 @@ export function ListaProdutosCadastrados({
               <div key={index} className="card-wrapper">
                 <CardProdutoDoador
                   index={index}
+                  productImage={product.productImage}
                   nameProduct={product.nameProduct}
                   amount={product.amount}
                   expirationDate={product.expirationDate}
