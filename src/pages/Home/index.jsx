@@ -8,20 +8,15 @@ import logo from "../../assets/logo.svg";
 import publi1 from "../../assets/publi1.png";
 import publi2 from "../../assets/publi2.png";
 import aboutImg from "../../assets/image.svg";
+import openMenuIcon from "../../assets/mobile-menu.png"
 
-export function openMenu() {
-  document.body.classList.add('menu-expanded')
-}
-
-export function closeMenu() {
-  document.body.classList.remove('menu-expanded')
-}
 
 export function Home() {
   const [showSingInForm, setShowSingInForm] = useState(false);
 
-  
-
+  function handleShowMenu() {
+    document.querySelector('nav').classList.toggle('header-menu-hidden')
+  }
 
   return (
     <Container>
@@ -29,41 +24,33 @@ export function Home() {
 
       <header className="header" id="home">
         <div className="header-bar">
-          <img className="logo" src={logo} alt="Donare" />
-
-          <button href="#" className="mobile-open-menu" aria-expanded="false" aria-label="Abrir menu" onClick={openMenu()} ></button>
-
-          <button href="#" className="mobile-close-menu" aria-expanded="true" aria-label="Fechar menu" onClick={closeMenu()} ></button>
-
-          <div className="mobile-menu">
-            <ul>
-              <li><a href="#missao" onclick="closeMenu()">Missão</a></li>
-              <li><a href="#results" onclick="closeMenu()">Publicações</a></li>
-              <li><a href="#about" onclick="closeMenu()">Sobre Nós</a></li>
-              <li><a onClick={() => {setShowSingInForm(true);}} onclick="closeMenu()">Cadastro</a></li>
-              <li><Link to="/login" onclick="closeMenu()">Login</Link></li>
-            </ul>
+          <div>
+            <img className="logo" src={logo} alt="Donare" />
+            <button onClick={() => handleShowMenu()}>
+              <img src={openMenuIcon} alt='Abrir menu'/>
+            </button>
           </div>
 
-          <nav className="header-menu">
-            <a href="#missao" className="header-menu-item">
+          <nav className="header-menu header-menu-hidden">
+            <a href="#missao" className="header-menu-item" onClick={() => handleShowMenu()}>
               Missão
             </a>
-            <a href="#results" className="header-menu-item">
+            <a href="#results" className="header-menu-item" onClick={() => handleShowMenu()}>
               Publicações
             </a>
-            <a href="#about" className="header-menu-item">
+            <a href="#about" className="header-menu-item" onClick={() => handleShowMenu()}>
               Sobre Nós
             </a>
             <button
               className="btn-create-account"
               onClick={() => {
+                handleShowMenu()
                 setShowSingInForm(true);
               }}
             >
               Cadastro
             </button>
-            <Link to="/login">
+            <Link to="/login" onClick={() => handleShowMenu()}>
               <button className="btn-login">Login</button>
             </Link>
           </nav>
