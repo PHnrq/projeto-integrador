@@ -4,6 +4,8 @@ import { Container } from "./styles";
 
 import placeholderImg from "../../assets/placeholder-Img.svg";
 import trashImg from "../../assets/trash.png";
+import addIcon from "../../assets/add_FILL0_wght400_GRAD0_opsz48 1.svg"
+import removeIcon from "../../assets/remove_FILL0_wght400_GRAD0_opsz48 1.svg"
 
 //Receber como paramentro todas a propriedades necessarias.
 export function CardProduto({amount, nameProduct, index, handleRemoveProduct, handleUpdateAmount, productImage}) {
@@ -27,16 +29,16 @@ export function CardProduto({amount, nameProduct, index, handleRemoveProduct, ha
   return (
     <Container>
       <div>
-        <img src={productImage? productImage : placeholderImg} alt=""/>
+        <img src={productImage? productImage : placeholderImg} alt="" className="product-img"/>
       </div>
       <p className="product-name">{nameProduct}</p>
 
       <div className="add-decrease-remove-wrapper">
         <div>
           <div className="amount__modifier">
-            <button onClick={() => handleAmountDecrease()}>-</button>
+            <button onClick={() => handleAmountDecrease()} className="btn_add-remove"><img src={removeIcon} alt="Diminuir" /></button>
             <span>{productAmount}</span>
-            <button onClick={() => handleAmountIncrease()}>+</button>
+            <button onClick={() => handleAmountIncrease()} className="btn_add-remove"><img src={addIcon} alt="Adicionar" /></button>
           </div>
         </div>
 

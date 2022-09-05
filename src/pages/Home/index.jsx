@@ -9,10 +9,12 @@ import publi1 from "../../assets/publi1.png";
 import publi2 from "../../assets/publi2.png";
 import aboutImg from "../../assets/image.svg";
 import openMenuIcon from "../../assets/mobile-menu.png"
+import { ModalCookies } from "../../components/ModalCookies/index.jsx";
 
 
 export function Home() {
   const [showSingInForm, setShowSingInForm] = useState(false);
+  const [isCookiesOpen, setIsCookiesOpen] = useState(true)
 
   function handleShowMenu() {
     document.querySelector('nav').classList.toggle('header-menu-hidden')
@@ -20,7 +22,9 @@ export function Home() {
 
   return (
     <Container>
-      {showSingInForm && <FormCadastro setShowSingInForm={setShowSingInForm} />}
+      {/* {isCookiesOpen && <ModalCookies setIsCookiesOpen={setIsCookiesOpen}/>} */}
+
+      {showSingInForm && <FormCadastro setShowSingInForm={setIsCookiesOpen} />}
 
       <header className="header" id="home">
         <div className="header-bar">
@@ -36,7 +40,7 @@ export function Home() {
               Missão
             </a>
             <a href="#results" className="header-menu-item" onClick={() => handleShowMenu()}>
-              Publicações
+              Resultados
             </a>
             <a href="#about" className="header-menu-item" onClick={() => handleShowMenu()}>
               Sobre Nós
