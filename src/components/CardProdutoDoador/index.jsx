@@ -7,7 +7,7 @@ import addIcon from "../../assets/add_FILL0_wght400_GRAD0_opsz48 1.svg"
 import removeIcon from "../../assets/remove_FILL0_wght400_GRAD0_opsz48 1.svg"
 import trashImg from "../../assets/trash.png";
 
-export function CardProdutoDoador({amount, expirationDate, nameProduct, index, handleRemoveProduct, handleUpdateAmount}) {
+export function CardProdutoDoador({amount, productImage, expirationDate, nameProduct, index, handleRemoveProduct, handleUpdateAmount}) {
   const [productAmount, setProductAmount] = useState(parseInt(amount))
 
   function handleAmountDecrease() {
@@ -27,7 +27,7 @@ export function CardProdutoDoador({amount, expirationDate, nameProduct, index, h
   return (
     <Container>
       <div>
-        <img src={placeholderImg} alt=""/>
+        <img src={productImage? productImage : placeholderImg} alt=""/>
         <p className="available-at-tag">VAL: {expirationDate}</p>
       </div>
       <p className="product-name">{nameProduct}</p>
