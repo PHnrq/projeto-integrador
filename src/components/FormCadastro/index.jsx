@@ -115,7 +115,7 @@ export function FormCadastro({setShowSingInForm}) {
         return errors;
       }}
       onSubmit={(values) => {
-        userData.post("/users", values);
+        userData.post("users", values);
         navigate("/login", { replace: true });
         setShowSingInForm(false);
       }}
