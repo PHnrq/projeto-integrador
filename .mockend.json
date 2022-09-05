@@ -1,0 +1,79 @@
+{
+  "users": [
+    {
+      "name": "Mercado Mão Amiga",
+      "email": "mercado@email.com",
+      "tel": "(11) 98765-4321",
+      "password": "Senha123",
+      "cep": "01153000",
+      "street": "Rua Coronel Texeira",
+      "number": "03",
+      "district": "Centro",
+      "complement": "",
+      "city": "São Paulo",
+      "uf": "SP",
+      "type": "Doador",
+      "id": 1,
+      "products": [
+        {
+          "nameProduct": "Farinha",
+          "amount": 15,
+          "expirationDate": "2022-09-08",
+          "productImage": ""
+        },
+        {
+          "nameProduct": "Macarrão parafuso",
+          "amount": 10,
+          "expirationDate": "2022-09-02",
+          "productImage": ""
+        },
+        {
+          "nameProduct": "Feijão Preto",
+          "amount": 3,
+          "expirationDate": "2022-08-30",
+          "productImage": ""
+        },
+        {
+          "nameProduct": "Farinha",
+          "amount": 20,
+          "expirationDate": "2022-08-30",
+          "productImage": ""
+        },
+        {
+          "nameProduct": "Margarina",
+          "amount": 3,
+          "expirationDate": "2023-01-31",
+          "productImage": ""
+        },
+        {
+          "nameProduct": "Oleo de Soja",
+          "amount": 4,
+          "expirationDate": "2022-12-31",
+          "productImage": ""
+        },
+        {
+          "nameProduct": "Farinha de Trigo",
+          "amount": 4,
+          "expirationDate": "2022-12-31",
+          "productImage": ""
+        }
+      ],
+      "chart": []
+    },
+    {
+      "name": "ONG Criança Feliz",
+      "email": "criancafeliz@email.com",
+      "tel": "(55) 12334-5678",
+      "password": "Senha123",
+      "cep": "04843425",
+      "street": "Viela 16",
+      "number": "130",
+      "district": "Jardim Helena",
+      "complement": "",
+      "city": "São Paulo",
+      "uf": "SP",
+      "type": "Beneficiado",
+      "id": 2
+    }
+  ]
+}

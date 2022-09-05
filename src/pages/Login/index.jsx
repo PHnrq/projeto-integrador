@@ -20,7 +20,8 @@ export function Login({handleCurrentUser}) {
 
   useEffect(() => {
     userData.get("/users").then((r) => {
-      const data = r.data;
+      const data = r.data.users;
+      console.log(data);
       setUserDB(data);
     });
   }, []);
@@ -35,7 +36,6 @@ export function Login({handleCurrentUser}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const userSelected = userDB.find((user) => user.email === email);
 
     if(userSelected){
