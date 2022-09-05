@@ -29,7 +29,7 @@ export function OrderCard({ client, cart, withdraw }) {
         {cart.map((product) => {
           return (
             <SwiperSlide className="swiper-flex">
-              <CardItemList nameProduct={product.nameProduct} amount={product.amount}/>
+              <CardItemList nameProduct={product.nameProduct} productImage={product.productImage} amount={product.amount}/>
             </SwiperSlide>
           );
         })}

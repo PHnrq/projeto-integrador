@@ -3,11 +3,11 @@ import { Container } from "./styles";
 import placeholderImg from "../../assets/placeholder-Img.svg";
 import addCartImg from "../../assets/buy-add.png";
 
-export function CardProdutoOng({expirationDate, nameProduct, product, setCart, cart}) {
+export function CardProdutoOng({expirationDate, nameProduct, product, setCart, cart, productImage}) {
   return (
     <Container>
       <div>
-        <img src={placeholderImg} />
+        <img src={productImage? productImage : placeholderImg} alt=""/>
         <p className="available-at-tag">VAL: {expirationDate}</p>
       </div>
       <p className="product-name">{nameProduct}</p>
