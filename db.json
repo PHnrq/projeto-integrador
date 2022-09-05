@@ -16,46 +16,28 @@
       "id": 1,
       "products": [
         {
-          "nameProduct": "Farinha",
-          "amount": 15,
-          "expirationDate": "2022-09-08",
-          "productImage": ""
-        },
-        {
-          "nameProduct": "Macarrão parafuso",
-          "amount": 10,
-          "expirationDate": "2022-09-02",
-          "productImage": ""
-        },
-        {
           "nameProduct": "Feijão Preto",
           "amount": 3,
           "expirationDate": "2022-08-30",
-          "productImage": ""
-        },
-        {
-          "nameProduct": "Farinha",
-          "amount": 20,
-          "expirationDate": "2022-08-30",
-          "productImage": ""
+          "productImage": "https://static.paodeacucar.com/img/uploads/1/42/530042.jpg"
         },
         {
           "nameProduct": "Margarina",
           "amount": 3,
           "expirationDate": "2023-01-31",
-          "productImage": ""
+          "productImage": "https://static.clubeextra.com.br/img/uploads/1/576/19830576.jpg"
         },
         {
           "nameProduct": "Oleo de Soja",
           "amount": 4,
           "expirationDate": "2022-12-31",
-          "productImage": ""
+          "productImage": "https://cf.shopee.com.br/file/b8e7fd7e2a958feab959aa8aaac969a0"
         },
         {
           "nameProduct": "Farinha de Trigo",
           "amount": 4,
           "expirationDate": "2022-12-31",
-          "productImage": ""
+          "productImage": "https://images.app.goo.gl/ELgFyNVhxaAbbiaw5"
         }
       ],
       "chart": []
