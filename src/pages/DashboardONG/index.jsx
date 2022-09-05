@@ -366,6 +366,7 @@ export function DashboardOng({ currentUser }) {
                         <CardProdutoOng
                           expirationDate={product.expirationDate}
                           nameProduct={product.nameProduct}
+                          productImage={product.productImage}
                           product={product}
                           setCart={setCart}
                           cart={cart}
@@ -398,6 +399,7 @@ export function DashboardOng({ currentUser }) {
                       <CardProduto
                         index={index}
                         nameProduct={product.nameProduct}
+                        productImage={product.productImage}
                         expirationDate={product.expirationDate}
                         handleRemoveProduct={handleRemoveProduct}
                         handleUpdateAmount={handleUpdateAmount}

@@ -6,7 +6,7 @@ import placeholderImg from "../../assets/placeholder-Img.svg";
 import trashImg from "../../assets/trash.png";
 
 //Receber como paramentro todas a propriedades necessarias.
-export function CardProduto({amount, nameProduct, index, handleRemoveProduct, handleUpdateAmount}) {
+export function CardProduto({amount, nameProduct, index, handleRemoveProduct, handleUpdateAmount, productImage}) {
   const [productAmount, setProductAmount] = useState(1)
 
   function handleAmountDecrease() {
@@ -27,7 +27,7 @@ export function CardProduto({amount, nameProduct, index, handleRemoveProduct, ha
   return (
     <Container>
       <div>
-        <img src={placeholderImg} alt=""/>
+        <img src={productImage? productImage : placeholderImg} alt=""/>
       </div>
       <p className="product-name">{nameProduct}</p>
 
