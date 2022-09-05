@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const userData = axios.create({
-  baseURL: "https://donare-dh.herokuapp.com"
+  baseURL: "https://my-json-server.typicode.com/PHnrq/fake-api/"
 })

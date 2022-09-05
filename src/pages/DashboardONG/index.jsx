@@ -152,10 +152,8 @@ export function DashboardOng({ currentUser }) {
 
   useEffect(() => {
     userData.get("users?type=Doador").then((r) => {
-      const data = r.data.users
-      const donorsList = data.filter(i => i.type === 'Doador');
-      console.log(donorsList)
-      setAllDonors(donorsList);
+      const data = r.data
+      setAllDonors(data);
     });
   }, []);
 

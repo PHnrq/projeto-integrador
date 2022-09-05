@@ -20,8 +20,7 @@ export function Login({handleCurrentUser}) {
 
   useEffect(() => {
     userData.get("/users").then((r) => {
-      const data = r.data.users;
-      console.log(data);
+      const data = r.data;
       setUserDB(data);
     });
   }, []);

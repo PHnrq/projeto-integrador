@@ -60,14 +60,14 @@ export function ModalCadastroProdutos({
           onSubmit={async (values) => {
             userData.get(`/users/${currentUserId}`).then((response) => {
               if (response.data.products) {
-                userData.put(`/users/${currentUserId}`, {
+                userData.put(`users/${currentUserId}`, {
                   ...response.data,
                   products: [...response.data.products, values],
                 });
 
                 setCurrentUserProducts([...response.data.products, values])
               } else {
-                userData.put(`/users/${currentUserId}`, {
+                userData.put(`users/${currentUserId}`, {
                   ...response.data,
                   products: [values],
                 });
