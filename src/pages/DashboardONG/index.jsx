@@ -353,9 +353,6 @@ export function DashboardOng({ currentUser }) {
               <Swiper
                 slidesPerView={3}
                 spaceBetween={30}
-                slidesPerGroup={3}
-                loop={true}
-                loopFillGroupWithBlank={true}
                 pagination={{
                   clickable: true,
                 }}
