@@ -16,6 +16,10 @@ export const Container = styled.div`
     cursor: pointer;
   }
 
+  .product-img{
+    width: 100%;
+  }
+
   .available-at-tag{
     position: relative;
     
@@ -65,6 +69,18 @@ export const Container = styled.div`
     letter-spacing: 0.004em;
 
     color: #000000;
+  }
+
+  .btn_add-remove{
+    background-color: var(--arrow-btn-color);
+    display: flex;
+    align-items: center;  
+    border-radius: .5rem;
+
+    img{
+      width: 1.8rem;
+      height: 1.8rem;
+    }
   }
 
   .amount__modifier{
