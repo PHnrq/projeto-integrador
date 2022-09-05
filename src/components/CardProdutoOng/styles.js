@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 85%;
   /* max-width: 10.8rem; */
   padding: .5rem .3rem;
 
@@ -47,6 +46,17 @@ export const Container = styled.div`
     letter-spacing: 0.004em;
 
     color: #000000;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+
+    &:hover{
+      overflow: visible; 
+      white-space: normal;
+    }
   }
 
   .add-decrease-remove-wrapper{

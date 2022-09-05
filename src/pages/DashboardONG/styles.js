@@ -21,7 +21,7 @@ export const Container = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
-   padding: 5.2rem;
+   padding: 5.2rem 1.6rem;
 }
 
 .mySwiper-sm {
@@ -38,7 +38,6 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: space-around;
     align-items: stretch;
-    padding-top: 4rem;
 }
 
 .right-container {
@@ -402,6 +401,36 @@ export const Container = styled.div`
     font-size: 12px;
     font-weight: 500;
     color: tomato;
+  }
+
+  @media screen and (max-width: 768px){
+    .main-wrapper{
+        flex-direction: column;
+    }
+
+    .right-container, .left-container{
+        width: unset;
+    }
+
+    .search-radius-container{
+        flex-direction: column;
+    }
+
+    .available-products-title{
+        display: block;
+    }
+
+    .mySwiper {
+        max-width: 350px;
+      }
+
+    .map-and-donors-list{
+      justify-content: center;
+    }
+
+    .demand-form{
+        margin-top: 2rem;
+    }
   }
 
 `;

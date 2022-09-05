@@ -17,4 +17,22 @@ export const Container = styled.footer`
     .footer__logo {
         margin-bottom: 1rem;
     }
+
+    @media screen and (max-width: 768px) {
+        height: 6.2rem;
+
+        .footer__logo {
+            width: 9.7rem;
+        }
+
+    }
+
+    @media screen and (max-width: 375px) {
+        height: 6rem;
+
+        .footer__logo {
+            width: 9rem;
+        }
+
+    }
 `;

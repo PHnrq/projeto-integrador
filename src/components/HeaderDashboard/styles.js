@@ -8,7 +8,7 @@ export const Container = styled.header`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 8.2rem;
+    padding-inline: 7.2rem;
 
     .logout{
         width: 10rem;
@@ -26,4 +26,32 @@ export const Container = styled.header`
         margin-right: 3.2rem;
         padding: .6rem 0;
     }
+    @media screen and (max-width: 768px) {
+        height: 7.2rem;
+        ustify-content: space-between;
+        .header__logo {
+            width: 9.3rem;
+        }
+        .logout {
+            width: 7rem;
+        }
+
+    }
+
+    @media screen and (max-width: 375px) {
+        height: 6.3rem;
+        justify-content: space-between;
+
+        .header__logo {
+        margin-left: -6rem;
+        width: 9.5rem;
+    }
+    .logout {
+        margin-right: -6rem;
+        width: 6rem;
+        font-size: 1.6rem;
+    }
+    }
+
+    
 `;

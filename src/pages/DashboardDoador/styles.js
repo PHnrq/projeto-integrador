@@ -9,7 +9,7 @@ export const Container = styled.div`
   main {
     display: flex;
     justify-content: space-around;
-    padding: 5.2rem;
+    padding: 5.2rem 1.6rem;
   }
 
   .mySwiper-sm {
@@ -31,5 +31,20 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     margin-right: 3rem;
+  }
+
+  @media screen and (max-width: 768px){
+    .container {
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+  }
+
+  @media screen and (min-width: 425px){
+    .div{
+      margin-right: 0;
+    }
   }
 `;

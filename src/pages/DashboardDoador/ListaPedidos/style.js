@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   max-width: 46.5rem;
+  min-height: 150px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -35,5 +36,10 @@ export const Container = styled.div`
     flex-direction: column;
 
     justify-content: flex-start;
+  }
+  @media screen and (max-width: 375px) {
+    .order__title {
+      font-size: 2.4rem;
+    }
   }
 `;

@@ -48,6 +48,17 @@ export const Container = styled.div`
     letter-spacing: 0.004em;
 
     color: #000000;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+
+    &:hover{
+      overflow: visible; 
+      white-space: normal;
+    }
   }
 
   .add-decrease-remove-wrapper{
@@ -80,5 +91,9 @@ export const Container = styled.div`
       width: 1.8rem;
       height: 1.8rem;
     }
+  }
+
+  @media screen and (max-width: 375px) {
+    max-width: 10rem;
   }
 `

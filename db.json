@@ -16,26 +16,8 @@
       "id": 1,
       "products": [
         {
-          "nameProduct": "Feijão Preto",
-          "amount": 3,
-          "expirationDate": "2022-09-09",
-          "productImage": ""
-        },
-        {
-          "nameProduct": "Arroz",
-          "amount": 7,
-          "expirationDate": "2022-09-07",
-          "productImage": ""
-        },
-        {
-          "nameProduct": "Macarrão",
-          "amount": 4,
-          "expirationDate": "2022-09-10",
-          "productImage": ""
-        },
-        {
           "nameProduct": "Farinha",
-          "amount": 12,
+          "amount": 15,
           "expirationDate": "2022-09-08",
           "productImage": ""
         },
@@ -55,6 +37,24 @@
           "nameProduct": "Farinha",
           "amount": 20,
           "expirationDate": "2022-08-30",
+          "productImage": ""
+        },
+        {
+          "nameProduct": "Margarina",
+          "amount": 3,
+          "expirationDate": "2023-01-31",
+          "productImage": ""
+        },
+        {
+          "nameProduct": "Oleo de Soja",
+          "amount": 4,
+          "expirationDate": "2022-12-31",
+          "productImage": ""
+        },
+        {
+          "nameProduct": "Farinha de Trigo",
+          "amount": 4,
+          "expirationDate": "2022-12-31",
           "productImage": ""
         }
       ],
