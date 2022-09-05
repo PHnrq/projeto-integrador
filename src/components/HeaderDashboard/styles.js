@@ -8,7 +8,7 @@ export const Container = styled.header`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 8.2rem;
+    padding-inline: 7.2rem;
 
     .logout{
         width: 10rem;
@@ -28,6 +28,7 @@ export const Container = styled.header`
     }
     @media screen and (max-width: 768px) {
         height: 7.2rem;
+        ustify-content: space-between;
         .header__logo {
             width: 9.3rem;
         }

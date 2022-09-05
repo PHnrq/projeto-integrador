@@ -6,9 +6,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 
- .products {
+  .products {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,14 +35,14 @@ export const Container = styled.div`
     min-height: 285px;
   }
 
-  .swiper-flex{
+  .swiper-flex {
     display: flex;
     gap: 2.4rem;
     justify-content: center;
     align-items: center;
   }
 
-  .card-wrapper{
+  .card-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -66,7 +65,7 @@ export const Container = styled.div`
     position: relative;
     top: 0.2rem;
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,28 +78,22 @@ export const Container = styled.div`
     }
     .btn-add-to-card {
       margin-top: 2rem;
-      width: 70%;
     }
     .swiper-flex {
       gap: 1rem;
-
     }
 
     @media screen and (max-width: 375px) {
       padding-left: 3rem;
       .mySwiper {
-      max-width: 350px;
+        max-width: 350px;
+      }
+      .registered-products__title {
+        font-size: 2.6rem;
+      }
+      .btn-add-to-card {
+        margin-top: 1.5rem;
+      }
     }
-    .registered-products__title {
-      font-size: 2.6rem;
-    }
-    .btn-add-to-card {
-      margin-top: 1.5rem;
-    }
-
-    }
-
   }
-
-
-`
+`;
