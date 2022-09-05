@@ -4,11 +4,10 @@ import headerBg from "../../assets/header-background.png";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
 
   .header {
     width: 100%;
-    height: 110vh;
+    height: 70rem;
     background-image: url(${headerBg});
     background-repeat: no-repeat;
   }
