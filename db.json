@@ -58,7 +58,68 @@
           "productImage": ""
         }
       ],
-      "chart": []
+      "chart": [
+        {
+          "client": "ONG Criança Feliz",
+          "withdraw": "2022-10-12",
+          "cart": [
+            {
+              "nameProduct": "Farinha",
+              "amount": 15,
+              "expirationDate": "2022-09-08",
+              "productImage": ""
+            },
+            {
+              "nameProduct": "Feijão Preto",
+              "amount": 3,
+              "expirationDate": "2022-08-30",
+              "productImage": ""
+            },
+            {
+              "nameProduct": "Farinha",
+              "amount": 2,
+              "expirationDate": "2022-08-30",
+              "productImage": ""
+            },
+            {
+              "nameProduct": "Margarina",
+              "amount": 3,
+              "expirationDate": "2023-01-31",
+              "productImage": ""
+            }
+          ]
+        },
+        {
+          "client": "ONG Criança Feliz",
+          "withdraw": "2022-10-23",
+          "cart": [
+            {
+              "nameProduct": "Farinha",
+              "amount": 15,
+              "expirationDate": "2022-09-08",
+              "productImage": ""
+            },
+            {
+              "nameProduct": "Macarrão parafuso",
+              "amount": 10,
+              "expirationDate": "2022-09-02",
+              "productImage": ""
+            },
+            {
+              "nameProduct": "Feijão Preto",
+              "amount": 3,
+              "expirationDate": "2022-08-30",
+              "productImage": ""
+            },
+            {
+              "nameProduct": "Feijão Preto",
+              "amount": 3,
+              "expirationDate": "2022-08-30",
+              "productImage": ""
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "ONG Criança Feliz",
