@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 100%;
+
   .swiper-flex{
     display: flex;
+    justify-content: center;
     gap: 2.4rem;
   }
 
@@ -29,5 +32,14 @@ export const Container = styled.div`
     letter-spacing: 0.004em;
 
     color: #000000;
+  }
+
+  @media screen and (max-width: 375px) {
+    .order__date__number {
+      margin-left: -3rem;
+    }
+    .mySwiper-sm {
+      max-width: 30rem;
+  }
   }
 `
